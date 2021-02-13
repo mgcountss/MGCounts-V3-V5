@@ -538,7 +538,7 @@ function updateimage2(image2) {
                 document.getElementById('username').title = data.id
             fetch('https://api.mgcounts.com/youtube/subscribers/'+data.id).then(res => res.json()).then(data => {
                 document.getElementById('userimg').src = data.image
-                document.getElementById('username').innerHTML = data.name
+                document.getElementById('username').innerHTML = data.title
             })
             } else {
                 document.getElementById('username').title = 'Error Searching' 
