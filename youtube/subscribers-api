@@ -249,7 +249,7 @@
               <h5 style="color: white;">Results:</h5> 
               <br>
                               <div>
-                                  <div onclick="location.href = `https://mgcounts.com/subscribers/api.html?id=${document.getElementById('username').title}`;" style="cursor: pointer;">
+                                  <div onclick="location.href = `https://mgcounts.com/youtube/subscribers-api.html?id=${document.getElementById('username').title}`;" style="cursor: pointer;">
                                     <br>
                                     <br>   
                                     <br>                         
@@ -283,7 +283,7 @@
 
                <h1 style="color: white;">Embed Link</h1>
                <br>
-               <input id="embed" type="text" style="width: 560px;height: 80px; background-color: #222222; color: #FFFFFF;" value="https://mgcounts.com/embed/subscribers/api.html" readonly><br>
+               <input id="embed" type="text" style="width: 560px;height: 80px; background-color: #222222; color: #FFFFFF;" value="https://mgcounts.com/embed/subscribers-api.html" readonly><br>
 
           
           </div>
@@ -530,7 +530,7 @@ function updateimage2(image2) {
 
     function checkfunct(cid) {
     if(cid.startsWith("UC") == true) {
-        location.href = `https://mgcounts.com/subscribers/api.html?id=${cid}`;
+        location.href = `https://mgcounts.com/youtube/subscribers-api.html?id=${cid}`;
     } else {
         fetch('https://api.mgcounts.com/youtube/search/'+cid).then(res => res.json()).then(data => {
             console.log(data)
