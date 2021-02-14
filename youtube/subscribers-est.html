@@ -369,7 +369,7 @@ function updatePageHmm(){
 function updatePage(){
     var colorThing = document.getElementById("odometerChanger").value;
     var x = location.search;
-    location.search = '?&o='+colorThing+'&id='+ID+''
+    location.search = '?&o='+colorThing+'&id='+defaultID+''
 }
 
 
@@ -395,6 +395,7 @@ async function getYTStats() {
         odometer2.innerHTML = data.videos
         odometer3.innerHTML = data.videos
         title.innerHTML = data.name
+        defaultID.innerHTML = ID
         document.getElementById("channelIdThing").value = data.cid
 
         updateimage(data.image);
@@ -431,6 +432,7 @@ async function getYTStats2() {
         odometer2.innerHTML = data.videos
         odometer3.innerHTML = data.videos
         title.innerHTML = data.name
+        defaultID.innerHTML = defaultID
         document.getElementById("channelIdThing").value = data.cid
 
         updateimage(data.image);
