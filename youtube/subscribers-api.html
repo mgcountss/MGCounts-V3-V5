@@ -253,7 +253,7 @@
                                     <br>
                                     <br>   
                                     <br>                         
-                        <img title="UCSgk1g0AZi9_759yfz-iIHg" src="https://mgcounts.com/assets/img/MGCounts.png" style="width: 80px;height: 80px;" id="userimg"><br>
+                        <img title="UCSgk1g0AZi9_759yfz-iIHg" src="https://raw.githubusercontent.com/mgcountss/MGCounts-V4/main/assets/img/Old-YT.png" style="width: 80px;height: 80px;" id="userimg"><br>
                                       <span style="color: white;" id="username" title="UCSgk1g0AZi9_759yfz-iIHg">LOADING</span></center>
                                   </div>
                               </div>
@@ -369,7 +369,7 @@ function updatePageHmm(){
 function updatePage(){
     var colorThing = document.getElementById("odometerChanger").value;
     var x = location.search;
-    location.search = '?&o='+colorThing+'&id='+ID+''
+    location.search = '?&o='+colorThing+'&id='+defaultID+''
 }
 
 
@@ -383,76 +383,82 @@ if (odometerColor == "3") {
   $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
 }
 
-
 if (url.searchParams.get('id')) {
 
-
 async function getYTStats() {
-        let request = await fetch('https://api.mgcounts.com/youtube/subscribers/'+ID+'', { mode: "cors" })
-        let data = await request.json().catch(() => {})
-        if (!data) return;
-        odometer.innerHTML = data.subscribers
-        odometer2.innerHTML = data.totalViews
-        odometer3.innerHTML = data.totalVideos
-        title.innerHTML = data.title
-        document.getElementById("channelIdThing").value = data.id
+      let request = await fetch('https://api.mgcounts.com/youtube/subscribers/'+ID+'', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      odometer.innerHTML = data.subscribers
+      odometer2.innerHTML = data.totalViews
+      odometer3.innerHTML = data.totalVideos
+      title.innerHTML = data.title
+      defaultID = ID
+      document.getElementById("channelIdThing").value = data.id
 
-        updateimage(data.image);
-        updateimage2(data.banner);
+      updateimage(data.image);
+      updateimage2(data.banner);
 
-            if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-            chart.series[0].addPoint([Date.now(), Math.floor(data.subscribers)])
+          if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+          chart.series[0].addPoint([Date.now(), Math.floor(data.subscribers)])
 
-            function GetGoal(count) {
-    if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
-  }
-  odometer4.innerHTML = GetGoal(data.subscribers)
+          function GetGoal(count) {
+  if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
+}
+odometer4.innerHTML = GetGoal(data.subscribers)
 
-   }
-    setInterval(getYTStats, 3000)
-    getYTStats()
+ }
+  setInterval(getYTStats, 3000)
+  getYTStats()
 
-    
-    document.getElementById("embed").value =
-              "https://mgcounts.com/embed/youtube/subscribers-api?id="+ID;
+  document.getElementById("embed").value =
+              "https://mgcounts.com/embed/youtube.subscribers-api?id="+ID;
            
               $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/subscribers-api?id=${ID}" readonly>');
 
 
-
-  } else {
+} else {
 
 
 async function getYTStats2() {
-        let request = await fetch('https://api.mgcounts.com/youtube/subscribers/'+defaultID+'', { mode: "cors" })
-        let data = await request.json().catch(() => {})
-        if (!data) return;
-        odometer.innerHTML = data.subscribers
-        odometer2.innerHTML = data.totalViews
-        odometer3.innerHTML = data.totalVideos
-        title.innerHTML = data.title
-        document.getElementById("channelIdThing").value = data.id
-        updateimage(data.image);
-        updateimage2(data.banner);
+      let request = await fetch('https://api.mgcounts.com/youtube/subscribers/'+defaultID+'', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      odometer.innerHTML = data.subscribers
+      odometer2.innerHTML = data.totalViews
+      odometer3.innerHTML = data.totalVideos
+      title.innerHTML = data.title
+      defaultID = defaultID
+      document.getElementById("channelIdThing").value = data.id
+      updateimage(data.image);
+      updateimage2(data.banner);
 
-            if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-            chart.series[0].addPoint([Date.now(), Math.floor(data.subscribers)])
+          if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+          chart.series[0].addPoint([Date.now(), Math.floor(data.subscribers)])
 
-            function GetGoal(count) {
-    if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
-  }
-  odometer4.innerHTML = GetGoal(data.subscribers)
+          function GetGoal(count) {
+  if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
+}
+odometer4.innerHTML = GetGoal(data.subscribers)
 
-   }
-    setInterval(getYTStats2, 3000)
-    getYTStats2()
+ }
+  setInterval(getYTStats2, 3000)
+  getYTStats2()
 
-    document.getElementById("embed").value =
+
+  document.getElementById("embed").value =
               "https://mgcounts.com/embed/youtube.subscribers-api?id="+defaultID;
            
               $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/subscribers-api?id=${defaultID}" readonly>');
 
-  }
+
+}
+
+
+
+
+
+
 
 
 var textBright = "#bdbdbd"
