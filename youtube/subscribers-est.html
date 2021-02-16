@@ -392,7 +392,7 @@ async function getYTStats() {
         let data = await request.json().catch(() => {})
         if (!data) return;
         odometer.innerHTML = data.SubscriberCount
-        odometer2.innerHTML = data.videos
+        odometer2.innerHTML = data.totalviews
         odometer3.innerHTML = data.videos
         title.innerHTML = data.name
         defaultID.innerHTML = ID
@@ -429,7 +429,7 @@ async function getYTStats2() {
         let data = await request.json().catch(() => {})
         if (!data) return;
         odometer.innerHTML = data.SubscriberCount
-        odometer2.innerHTML = data.videos
+        odometer2.innerHTML = data.totalviews
         odometer3.innerHTML = data.videos
         title.innerHTML = data.name
         defaultID.innerHTML = defaultID
