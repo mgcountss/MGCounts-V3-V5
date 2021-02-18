@@ -370,7 +370,7 @@ if (odometerColor == "3") {
 }
 
 
-async function getYTStats() {
+async function GetStats() {
       let request = await fetch('https://api.mgcounts.com/gab/users/'+ID+'', { mode: "cors" })
       let data = await request.json().catch(() => {})
       if (!data) return;
@@ -393,8 +393,8 @@ async function getYTStats() {
 odometer4.innerHTML = GetGoal(data.followers)
 
  }
-  setInterval(getYTStats, 3000)
-  getYTStats()
+  setInterval(GetStats, 3000)
+  GetStats()
 
   document.getElementById("embed").value =
               "https://mgcounts.com/embed/gab/users.html?id="+ID;
