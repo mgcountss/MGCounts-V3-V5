@@ -341,10 +341,21 @@
 
 <script>
 var params = new URLSearchParams(document.location.search.substring(1));
-var ID = params.get("id");
-var odometerColor = params.get("o");
-var defaultID = "UC-lHJZR3Gqxm24_Vd_AJ5Yw";
 url = new URL(window.location.href);
+var ID = "UC-lHJZR3Gqxm24_Vd_AJ5Yw";
+
+if (url.searchParams.get('id')) {
+
+var ID = params.get("id");
+}
+
+
+
+
+
+var odometerColor = params.get("o");
+
+
 
 function myFunction() {
 
@@ -369,7 +380,7 @@ function updatePageHmm(){
 function updatePage(){
     var colorThing = document.getElementById("odometerChanger").value;
     var x = location.search;
-    location.search = '?&o='+colorThing+'&id='+defaultID+''
+    location.search = '?&o='+colorThing+'&id='+ID+''
 }
 
 
@@ -383,7 +394,6 @@ if (odometerColor == "3") {
   $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
 }
 
-if (url.searchParams.get('id')) {
 
 async function getYTStats() {
       let request = await fetch('https://api.mgcounts.com/youtube/subscribers/'+ID+'', { mode: "cors" })
@@ -415,49 +425,6 @@ odometer4.innerHTML = GetGoal(data.subscribers)
               "https://mgcounts.com/embed/youtube/subscribers-api?id="+ID;
            
               $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/subscribers-api?id=${ID}" readonly>');
-
-
-} else {
-
-
-async function getYTStats2() {
-      let request = await fetch('https://api.mgcounts.com/youtube/subscribers/'+defaultID+'', { mode: "cors" })
-      let data = await request.json().catch(() => {})
-      if (!data) return;
-      odometer.innerHTML = data.subscribers
-      odometer2.innerHTML = data.totalViews
-      odometer3.innerHTML = data.totalVideos
-      title.innerHTML = data.title
-      defaultID = defaultID
-      document.getElementById("channelIdThing").value = data.id
-      updateimage(data.image);
-      updateimage2(data.banner);
-
-          if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-          chart.series[0].addPoint([Date.now(), Math.floor(data.subscribers)])
-
-          function GetGoal(count) {
-  if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
-}
-odometer4.innerHTML = GetGoal(data.subscribers)
-
- }
-  setInterval(getYTStats2, 3000)
-  getYTStats2()
-
-
-  document.getElementById("embed").value =
-              "https://mgcounts.com/embed/youtube/subscribers-api?id="+defaultID;
-           
-              $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/subscribers-api?id=${defaultID}" readonly>');
-
-
-}
-
-
-
-
-
 
 
 
