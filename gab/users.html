@@ -323,11 +323,15 @@
 
 <script>
 var params = new URLSearchParams(document.location.search.substring(1));
-var ID = params.get("id");
 var odometerColor = params.get("o");
-var defaultID = "realdonaldtrump";
+var ID = "realdonaldtrump";
 url = new URL(window.location.href);
 
+if (url.searchParams.get('id')) {
+
+  var ID = params.get("id");
+
+}
 function myFunction() {
 
   var copyText = document.getElementById("channelIdThing");
@@ -351,7 +355,7 @@ function updatePageHmm(){
 function updatePage(){
     var colorThing = document.getElementById("odometerChanger").value;
     var x = location.search;
-    location.search = '?&o='+colorThing+'&id='+defaultID+''
+    location.search = '?&o='+colorThing+'&id='+ID+''
 }
 
 
@@ -365,7 +369,6 @@ if (odometerColor == "3") {
   $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
 }
 
-if (url.searchParams.get('id')) {
 
 async function getYTStats() {
       let request = await fetch('https://api.mgcounts.com/gab/users/'+ID+'', { mode: "cors" })
@@ -399,44 +402,7 @@ odometer4.innerHTML = GetGoal(data.followers)
               $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/gab/users.html?id=${ID}" readonly>');
 
 
-} else {
 
-
-async function getYTStats2() {
-      let request = await fetch('https://api.mgcounts.com/gab/users/'+defaultID+'', { mode: "cors" })
-      let data = await request.json().catch(() => {})
-      if (!data) return;
-      odometer.innerHTML = data.followers
-      odometer2.innerHTML = data.following
-      odometer3.innerHTML = data.posts
-      title.innerHTML = data.username
-      defaultID = defaultID
-      document.getElementById("channelIdThing").value = data.id
-
-      updateimage(data.avatar);
-      updateimage2(data.banner);
-
-
-          if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-          chart.series[0].addPoint([Date.now(), Math.floor(data.followers)])
-
-          function GetGoal(count) {
-  if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
-}
-odometer4.innerHTML = GetGoal(data.followers)
-
- }
-  setInterval(getYTStats2, 3000)
-  getYTStats2()
-
-
-  document.getElementById("embed").value =
-              "https://mgcounts.com/embed/gab/users.html?id="+defaultID;
-           
-              $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/gab/users?id=${defaultID}" readonly>');
-
-
-}
 
 
 
