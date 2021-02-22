@@ -74,7 +74,15 @@ var ID = params.get("id");
         if (!data) return;
         count.innerHTML = data.members
         title.innerHTML = data.name
+if (data.banner == null) {
+
 $(".image").attr("src",'https://cdn.discordapp.com/icons/'+data.guildid+'/'+data.logo+'.png');
+
+} else {
+
+  $(".image").attr("src",'https://cdn.discordapp.com/icons/'+data.guildid+'/'+data.logo+'.png');
+
+}
    }
     setInterval(getStats, 3000)
     getStats()
