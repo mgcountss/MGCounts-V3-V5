@@ -3,6 +3,7 @@
 <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
 <link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
 <script src="https://mgcounts.com/assets/js/odometer.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Embed</title>
 
 <style>
@@ -74,15 +75,9 @@ var ID = params.get("id");
         if (!data) return;
         count.innerHTML = data.members
         title.innerHTML = data.name
-if (data.banner == null) {
 
 $(".image").attr("src",'https://cdn.discordapp.com/icons/'+data.guildid+'/'+data.logo+'.png');
 
-} else {
-
-  $(".image").attr("src",'https://cdn.discordapp.com/icons/'+data.guildid+'/'+data.logo+'.png');
-
-}
    }
     setInterval(getStats, 3000)
     getStats()
