@@ -2,6 +2,8 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
+<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
+<script src="https://mgcounts.com/assets/js/odometer.js"></script>
 <title>MGCounts</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -213,15 +215,6 @@ h1#main {
 <a href="https://mgcounts.com/youtube/subscribers-est.html" id="Box-Text">YouTube Estimated Subscriber Count</a>
 <br>
 <br>
-      <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-      <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-      <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
     </div>
     <div class="boxThing5">
     <h1 id="Box-Text">Twitch</h1>
@@ -229,33 +222,13 @@ h1#main {
 <a href="https://mgcounts.com/twitch/followers.html" id="Box-Text">Twitch Followers</a>
 <br>
 <br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
     </div>
     <div class="boxThing5">
       <h1 id="Box-Text">TikTok</h1>
   <br>
    <a href="https://mgcounts.com/tiktok/followers.html" id="Box-Text">TikTok Followers</a>
   <br>
-  <br>
-  <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-  <br>
-  <br>
- <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-  <br>
-  <br>
-  <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-  <br>
-  <br>
-  <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
+<br>
     </div>
     <div class="boxThing5">
       <h1>Discord</h1>
@@ -266,13 +239,6 @@ h1#main {
       <a href="https://mgcounts.com/discord/mee6.html" id="Box-Text">Mee6 XP Counter</a>
       <br> 
       <br>
-      <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-      <br> 
-      <br>
-      <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-      <br> 
-      <br>
-      <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
     </div>
 </div>
 <br>
@@ -290,15 +256,7 @@ h1#main {
   <br>
   <br>
   <a href="https://mgcounts.com/gab/posts.html" id="Box-Text">Gab Posts Likes</a>
-<br>
-<br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
+
 <br>
 <br>
 
@@ -310,16 +268,7 @@ h1#main {
   <a href="https://mgcounts.com/fake/subscribers.html" id="Box-Text">Fake Subscribers</a>
   <br>
   <br>
-  <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-  <br>
-  <br>
-  <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-  <br>
-  <br>
-  <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
-<br>
-<br>
-<a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
+
   </div>
   <div class="boxThing5">
     <h1 id="Box-Text">Coming Soon</h1>
@@ -494,8 +443,8 @@ main2.innerHTML = APIKeyThingButForText[Math.floor(Math.random()*APIKeyThingButF
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
     var disqus_config = function () {
-        this.page.url = "https://MGCounts.github.io";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "https://MGCounts.github.io"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://MGCounts.com";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "https://MGCounts.com"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function () { // DON'T EDIT BELOW THIS LINE
@@ -506,6 +455,16 @@ main2.innerHTML = APIKeyThingButForText[Math.floor(Math.random()*APIKeyThingButF
     })();
         
         //comments
+
+        async function GetStats() {
+      let request = await fetch('https://api.mgcounts.com/stats', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      requests.innerHTML = data
+
+ }
+  setInterval(GetStats, 1000)
+  GetStats()
 
 </script>
     
@@ -520,8 +479,17 @@ main2.innerHTML = APIKeyThingButForText[Math.floor(Math.random()*APIKeyThingButF
 <br>
 <br>
 <br>
-    
-    
+<center><div class="boxThing6">
+
+  <h1>Requests</h1>
+  <br>
+  <h1 class="odometer" id="requests">0</h1>
+  <br>
+  </div></center>
+  <br>
+  <br>
+  <br>
+  <br>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
