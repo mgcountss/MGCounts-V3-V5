@@ -177,9 +177,9 @@
         <br>
         <br>
         <br>
-        <img src="https://mgcountss.github.io/Old-YT.png" id="image2" class="image2" style="width: 950px;height: 150px;">
+        <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image2" class="image2" style="width: 950px;height: 150px;">
 <br>
-        <img src="https://mgcountss.github.io/Old-YT.png" id="image" class="image" style="width: 150px;height: 150px;">
+        <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image" class="image" style="width: 150px;height: 150px;">
       <br>
 
 <h1 id="title">Loading</h1>
@@ -324,14 +324,12 @@
 <script>
 var params = new URLSearchParams(document.location.search.substring(1));
 var odometerColor = params.get("o");
-var cid = "mrbeast"
-var ID = "6614519312189947909"
+var ID = "mrbeast"
 url = new URL(window.location.href);
 
 if (url.searchParams.get('id')) {
 
-  var cid = params.get("id");
-  var ID = ""
+  var ID = params.get("id");
 
 
 }
@@ -375,20 +373,9 @@ if (odometerColor == "3") {
 
 
 
-
-async function GetID() {
-      let request = await fetch('https://api.mgcounts.com/tiktok/search/'+cid+'', { mode: "cors" })
-      let data = await request.json().catch(() => {})
-      if (!data) return;
-      ID = data.id
-
-
- }
- GetID()
-
-
+GetStats()
 async function GetStats() {
-      let request = await fetch('https://api.mgcounts.com/tiktok/users/'+ID+'', { mode: "cors" })
+      let request = await fetch('https://api.mgcounts.com/tiktok/followers/'+ID+'', { mode: "cors" })
       let data = await request.json().catch(() => {})
       if (!data) return;
       odometer.innerHTML = data.followers
@@ -396,7 +383,7 @@ async function GetStats() {
       odometer3.innerHTML = data.hearts
       title.innerHTML = data.title
       defaultID = ID
-      document.getElementById("channelIdThing").value = data.nameID
+      document.getElementById("channelIdThing").value = ID
 
       updateimage(data.image);
       updateimage2(data.image);
@@ -410,13 +397,13 @@ async function GetStats() {
 odometer4.innerHTML = GetGoal(data.followers)
 
  }
-  setInterval(GetStats, 3000)
-  GetStats()
+  setInterval(GetStats, 5000)
+
 
   document.getElementById("embed").value =
-              "https://mgcounts.com/embed/tiktok.html?id="+cid;
+              "https://mgcounts.com/embed/tiktok.html?id="+ID;
            
-              $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/tiktok.html?id=${cid}" readonly>');
+              $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/tiktok.html?id=${ID}" readonly>');
 
 
 
