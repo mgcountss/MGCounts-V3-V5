@@ -69,7 +69,7 @@
 var ID = params.get("id");
 
  async function getStats() {
-        let request = await fetch('https://api.mgcounts.com/tiktok/users/'+ID+'', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/tiktok/followers/'+ID+'', { mode: "cors" })
         let data = await request.json().catch(() => {})
         if (!data) return;
         count.innerHTML = data.followers
