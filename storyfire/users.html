@@ -177,9 +177,9 @@
         <br>
         <br>
         <br>
-        <img src="https://mgcountss.github.io/Old-YT.png" id="image2" class="image2" style="width: 950px;height: 150px;">
+        <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image2" class="image2" style="width: 950px;height: 150px;">
 <br>
-        <img src="https://mgcountss.github.io/Old-YT.png" id="image" class="image" style="width: 150px;height: 150px;">
+        <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image" class="image" style="width: 150px;height: 150px;">
       <br>
 
 <h1 id="title">Loading</h1>
@@ -196,15 +196,15 @@
 
             <div class="container">
                 <div class="boxThing2">
-                <h1 style="color:white;" id="title2">Following</h1>
+                <h1 style="color:white;" id="title2">Blaze</h1>
                  <br>
                 <h1 class="odometer" id="odometer2">0</h1>
                  </div>
                  <div class="boxThing2">
-                    <h1 style="color:white;" id="title2">Blaze</h1>
-                     <br>
-                    <h1 class="odometer" id="odometer3">0</h1>
-                     </div>
+                  <h1 style="color:white;" id="title2">Following</h1>
+                   <br>
+                  <h1 class="odometer" id="odometer3">0</h1>
+                   </div>
                 <div class="boxThing2">
                     <h1 style="color:white;" id="title2">Goal</h1>
                     <br>
@@ -232,9 +232,9 @@
                <h1 style="color: white;">Change User</h1>
                <br>
 
-                    <h5 style="color: white;">User ID</h5>
+                    <h5 style="color: white;">Username</h5>
                     <form id="FormThing" onsubmit="updatePageHmm()">
-                      <input type="text" placeholder="User ID" name="id" id="searchHmm">
+                      <input type="text" placeholder="Username" name="id" id="searchHmm">
                       <input type="submit" value="Count!">
                   </form>
     <br>
@@ -265,7 +265,7 @@
 
                <h1 style="color: white;">Embed Link</h1>
                <br>
-               <input id="embed" type="text" style="width: 560px;height: 80px; background-color: #222222; color: #FFFFFF;" value="https://mgcounts.com/embed/storyfire/users.html" readonly><br>
+               <input id="embed" type="text" style="width: 560px;height: 80px; background-color: #222222; color: #FFFFFF;" value="https://mgcounts.com/embed/storyfire/followers.html" readonly><br>
 
           
           </div>
@@ -375,25 +375,18 @@ async function GetStats() {
       let data = await request.json().catch(() => {})
       if (!data) return;
       odometer.innerHTML = data.followers
-      odometer2.innerHTML = data.following
-      odometer3.innerHTML = data.blaze
+      odometer2.innerHTML = data.blaze
+      odometer3.innerHTML = data.following
       title.innerHTML = data.name
       defaultID = ID
       document.getElementById("channelIdThing").value = ID
 
 
-      if (data.banner == null) {
-
-        updateimage(data.image);
-      updateimage2(data.image);
-
-
-} else {
 
 
   updateimage(data.image);
-      updateimage2(data.banner);
-}
+      updateimage2(data.image);
+
 
 
 
@@ -416,9 +409,16 @@ odometer4.innerHTML = GetGoal(data.followers)
   GetStats()
 
   document.getElementById("embed").value =
-              "https://mgcounts.com/embed/storyfire/users.html?id="+ID;
+              "https://mgcounts.com/embed/storyfire/followers.html?id="+ID;
            
-              $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/storyfire/users.html?id=${ID}" readonly>');
+              $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/storyfire/followers.html?id=${ID}" readonly>');
+
+
+
+
+
+
+
 
 
 var textBright = "#bdbdbd"
