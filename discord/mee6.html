@@ -166,7 +166,7 @@
             <li><a class="btn" style="color: White;" href="https://mgcounts.com">MGCounts</a></li>
             <li><a class="btn" style="color: White;" href="https://statcounts.com/">StatCounts</a></li>
             <li><a class="btn" style="color: White;" href="https://mixerno.space/">Mixerno.space</a></li>
-            <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter">Change User</a></li></li>
+            <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter">Change Settings</a></li></li>
             <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter2">Embed</a></li></li>
             <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li></li>
           </ul>
@@ -177,9 +177,9 @@
         <br>
         <br>
         <br>
-        <img src="https://mgcountss.github.io/Old-YT.png" id="image2" class="image2" style="width: 950px;height: 150px;">
+        <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image2" class="image2" style="width: 950px;height: 150px;">
 <br>
-        <img src="https://mgcountss.github.io/Old-YT.png" id="image" class="image" style="width: 150px;height: 150px;">
+        <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image" class="image" style="width: 150px;height: 150px;">
       <br>
 
 <h1 id="title">Loading</h1>
@@ -229,15 +229,19 @@
       <div class="modal-body">
               </div>
               <center>
-               <h1 style="color: white;">User Name</h1>
+               <h1 style="color: white;">Change Settings</h1>
                <br>
 
-                    <h5 style="color: white;">User Name</h5>
+                    <h5 style="color: white;">Change Settings</h5>
                     <form id="FormThing" onsubmit="updatePageHmm()">
-                      <input type="text" placeholder="User ID" name="id" id="searchHmm">
+                      <input type="text" placeholder="Username" name="cid" id="searchHmm">
+                      <br>
+                      <input type="text" placeholder="Server ID" name="id" id="searchHmm">
+                      <br>
                       <input type="submit" value="Count!">
                   </form>
     <br>
+
                <br>
                <br>
              
@@ -382,7 +386,7 @@ async function GetStats() {
       odometer3.innerHTML = data.level
       title.innerHTML = data.name
       defaultID = ID
-      document.getElementById("channelIdThing").value = ID
+      document.getElementById("channelIdThing").value = data.name
 
 $(".image").attr("src",'https://cdn.discordapp.com/avatars/'+data.id+'/'+data.logo+'.png');
 
