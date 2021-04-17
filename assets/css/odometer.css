@@ -11,6 +11,11 @@
   *display: inline;
 }
 
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default, .odometer-formatting-mark {
+  line-height: 1.2em;
+  vertical-align: middle;
+}
+
 .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
