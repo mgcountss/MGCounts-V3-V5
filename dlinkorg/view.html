@@ -284,7 +284,8 @@
 <script>
 var params = new URLSearchParams(document.location.search.substring(1));
 var odometerColor = params.get("o");
-var ID = "0";
+var ID = 0;
+var ID3 = ID+1
 url = new URL(window.location.href);
 
 if (url.searchParams.get('id')) {
@@ -295,15 +296,14 @@ if (url.searchParams.get('id')) {
 }
 
 function updatePageHmm(){
-    var nameIdThing = document.getElementById("searchHmm").value;
     var z = location.search;
-    location.search = '?&id='+nameIdThing+'&o='+odometerColor+''
+    location.search = '?&id='+ID3+'&o='+odometerColor+''
 }
 
 function updatePage(){
     var colorThing = document.getElementById("odometerChanger").value;
     var x = location.search;
-    location.search = '?&o='+colorThing+'&id='+ID+''
+    location.search = '?&o='+colorThing+'&id='+ID3+''
 }
 
 
