@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
+<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
+<script src="https://mgcounts.com/assets/js/odometer.js"></script>
+<title>MGCounts</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<style>
+    
+  h6 {
+    text-decoration: none;
+    color: White;
+    transition: 1s;
+    font-size: 190%;
+    font-family: 'Roboto', sans-serif; 
+  }
+  
+  img {
+    color: white;
+    width: 50px;height: 50px;
+    transition: 1s;
+  }
+      
+  .boxThing {
+    width: 1000px;
+    border: 0.5px solid rgba(55,55,55,.500);
+    padding: 2px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #222222;
+  }
+  
+  .boxThing2 {
+    width: 300px;
+    height: 150px;
+    border: 0.5px solid #222222;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: -150px;
+  }
+  
+  
+  #title {
+       font-size: 30px;
+       font-family: 'Open Sans', sans-serif;
+       color: #FFFFFF;
+       margin-top: -10px;
+       transition: 1s !important;
+  }
+
+
+  #title2 {
+       font-size: 20px;
+       font-family: 'Open Sans', sans-serif;
+       color: #FFFFFF;
+       transition: 1s !important;
+  }
+
+  #odometer {
+       font-size: 105px;
+       font-family: 'Open Sans', sans-serif;
+       color: #FFFFFF;
+       margin-top: 0px;
+  }
+  
+  #odometer2 {
+       font-size: 30px;
+       font-family: 'Open Sans', sans-serif;
+       color: #FFFFFF;
+       margin-top: 0px;
+  }
+  
+  #odometer3 {
+       font-size: 30px;
+       font-family: 'Open Sans', sans-serif;
+       color: #FFFFFF;
+       margin-top: 0px;
+  }
+  
+  #odometer4 {
+       font-size: 30px;
+       font-family: 'Open Sans', sans-serif;
+       color: #FFFFFF;
+       margin-top: 0px;
+  }
+  
+  h1 {
+      font-size: x-large;  
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex: 10;
+    column-gap: 20px;
+    justify-content: space-between;
+      }
+  
+      ::-webkit-scrollbar {
+      width: 10px
+  }
+  
+  ::-webkit-scrollbar-thumb {
+      background: #686868
+  }
+  
+  ::-webkit-scrollbar-track {
+      background: #000
+  }
+
+  #userimg {
+      border: solid .5vh !Important;
+      border-radius: 100%;
+      border-color: rgb(79, 79, 79) !Important;
+      box-shadow: 0 0 30px black;
+      border-radius: 50%;
+      margin-top:-80px; 
+      object-fit: cover;
+  }
+
+  #image {
+      border: solid .5vh !Important;
+      border-radius: 100%;
+      border-color: rgb(79, 79, 79) !Important;
+      box-shadow: 0 0 30px black;
+      border-radius: 50%;
+        }
+
+  
+  #body {
+  transition: 0.2s !important;
+  background-color: #292b2c;
+  text-align: center;
+}
+
+.odometer {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+</style>
+</head>
+<body id="body">
+  <center>
+  <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li><a class="btn" style="color: White;" href="https://mgcounts.com">MGCounts</a></li>
+            <li><a class="btn" style="color: White;" href="https://statcounts.com/">StatCounts</a></li>
+            <li><a class="btn" style="color: White;" href="https://mixerno.space/">Mixerno.space</a></li>
+            <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li></li>
+          </ul>
+        </div>
+      </nav><div class="boxThing">    
+        <br>
+        <br>
+<img src="https://mgcounts.com/assets/img/cookie.png" id="image" style="width:250px; height:250px;" onclick="addclick()"></img>
+<br>
+<br>
+<br>
+<h1 id="title">Cookies</h1>
+
+
+        <h1 class="odometer" id="odometer"></h1>
+
+
+            <div id="chart"></div>
+   
+<br>
+
+
+
+
+</div>
+<div class="boxThing">
+<h1 style="color: #FFFFFF">Upgrades</h1>
+<button onclick="buy1()">Cursor: 100</button>
+<br>
+<br>
+<button onclick="buy2()">Grandma: 1,000</button>
+<br>
+<br>
+<button onclick="buy3()">Farm: 11,000</button>
+<br>
+<br>
+<button onclick="buy4()">Mine: 120,000</button>
+<br>
+<br>
+<button onclick="buy5()">Factory: 1.3 million</button>
+<br>
+<br>
+<button onclick="buy6()">Bank: 14 million</button>
+<br>
+<br>
+<button onclick="buy7()">Temple: 200 million</button>
+<br>
+<br>
+<button onclick="buy8()">Wizard Tower: 3.3 billion</button>
+<br>
+<br>
+<button onclick="buy9()">Shipment: 51 billion</button>
+<br>
+<br>
+<button onclick="buy10()">Alchemy: 750 billion</button>
+<br>
+<br>
+<button onclick="buy11()">Portal: 10 trillion</button>
+<br>
+<br>
+<button onclick="buy12()">Time Machine: 140 trillion</button>
+<br>
+<br>
+<button onclick="buy13()">Antimatter Condenser: 1.7 quadrillion</button>
+<br>
+<br>
+<button onclick="buy14()">Prism: 21 quadrillion</button>
+<br>
+<br>
+<button onclick="buy15()">Chancemaker: 260 quadrillion</button>
+<br>
+<br>
+<button onclick="buy16()">Fractal Engine: 3.1 quintillion</button>
+<br>
+<br>
+<button onclick="buy17()">Javascript Console: 710 quintillion</button>
+<br>
+<br>
+<br>
+
+    </div>
+</center>
+
+
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog" style="background-color: #292b2c;">
+    
+      <div class="modal-header">
+      <div class="modal-body">
+              </div>
+              <center>
+                <br>
+<h1 style="color: white;">Edit Odometer Settings</h1>
+<br>
+<br>
+                <select id="odometerChanger" name="odometerChanger" onchange="updatePage()">
+                  <option value="0" name="0">Normal Odometer</option>
+                  <option value="1" name="1">Fast Odometer</option>
+                  <option value="2" name="2">Normal Colored Odometer</option>
+                  <option value="3" name="3">Fast Colored Odometer</option>
+                  </select>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+           
+          </div>
+          
+          </div>
+          
+             
+                </center>
+            </div>
+      </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+</center>
+
+</body>
+
+<script>
+var params = new URLSearchParams(document.location.search.substring(1));
+var odometerColor = params.get("o");
+url = new URL(window.location.href);
+var cookies = 0;
+
+if (url.searchParams.get('id')) {
+
+  var ID2 = params.get("id");
+  var ID = ID2 - 1
+  console.log(ID)
+}
+
+function updatePageHmm(){
+    var z = location.search;
+    location.search = '?&o='+odometerColor+''
+}
+
+function updatePage(){
+    var colorThing = document.getElementById("odometerChanger").value;
+    var x = location.search;
+    location.search = '?&o='+colorThing+''
+}
+
+function addclick() {
+    console.log("a")
+    document.getElementById('image').style = "width:300px; height:300px;"
+    setTimeout(smaller, 50)
+  var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/add")
+  request.send()
+}
+function smaller() {
+    document.getElementById('image').style = "width:250px; height:250px;"
+}
+
+//18
+function buy1() {
+    if (cookies  >= 100) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/1")
+  request.send()
+}}
+function buy2() {
+    if (cookies  >= 1000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/2")
+  request.send()
+}}
+function buy3() {
+    if (cookies  >= 11000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/3")
+  request.send()
+}}
+function buy4() {
+    if (cookies  >= 120000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/4")
+  request.send()
+}}
+function buy5() {
+    if (cookies  >= 1300000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/5")
+  request.send()
+}}
+function buy6() {
+    if (cookies  >= 14000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/6")
+  request.send()
+}}
+function buy7() {
+    if (cookies  >= 200000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/7")
+  request.send()
+}}
+function buy8() {
+    if (cookies  >= 3300000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/8")
+  request.send()
+}}
+function buy9() {
+    if (cookies  >= 51000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/9")
+  request.send()
+}}
+function buy10() {
+    if (cookies  >= 750000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/10")
+  request.send()
+}}
+function buy11() {
+    if (cookies  >= 10000000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/11")
+  request.send()
+}}
+function buy12() {
+    if (cookies  >= 140000000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/12")
+  request.send()
+}}
+function buy13() {
+    if (cookies  >= 1700000000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/13")
+  request.send()
+}}
+function buy14() {
+    if (cookies  >= 21000000000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/14")
+  request.send()
+}}
+function buy15() {
+    if (cookies  >= 260000000000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/15")
+  request.send()
+}}
+function buy16() {
+    if (cookies  >= 3100000000000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/16")
+  request.send()
+}}
+function buy17() {
+    if (cookies  >= 710000000000000000000) {
+    var request = new XMLHttpRequest()
+  request.open("POST", "https://sheltered-anchorage-14143.herokuapp.com/api/buy/17")
+  request.send()
+}}
+
+
+if (odometerColor == "1") {
+  $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast.css">');
+}
+if (odometerColor == "2") {
+  $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-colored.css">');
+}
+if (odometerColor == "3") {
+  $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
+}
+
+
+async function GetStats() {
+      let request = await fetch('https://sheltered-anchorage-14143.herokuapp.com/api/stats', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      odometer.innerHTML = Math.floor(data.cookies)
+      cookies = data.cookies
+          if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+          chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
+
+
+
+
+
+ }
+  setInterval(GetStats, 2000)
+  GetStats()
+
+var textBright = "#bdbdbd"
+    var lineColor = "#000000"
+    var maxPoints = 20000;
+    
+
+    
+    var chart = new Highcharts.chart({
+      chart: {
+          renderTo: 'chart',
+          type: 'line',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+      },
+      title: {
+          text: ' '
+      },
+      xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 500,
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor,
+            title: {
+                style: {
+                    color: textBright
+                }
+            }
+      },
+      yAxis: {
+          title: {
+              text: ''
+          },
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor
+      },
+      credits: {
+          enabled: true,
+          text: "MGCounts"
+      },
+    
+      series: [{
+        showInLegend: false,
+         name: 'Followers',
+        marker: { enabled: false },
+        color: '#000000',
+        lineColor: '#FFFFFF'
+      }]
+    });
+
+
+</script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-177075755-1');
+</script>
+</html>
