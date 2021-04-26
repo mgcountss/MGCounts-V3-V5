@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -12,6 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <style>
     
   h6 {
@@ -64,14 +66,14 @@
   }
 
   #odometer {
-       font-size: 105px;
+       font-size: 70px;
        font-family: 'Open Sans', sans-serif;
        color: #FFFFFF;
        margin-top: 0px;
   }
   
   #odometer2 {
-       font-size: 30px;
+       font-size: 20px;
        font-family: 'Open Sans', sans-serif;
        color: #FFFFFF;
        margin-top: 0px;
@@ -102,7 +104,9 @@
     column-gap: 20px;
     justify-content: space-between;
       }
+
   
+
       ::-webkit-scrollbar {
       width: 10px
   }
@@ -158,7 +162,15 @@
             <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li></li>
           </ul>
         </div>
-      </nav><div class="boxThing">    
+      </nav>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+      <div class="container">
+      <div class="boxThing">    
         <br>
         <br>
 <img src="https://mgcounts.com/assets/img/cookie.png" id="image" style="width:250px; height:250px;" onclick="addclick()"></img>
@@ -173,12 +185,9 @@
 
             <div id="chart"></div>
    
-<br>
+          </div>
 
 
-
-
-</div>
 <div class="boxThing">
 <h1 style="color: #FFFFFF">Upgrades</h1>
 <button onclick="buy1()" id="button1">Cursor: 100</button>
@@ -232,6 +241,7 @@
 <button onclick="buy17()" id="button17">Javascript Console: 710 quintillion</button>
 <br>
 <br>
+<h1 style="color: #FFFFFF; font-size: 50px;" id="max">0</h1>
 <br>
 
     </div>
@@ -428,14 +438,13 @@ if (odometerColor == "2") {
 if (odometerColor == "3") {
   $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
 }
-
-
 async function GetStats() {
       let request = await fetch('https://sheltered-anchorage-14143.herokuapp.com/api/stats', { mode: "cors" })
       let data = await request.json().catch(() => {})
       if (!data) return;
       odometer.innerHTML = Math.floor(data.cookies)
-      cookies = data.cookies
+
+     max.innerHTML = numeral(data.cookiesmax).format('0,0');
           if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
           chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
  }
@@ -451,17 +460,17 @@ async function GetStats() {
       document.getElementById('button3').innerHTML = "Farm: 11,000 ("+ data.farm + ")"
       document.getElementById('button4').innerHTML = "Mine: 120,000 ("+ data.mine + ")"
       document.getElementById('button5').innerHTML = "Factory: 1.3 Million ("+ data.factory + ")"
-      document.getElementById('button6').innerHTML = "Bank: 14 Million ("+ data.bank + ")"
-      document.getElementById('button7').innerHTML = "Temple: 200 Million ("+ data.temple + ")"
-      document.getElementById('button8').innerHTML = "Wizard Tower: 3.3 Billion ("+ data.wizard_tower + ")"
-      document.getElementById('button9').innerHTML = "Shipment: 51 Billion ("+ data.shipment + ")"
-      document.getElementById('button10').innerHTML = "Alchemy: 750 Billion ("+ data.alchemy + ")"
-      document.getElementById('button11').innerHTML = "Portal: 10 Trillion ("+ data.portal + ")"
-      document.getElementById('button12').innerHTML = "Time Machine: 140 Trillion ("+ data.time_machine + ")"
-      document.getElementById('button13').innerHTML = "Antimatter Condenser: 1.7 Quadrillion ("+ data.antimatter_condenser + ")"
-      document.getElementById('button14').innerHTML = "Prism: 21 Quadrillion ("+ data.prism + ")"
-      document.getElementById('button15').innerHTML = "Chancemaker: 260 Quadrillion ("+ data.chancemaker + ")"
-      document.getElementById('button16').innerHTML = "Fractal Engine: 3.1 Quintillion ("+ data.fractal_engine + ")"
+      document.getElementById('button6').innerHTML = "Bank: 14 Million [Auto Clicker] ("+ data.bank + ")"
+      document.getElementById('button7').innerHTML = "Temple: 200 Million [Auto Clicker] ("+ data.temple + ")"
+      document.getElementById('button8').innerHTML = "Wizard Tower: 3.3 Billion [Auto Clicker] ("+ data.wizard_tower + ")"
+      document.getElementById('button9').innerHTML = "Shipment: 51 Billion [Auto Clicker] ("+ data.shipment + ")"
+      document.getElementById('button10').innerHTML = "Alchemy: 750 Billion [Auto Clicker] ("+ data.alchemy + ")"
+      document.getElementById('button11').innerHTML = "Portal: 10 Trillion [Auto Clicker] ("+ data.portal + ")"
+      document.getElementById('button12').innerHTML = "Time Machine: 140 Trillion [Auto Clicker] ("+ data.time_machine + ")"
+      document.getElementById('button13').innerHTML = "Antimatter Condenser: 1.7 Quadrillion [Auto Clicker] ("+ data.antimatter_condenser + ")"
+      document.getElementById('button14').innerHTML = "Prism: 21 Quadrillion [Auto Clicker] ("+ data.prism + ")"
+      document.getElementById('button15').innerHTML = "Chancemaker: 260 Quadrillion [Auto Clicker] ("+ data.chancemaker + ")"
+      document.getElementById('button16').innerHTML = "Fractal Engine: 3.1 Quintillion [Auto Clicker] ("+ data.fractal_engine + ")"
       document.getElementById('button17').innerHTML = "Javascript Console: 710 Quintillion ("+ data.javascript_console + ")"
 
  }
@@ -524,7 +533,7 @@ var textBright = "#bdbdbd"
     
       series: [{
         showInLegend: false,
-         name: 'Followers',
+         name: 'Cookies',
         marker: { enabled: false },
         color: '#000000',
         lineColor: '#FFFFFF'
@@ -533,16 +542,25 @@ var textBright = "#bdbdbd"
 
 
 </script>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-177075755-1');
+</script>
+</html>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+
 <body>
+  <div class="container2">
 <table style="height: 130px; width: 351px; background-color: #292b2c" border="#000 color: white;">
 <tbody>
 <tr style="color: white;">
@@ -566,10 +584,15 @@ var textBright = "#bdbdbd"
 </tbody>
 </table>
 <p>&nbsp;</p>
+</div>
 </body>
 
 <style>
-  *{text-align: center;}
+  
+  .container2 {
+margin-left: 500px;
+    text-align: center;
+      }
 </style>
 
 <script type="text/javascript">
@@ -635,13 +658,3 @@ var avg = [];
             });
         
 </script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-177075755-1');
-</script>
-</html>
