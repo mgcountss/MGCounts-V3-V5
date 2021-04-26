@@ -181,55 +181,55 @@
 </div>
 <div class="boxThing">
 <h1 style="color: #FFFFFF">Upgrades</h1>
-<button onclick="buy1()">Cursor: 100</button>
+<button onclick="buy1()" id="button1">Cursor: 100</button>
 <br>
 <br>
-<button onclick="buy2()">Grandma: 1,000</button>
+<button onclick="buy2()" id="button2">Grandma: 1,000</button>
 <br>
 <br>
-<button onclick="buy3()">Farm: 11,000</button>
+<button onclick="buy3()" id="button3">Farm: 11,000</button>
 <br>
 <br>
-<button onclick="buy4()">Mine: 120,000</button>
+<button onclick="buy4()" id="button4">Mine: 120,000</button>
 <br>
 <br>
-<button onclick="buy5()">Factory: 1.3 million</button>
+<button onclick="buy5()" id="button5">Factory: 1.3 million</button>
 <br>
 <br>
-<button onclick="buy6()">Bank: 14 million</button>
+<button onclick="buy6()" id="button6">Bank: 14 million</button>
 <br>
 <br>
-<button onclick="buy7()">Temple: 200 million</button>
+<button onclick="buy7()" id="button7">Temple: 200 million</button>
 <br>
 <br>
-<button onclick="buy8()">Wizard Tower: 3.3 billion</button>
+<button onclick="buy8()" id="button8">Wizard Tower: 3.3 billion</button>
 <br>
 <br>
-<button onclick="buy9()">Shipment: 51 billion</button>
+<button onclick="buy9()" id="button9">Shipment: 51 billion</button>
 <br>
 <br>
-<button onclick="buy10()">Alchemy: 750 billion</button>
+<button onclick="buy10()" id="button10">Alchemy: 750 billion</button>
 <br>
 <br>
-<button onclick="buy11()">Portal: 10 trillion</button>
+<button onclick="buy11()" id="button11">Portal: 10 trillion</button>
 <br>
 <br>
-<button onclick="buy12()">Time Machine: 140 trillion</button>
+<button onclick="buy12()" id="button12">Time Machine: 140 trillion</button>
 <br>
 <br>
-<button onclick="buy13()">Antimatter Condenser: 1.7 quadrillion</button>
+<button onclick="buy13()" id="button13">Antimatter Condenser: 1.7 quadrillion</button>
 <br>
 <br>
-<button onclick="buy14()">Prism: 21 quadrillion</button>
+<button onclick="buy14()" id="button14">Prism: 21 quadrillion</button>
 <br>
 <br>
-<button onclick="buy15()">Chancemaker: 260 quadrillion</button>
+<button onclick="buy15()" id="button15">Chancemaker: 260 quadrillion</button>
 <br>
 <br>
-<button onclick="buy16()">Fractal Engine: 3.1 quintillion</button>
+<button onclick="buy16()" id="button16">Fractal Engine: 3.1 quintillion</button>
 <br>
 <br>
-<button onclick="buy17()">Javascript Console: 710 quintillion</button>
+<button onclick="buy17()" id="button17">Javascript Console: 710 quintillion</button>
 <br>
 <br>
 <br>
@@ -438,14 +438,35 @@ async function GetStats() {
       cookies = data.cookies
           if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
           chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
-
-
-
-
-
  }
   setInterval(GetStats, 2000)
   GetStats()
+  async function GetStats2() {
+      let request = await fetch('https://sheltered-anchorage-14143.herokuapp.com/api/stats', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      odometer.innerHTML = Math.floor(data.cookies)
+      document.getElementById('button1').innerHTML = "Cursor: 100 ("+ data.cursor + ")"
+      document.getElementById('button2').innerHTML = "Grandma: 1,000 ("+ data.grandma + ")"
+      document.getElementById('button3').innerHTML = "Farm: 11,000 ("+ data.farm + ")"
+      document.getElementById('button4').innerHTML = "Mine: 120,000 ("+ data.mine + ")"
+      document.getElementById('button5').innerHTML = "Factory: 1.3 Million ("+ data.factory + ")"
+      document.getElementById('button6').innerHTML = "Bank: 14 Million ("+ data.bank + ")"
+      document.getElementById('button7').innerHTML = "Temple: 200 Million ("+ data.temple + ")"
+      document.getElementById('button8').innerHTML = "Wizard Tower: 3.3 Billion ("+ data.wizard_tower + ")"
+      document.getElementById('button9').innerHTML = "Shipment: 51 Billion ("+ data.shipment + ")"
+      document.getElementById('button10').innerHTML = "Alchemy: 750 Billion ("+ data.alchemy + ")"
+      document.getElementById('button11').innerHTML = "Portal: 10 Trillion ("+ data.portal + ")"
+      document.getElementById('button12').innerHTML = "Time Machine: 140 Trillion ("+ data.time_machine + ")"
+      document.getElementById('button13').innerHTML = "Antimatter Condenser: 1.7 Quadrillion ("+ data.antimatter_condenser + ")"
+      document.getElementById('button14').innerHTML = "Prism: 21 Quadrillion ("+ data.prism + ")"
+      document.getElementById('button15').innerHTML = "Chancemaker: 260 Quadrillion ("+ data.chancemaker + ")"
+      document.getElementById('button16').innerHTML = "Fractal Engine: 3.1 Quintillion ("+ data.fractal_engine + ")"
+      document.getElementById('button17').innerHTML = "Javascript Console: 710 Quintillion ("+ data.javascript_console + ")"
+
+ }
+  setInterval(GetStats2, 2000)
+  GetStats2()
 
 var textBright = "#bdbdbd"
     var lineColor = "#000000"
