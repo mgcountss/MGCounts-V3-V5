@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -148,6 +147,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+h3 {
+  margin-left: -200px;
+}
 
 </style>
 </head>
@@ -464,9 +466,9 @@ async function GetStats() {
       if (!data) return;
       odometer.innerHTML = Math.floor(data.cookies)
       cookies = data.cookies
-  
         news.innerHTML = data.news
-     
+        autos.innerHTML = numeral(data.auto).format('0,0');
+        clicksper.innerHTML = numeral(data.number).format('0,0');
      max.innerHTML = numeral(data.cookiesmax).format('0,0');
           if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
           chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
@@ -583,33 +585,38 @@ var textBright = "#bdbdbd"
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body>
-  <div class="container2">
-<table style="height: 130px; width: 351px; background-color: #292b2c" border="#000 color: white;">
-<tbody>
-<tr style="color: white;">
-<td style="width: 72px; color: white;">       </td>
-<td style="width: 125.67px; color: white; font-weight: bold;">2s Avg</td>
-<td style="width: 131.33px; color: white; font-weight: bold;">1m Avg</td>
-<td style="width: 125.67px; color: white; font-weight: bold;">1hr Avg</td>
-<td style="width: 125.67px; color: white; font-weight: bold;">12hr Avg</td>
-<td style="width: 125.67px; color: white; font-weight: bold;">1dy Avg</td>
-</tr>
-<tr>
-<td id="name1" style="width: 72px; color: white;">Cookies</td>
-<td id="s1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
-<td id="min1"style="width: 225.33px !Important; color: white; font-size: 3vh;">0</td>
-<td id="hr1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
-<td id="thr1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
-<td id="d1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
-</tr>
-
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
+  <center>
+    <div class="boxThing">
+      <div class="container">
+        <div>
+<h3 style="width: 50px; color: white; font-weight: bold;">2s Avg</h3>
+<h3 id="s1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
+</div><div>
+<h3 style="width: 50px; color: white; font-weight: bold;">1m Avg</h3>
+<h3 id="min1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
+</div><div>
+<h3 style="width: 50px; color: white; font-weight: bold;">1hr Avg</h3>
+<h3 id="hr1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
+</div><div>
+<h3 style="width: 50px; color: white; font-weight: bold;">12hr Avg</h3>
+<h3 id="thr1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
+</div><div>
+<h3 style="width: 50px; color: white; font-weight: bold;">1dy Avg</h3>
+<h3 id="d1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
+</div>
+</div>
+<br>
+<div class="container">
+  <div>
+    <h1 style="color: #FFFFFF;">Auto Cookies Per Second</h1>
+<h1 style="color: #FFFFFF;" id="autos">0</h1>
+</div>
+<div>
+<h1 style="color: #FFFFFF;">Cookies Per Click</h1>
+<h1 style="color: #FFFFFF;" id="clicksper">0</h1>
 </div>
 </body>
-
+</center>
 <style>
   
   .container2 {
