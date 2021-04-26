@@ -464,7 +464,7 @@ async function GetStats() {
       if (!data) return;
       odometer.innerHTML = Math.floor(data.cookies)
       cookies = data.cookies
-      if (data.true == true) {
+      if (data.enable == true) {
         news.innerHTML = data.news
       }
      max.innerHTML = numeral(data.cookiesmax).format('0,0');
