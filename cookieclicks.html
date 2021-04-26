@@ -464,9 +464,9 @@ async function GetStats() {
       if (!data) return;
       odometer.innerHTML = Math.floor(data.cookies)
       cookies = data.cookies
-      if (data.enable == true) {
+  
         news.innerHTML = data.news
-      }
+     
      max.innerHTML = numeral(data.cookiesmax).format('0,0');
           if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
           chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
