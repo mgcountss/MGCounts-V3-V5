@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -463,20 +464,12 @@ async function GetStats() {
       if (!data) return;
       odometer.innerHTML = Math.floor(data.cookies)
       cookies = data.cookies
-
-     max.innerHTML = numeral(data.cookiesmax).format('0,0');
-          if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-          chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
- }
-  setInterval(GetStats, 2000)
-  GetStats()
-  async function GetStats() {
-      let request = await fetch('https://sheltered-anchorage-14143.herokuapp.com/api/news', { mode: "cors" })
-      let data = await request.json().catch(() => {})
-      if (!data) return;
       if (data.true == true) {
         news.innerHTML = data.news
       }
+     max.innerHTML = numeral(data.cookiesmax).format('0,0');
+          if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+          chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
  }
   setInterval(GetStats, 2000)
   GetStats()
