@@ -533,6 +533,108 @@ var textBright = "#bdbdbd"
 
 
 </script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<table style="height: 130px; width: 351px; background-color: #292b2c" border="#000 color: white;">
+<tbody>
+<tr style="color: white;">
+<td style="width: 72px; color: white;">       </td>
+<td style="width: 125.67px; color: white; font-weight: bold;">2s Avg</td>
+<td style="width: 131.33px; color: white; font-weight: bold;">1m Avg</td>
+<td style="width: 125.67px; color: white; font-weight: bold;">1hr Avg</td>
+<td style="width: 125.67px; color: white; font-weight: bold;">12hr Avg</td>
+<td style="width: 125.67px; color: white; font-weight: bold;">1dy Avg</td>
+</tr>
+<tr>
+<td id="name1" style="width: 72px; color: white;">Cookies</td>
+<td id="s1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
+<td id="min1"style="width: 225.33px !Important; color: white; font-size: 3vh;">0</td>
+<td id="hr1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
+<td id="thr1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
+<td id="d1"style="width: 205.67px !Important; color: white; font-size: 3vh;">0</td>
+</tr>
+
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+</body>
+
+<style>
+  *{text-align: center;}
+</style>
+
+<script type="text/javascript">
+var avg = [];
+        $(document).ready(function() {
+          var url = 'https://sheltered-anchorage-14143.herokuapp.com/api/stats'
+            $.getJSON(url, function(data) {
+              avg.push(Math.floor(data.cookies))
+                    if (avg.length >= 5) {avg.shift()}
+        var count = 0;
+        for(var i = 0; i < avg.length;i++) {
+            console.log(i)
+          if(i == 0) {
+            count = count + (avg[i] - parseFloat(avg[i]))
+          } else {
+            count = count + (parseFloat(avg[i]) - parseFloat(avg[i-1]))
+          }
+        }
+        var deta = count/avg.length
+        min1.innerHTML = Math.round(deta*60)
+            });
+            setInterval(function() {
+              var url = 'https://sheltered-anchorage-14143.herokuapp.com/api/stats'
+            $.getJSON(url, function(data) {
+               
+                    
+                    avg.push(Math.floor(data.cookies))
+                    if (avg.length >= 5) {avg.shift()}
+        var count = 0;
+        for(var i = 0; i < avg.length;i++) {
+            console.log(i)
+          if(i == 0) {
+            count = count + (avg[i] - parseFloat(avg[i]))
+          } else {
+            count = count + (parseFloat(avg[i]) - parseFloat(avg[i-1]))
+          }
+        }
+        var deta = count/avg.length
+        var lol = Math.trunc(deta*60) 
+        var lol2 = Math.trunc(deta*3600)
+        var lol3 = Math.trunc(deta*43200)
+        var lol4 = Math.trunc(deta*2)
+        var lol5 = Math.trunc(deta*86400)
+     
+        var ActualMinuteValue = numeral(lol).format('0,0');
+        var ActualMinuteValue2 = numeral(lol2).format('0,0');
+        var ActualMinuteValue3 = numeral(lol3).format('0,0');
+        var ActualMinuteValue4 = numeral(lol4).format('0,0');
+        var ActualMinuteValue5 = numeral(lol5).format('0,0');
+
+        
+        s1.innerHTML = ActualMinuteValue4
+        min1.innerHTML = ActualMinuteValue
+        hr1.innerHTML = ActualMinuteValue2
+        thr1.innerHTML = ActualMinuteValue3
+        d1.innerHTML = ActualMinuteValue5
+              
+                   
+          
+            });
+          
+        }, 2000);
+            });
+        
+</script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
 <script>
