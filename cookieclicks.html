@@ -102,6 +102,7 @@
     flex: 10;
     column-gap: 20px;
     justify-content: space-between;
+    text-align: center;
       }
 
   
@@ -137,7 +138,7 @@
         }
 
   
-  #body {
+  body {
   transition: 0.2s !important;
   background-color: #292b2c;
   text-align: center;
@@ -148,7 +149,7 @@
 }
 
 h3 {
-  margin-left: -200px;
+  float: left;
 }
 
 </style>
@@ -460,6 +461,9 @@ if (odometerColor == "2") {
 if (odometerColor == "3") {
   $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
 }
+
+var cookiesadded = 0
+
 async function GetStats() {
       let request = await fetch('https://sheltered-anchorage-14143.herokuapp.com/api/stats', { mode: "cors" })
       let data = await request.json().catch(() => {})
@@ -470,6 +474,9 @@ async function GetStats() {
         autos.innerHTML = numeral(data.auto).format('0,0');
         clicksper.innerHTML = numeral(data.number).format('0,0');
      max.innerHTML = numeral(data.cookiesmax).format('0,0');
+     clickadd.innerHTML = numeral(data.cookies - cookiesadded).format('0,0');
+     
+     cookiesadded = data.cookies
           if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
           chart.series[0].addPoint([Date.now(), Math.floor(data.cookies)])
  }
@@ -605,43 +612,57 @@ var textBright = "#bdbdbd"
 <body>
   <center>
     <div class="boxThing">
-      <div class="container">
-        <div>
-<h3 style="width: 50px; color: white; font-weight: bold;">2s Avg</h3>
-<h3 id="s1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
-</div><div>
-<h3 style="width: 50px; color: white; font-weight: bold;">1m Avg</h3>
-<h3 id="min1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
-</div><div>
-<h3 style="width: 50px; color: white; font-weight: bold;">1hr Avg</h3>
-<h3 id="hr1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
-</div><div>
-<h3 style="width: 50px; color: white; font-weight: bold;">12hr Avg</h3>
-<h3 id="thr1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
-</div><div>
-<h3 style="width: 50px; color: white; font-weight: bold;">1dy Avg</h3>
-<h3 id="d1"style="width: 50px !Important; color: white; font-size: 3vh;">0</h3>
-</div>
-</div>
+<h3 style="width: 100px; color: white; font-weight: bold;">2s Avg</h3>
+<h3 id="s1"style="width: 50px !Important; color: white; font-size: 50px;">0</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 style="width: 100px; color: white; font-weight: bold;">1m Avg</h3>
+<h3 id="min1"style="width: 50px !Important; color: white; font-size: 50px;">0</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 style="width: 100px; color: white; font-weight: bold;">1hr Avg</h3>
+<h3 id="hr1"style="width: 50px !Important; color: white; font-size: 50px;">0</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 style="width: 100px; color: white; font-weight: bold;">12hr Avg</h3>
+<h3 id="thr1"style="width: 50px !Important; color: white; font-size: 50px;">0</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 style="width: 100px; color: white; font-weight: bold;">1dy Avg</h3>
+<h3 id="d1"style="width: 50px !Important; color: white; font-size: 50px;">0</h3>
+<br>
+
+<br>
+
+
 <br>
 <div class="container">
   <div>
-    <h1 style="color: #FFFFFF;">Auto Cookies Per Second</h1>
-<h1 style="color: #FFFFFF;" id="autos">0</h1>
+    <h1 style="color: #FFFFFF; margin-left: -150px;">Auto Cookies Per Second</h1>
+<h1 style="color: #FFFFFF; margin-left: -150px;" id="autos">0</h1>
 </div>
 <div>
-<h1 style="color: #FFFFFF;">Cookies Per Click</h1>
-<h1 style="color: #FFFFFF;" id="clicksper">0</h1>
+<h1 style="color: #FFFFFF; margin-left: -150px;">Cookies Per Click</h1>
+<h1 style="color: #FFFFFF; margin-left: -150px;" id="clicksper">0</h1>
 </div>
+<div>
+  <h1 style="color: #FFFFFF; margin-left: -150px;">Cookies Added</h1>
+  <h1 style="color: #FFFFFF; margin-left: -150px;" id="clickadd">0</h1>
+  </div>
 </body>
 </center>
-<style>
-  
-  .container2 {
-margin-left: 500px;
-    text-align: center;
-      }
-</style>
 
 <script type="text/javascript">
 var avg = [];
