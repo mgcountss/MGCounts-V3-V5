@@ -317,6 +317,75 @@ var odometerColor = params.get("o");
 url = new URL(window.location.href);
 var cookies = 0;
 
+var ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+var tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+var teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+
+function convert_millions(num) {
+  if (num >= 1000000) {
+    return convert_millions(Math.floor(num / 1000000)) + " Million " + convert_thousands(num % 1000000);
+  } else {
+    return convert_thousands(num);
+  }
+}
+
+function convert_thousands(num) {
+  if (num >= 1000) {
+    return convert_hundreds(Math.floor(num / 1000)) + " Thousand " + convert_hundreds(num % 1000);
+  } else {
+    return convert_hundreds(num);
+  }
+}
+
+function convert_hundreds(num) {
+  if (num > 99) {
+    return ones[Math.floor(num / 100)] + " Hundred " + convert_tens(num % 100);
+  } else {
+    return convert_tens(num);
+  }
+}
+
+function convert_tens(num) {
+  if (num < 10) return ones[num];
+  else if (num >= 10 && num < 20) return teens[num - 10];
+  else {
+    return tens[Math.floor(num / 10)] + " " + ones[num % 10];
+  }
+}
+
+function convert(num) {
+  if (num == 0) return "Zero";
+  else return convert_millions(num);
+}
+
+//end of conversion code
+
+//testing code begins here
+
+var cookiething = 0;
+
+async function getDataFromAPI() {
+  let response = await fetch('https://sheltered-anchorage-14143.herokuapp.com/api/stats')
+  .then(res => res.json())
+  
+  .then(data => {
+
+console.log(data.cookies)
+
+cookiething = data.cookies
+
+  
+
+odometer7.innerHTML = convert(cookiething)
+
+
+  })
+}
+
+
+setInterval(getDataFromAPI, 3000);
+
+
 if (url.searchParams.get('id')) {
 
   var ID2 = params.get("id");
@@ -653,19 +722,46 @@ var textBright = "#bdbdbd"
           <br>
         <br>
 
-    <h1 style="color: #FFFFFF; margin-left: -150px;">Auto Cookies Per Second</h1>
-<h1 style="color: #FFFFFF; margin-left: -150px;" id="autos">0</h1>
+    <h3 style="color: #FFFFFF;">Auto Cookies Per Second</h3>
+    <br>
+    <br>
+    <br>
+<h3 style="color: #FFFFFF; font-size: 50px;" id="autos">0</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3 style="color: #FFFFFF;">Cookies Per Click</h3>
+<br>
+<br>
+<br>
+<h3 style="color: #FFFFFF; font-size: 50px;" id="clicksper">0</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <h3 style="color: #FFFFFF;">Cookies Added</h3>
+  <br>
+  <br>
+  <br>
+  <h3 style="color: #FFFFFF; font-size: 50px;" id="clickadd">0</h3>
 <br>
         <br>
-<h1 style="color: #FFFFFF; margin-left: -150px;">Cookies Per Click</h1>
-<h1 style="color: #FFFFFF; margin-left: -150px;" id="clicksper">0</h1>
-<br>
-        <br>
-  <h1 style="color: #FFFFFF; margin-left: -150px;">Cookies Added</h1>
-  <h1 style="color: #FFFFFF; margin-left: -150px;" id="clickadd">0</h1>
-<br>
         <br>
         <br>
+        <br>
+        <h3 style="color: #FFFFFF;">Number Name</h3>
+        <br>
+        <br>
+        <br>
+    <h3 style="color: #FFFFFF; font-size: 20px;" id="odometer7">a</h3>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
 </center>
 
