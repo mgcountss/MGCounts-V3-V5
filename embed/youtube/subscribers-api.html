@@ -83,7 +83,7 @@ var ID = params.get("id");
     document.querySelector(".image").src = image;
 }
         
-        }
+    
       async function GetStats2() {
       let request = await fetch('https://api.mgcounts.com/youtube/videos/'+ID+'', { mode: "cors" })
       let data = await request.json().catch(() => {})
