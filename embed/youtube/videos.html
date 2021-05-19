@@ -23,7 +23,7 @@
         overflow: hidden;
         white-space: nowrap;
         font-family: 'Open Sans', sans-serif;
-        color: #FFFFFF;
+        color: #000000;
     }
 
     #count {
@@ -32,7 +32,7 @@
         left: 80px;
         font-size: 35px;
         width: 245px !important;
-        color: #FFFFFF;
+        color: #000000;
     }
 
     body {
@@ -82,18 +82,6 @@ var ID = params.get("id");
     function updateimage(image) {
     document.querySelector(".image").src = image;
 }
-        
-        async function GetStats2() {
-      let request = await fetch('https://api.mgcounts.com/youtube/videos/'+ID+'', { mode: "cors" })
-      let data = await request.json().catch(() => {})
-      if (!data) return;
-      if (data.w == "e") {
-          
-      } else {
-          window.location.href="https://cdn.discordapp.com/attachments/683495440662134804/844646631286898738/unknown.png"
-      }
-
- }
-  setInterval(GetStats2, 30000)
+ 
 
     </script>
