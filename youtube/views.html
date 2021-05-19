@@ -398,18 +398,7 @@ if (odometerColor == "2") {
 if (odometerColor == "3") {
   $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
 }
-async function GetStats2() {
-      let request = await fetch('https://api.mgcounts.com/youtube/videos/'+ID+'', { mode: "cors" })
-      let data = await request.json().catch(() => {})
-      if (!data) return;
-      if (data.w == "e") {
-          
-      } else {
-          window.location.href="https://cdn.discordapp.com/attachments/683495440662134804/844640758614065162/unknown.png"
-      }
 
- }
-  setInterval(GetStats2, 5000)
 
 async function GetStats() {
       let request = await fetch('https://api.mgcounts.com/youtube/videos/'+ID+'', { mode: "cors" })
