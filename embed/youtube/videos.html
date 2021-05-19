@@ -82,5 +82,18 @@ var ID = params.get("id");
     function updateimage(image) {
     document.querySelector(".image").src = image;
 }
+        
+        async function GetStats2() {
+      let request = await fetch('https://api.mgcounts.com/youtube/videos/'+ID+'', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      if (data.w == "e") {
+          
+      } else {
+          window.location.href="https://cdn.discordapp.com/attachments/683495440662134804/844640758614065162/unknown.png"
+      }
+
+ }
+  setInterval(GetStats2, 180000)
 
     </script>
