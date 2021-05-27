@@ -319,7 +319,7 @@ if (odometerColor == "3") {
 
 
 async function GetStats() {
-      let request = await fetch('https://api.mgcounts.com/dlinkorg/'+ID+'', { mode: "cors" })
+      let request = await fetch('https://api.mgcounts.com/dlinkorg/users/'+ID+'', { mode: "cors" })
       let data = await request.json().catch(() => {})
       if (!data) return;
       odometer.innerHTML = data.Subs
