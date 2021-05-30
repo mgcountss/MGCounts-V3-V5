@@ -1,4 +1,3 @@
-
 <html>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -81,7 +80,7 @@ tags[q] = data[q].Name
 });
         function create() {
             for (var t = 1; t <= eee; t++) {
-                var htmlcard = `<tr>
+                var htmlcard = `<tr onclick="ee(this)" id="tr_${t}">
                     <td style="border-right-style: solid;border-left-style: solid;">
                         <img style="width: 40px;height: 40px;" id="img_${t}" src="MGCounts.png">
                         <strong id="name_${t}" class="name">Loading</strong></td>
@@ -107,8 +106,21 @@ tags[q] = data[q].Name
                 document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q].Subs).format('0,0');
                 document.getElementById('name_' + cnb + '').innerHTML = data[q].Name
                 document.getElementById('img_' + cnb + '').src = data[q].image
+                document.getElementById('tr_'+ cnb + '').value = data[q].cid
             })
         }
+
+
+
+        function ee(elmnt) {
+            console.log(elmnt.id)
+
+    window.location.href = "https://mgcounts.com/fake/users.html?id="+elmnt.value+"";
+
+        }
+
+
+
         function redo() {
 	var cidthing = document.getElementById('autocomplete').value
     var clickcount = 'https://api.mgcounts.com/e/e/e/e/e/e/e'
