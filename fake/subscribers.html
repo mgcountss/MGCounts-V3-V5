@@ -17,7 +17,6 @@
                 <th style="border-style: solid;border-right-style: solid;">Top Channels</th>
 
                 <th style="border-bottom-style: solid;">Subscribers</th>
-                <th style="border-bottom-style: solid;">Total Views</th>
             </tr>
         </thead>
         <tbody style="border-style: none;" class="counters">
@@ -38,7 +37,6 @@
                     <img style="width: 40px;height: 40px;" id="img_${t}" src="MGCounts.png">
                     <strong id="name_${t}" class="name">Loading</strong></td>
                     <td id="subs_${t}">TBC</td>
-                    <td id="views_${t}">TBC</td>
                 </tr>`;
             $('.counters').append(htmlcard)
             c += 1;
@@ -58,7 +56,6 @@
 
             data[q].Subs = Math.floor(data[q].Subs)
             document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q].Subs).format('0,0');
-            document.getElementById('views_' + cnb + '').innerHTML = numeral(data[q].views).format('0,0');
             document.getElementById('name_' + cnb + '').innerHTML = data[q].Name
             document.getElementById('img_' + cnb + '').src = data[q].image
         })
