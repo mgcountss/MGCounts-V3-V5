@@ -43,7 +43,7 @@
             $('.counters').append(htmlcard)
             c += 1;
         }
-    }//1
+    }
     $.getJSON("https://api.mgcounts.com/e/e/e/e/e/e/e", (data) => {
         eee = data.length
         create()
@@ -54,29 +54,16 @@
     function updateData(q, data) {
         setTimeout(function () {
 
-            var cnb = q;
+            var cnb = q+1;
 
             data[q].Subs = Math.floor(data[q].Subs)
-            document.getElementById('subs_' + q + '').innerHTML = numeral(data[q].Subs).format('0,0');
-            document.getElementById('views_' + q + '').innerHTML = numeral(data[q].views).format('0,0');
-            document.getElementById('name_' + q + '').innerHTML = data[q].Name
-            document.getElementById('img_' + q + '').src = data[q].image
+            document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q].Subs).format('0,0');
+            document.getElementById('views_' + cnb + '').innerHTML = numeral(data[q].views).format('0,0');
+            document.getElementById('name_' + cnb + '').innerHTML = data[q].Name
+            document.getElementById('img_' + cnb + '').src = data[q].image
         })
     }
 
 </script>
-
-</html>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-177075755-1');
-</script>
-
-
 
 </html>
