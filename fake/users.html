@@ -77,7 +77,7 @@ color:#FFFFFF
     var tags = [];
     subs()
     function subs() {
-    $.getJSON("https://api.mgcounts.com/e/e/e/e/e/e/e",(data)=>{
+    $.getJSON("https://secure-lake-16002.herokuapp.com/",(data)=>{
         for (var q = 0; q < data.length; q++) {
       if (id == data[q].cid) {
 document.getElementById('img').src = data[q].image
@@ -95,7 +95,7 @@ if (chart2.series[0].points.length == 1500) chart2.series[0].data[0].remove();
 var textBright = "#222"
     var lineColor = "#000000"
     var maxPoints = 20000;
-  Highcharts.getJSON('https://api.mgcounts.com/e/e/e/e/e/e/e/'+id+'', function (data) {
+  Highcharts.getJSON('https://secure-lake-16002.herokuapp.com/graph/'+id+'', function (data) {
     
 // Create the chart
 var chart = new Highcharts.chart({
@@ -239,7 +239,7 @@ var c = 0;
             c += 1;
         }
     }
-    $.getJSON("https://api.mgcounts.com/e/e/e/e/e/e/e/"+id+"", (data) => {
+    $.getJSON("https://secure-lake-16002.herokuapp.com/graph/"+id+"", (data) => {
         eee = data.length
         create()
         data.sort(function(a,b){return b[0] - a[0]});
