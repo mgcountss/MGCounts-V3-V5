@@ -83,7 +83,7 @@ tr {
         var eee;
         var lol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
      var tags = []
-        $.getJSON("https://secure-lake-16002.herokuapp.com/all",(data)=>{
+        $.getJSON("https://api.mgcounts.com/e/e/e/e/e/e/e",(data)=>{
     for (var q = 0; q < data.length; q++) {
 tags[q] = data[q].Name
     }
@@ -121,7 +121,7 @@ $( "#autocomplete2" ).autocomplete({
                 c += 1;
             }
         }
-        $.getJSON("https://secure-lake-16002.herokuapp.com/all", (data) => {
+        $.getJSON("https://api.mgcounts.com/e/e/e/e/e/e/e", (data) => {
             eee = data.length
             create()
             for (var q = 0; q < eee; q++) {
@@ -146,7 +146,7 @@ $( "#autocomplete2" ).autocomplete({
 	var cidthing1 = document.getElementById('autocomplete').value
     var cidthing2 = document.getElementById('autocomplete2').value
     
-    var clickcount = 'https://secure-lake-16002.herokuapp.com/all'
+    var clickcount = 'https://api.mgcounts.com/e/e/e/e/e/e/e'
         $.getJSON(clickcount, function(data) {
             for (var q = 0; q < eee; q++) {
 if (cidthing1 == data[q].Name) {
@@ -185,7 +185,7 @@ function select(clicked_value) {
 function functionhmm() {
     var cidthing1;
 var cidthing2;
-    var clickcount = 'https://secure-lake-16002.herokuapp.com/all'
+    var clickcount = 'https://api.mgcounts.com/e/e/e/e/e/e/e'
         $.getJSON(clickcount, function(data) {
             for (var q = 0; q < eee; q++) {
                 var current3 = channelselect1.split('tr_')
