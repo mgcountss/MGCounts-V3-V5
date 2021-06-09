@@ -63,7 +63,7 @@ color:#FFFFFF
         var eee;
         var lol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
      var tags = []
-        $.getJSON("https://api.mgcounts.com/e/e/e/e/e/e/e",(data)=>{
+        $.getJSON("https://secure-lake-16002.herokuapp.com/",(data)=>{
     for (var q = 0; q < data.length; q++) {
 tags[q] = data[q].Name
     }
@@ -90,7 +90,7 @@ tags[q] = data[q].Name
                 c += 1;
             }
         }
-        $.getJSON("https://api.mgcounts.com/e/e/e/e/e/e/e", (data) => {
+        $.getJSON("https://secure-lake-16002.herokuapp.com/", (data) => {
             eee = data.length
             create()
             for (var q = 0; q < eee; q++) {
@@ -123,7 +123,7 @@ tags[q] = data[q].Name
 
         function redo() {
 	var cidthing = document.getElementById('autocomplete').value
-    var clickcount = 'https://api.mgcounts.com/e/e/e/e/e/e/e'
+    var clickcount = 'https://secure-lake-16002.herokuapp.com/'
         $.getJSON(clickcount, function(data) {
             for (var q = 0; q < eee; q++) {
 if (cidthing == data[q].Name) {
