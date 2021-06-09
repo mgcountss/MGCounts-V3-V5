@@ -77,7 +77,7 @@ color:#FFFFFF
     var tags = [];
     subs()
     function subs() {
-    $.getJSON("https://secure-lake-16002.herokuapp.com/",(data)=>{
+    $.getJSON("https://secure-lake-16002.herokuapp.com/all",(data)=>{
         for (var q = 0; q < data.length; q++) {
       if (id == data[q].cid) {
 document.getElementById('img').src = data[q].image
