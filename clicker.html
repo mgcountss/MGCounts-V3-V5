@@ -1,0 +1,172 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/darkly/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+    <style>
+        .name {
+            margin-left: 20px;
+        }
+        #autocomplete {
+  height: 50px;
+  width: 1000px;
+  border-radius: 10px;
+  background-color: #494949
+}
+#autocomplete::placeholder {
+color:#FFFFFF
+}
+.ui-menu-item-wrapper:hover {
+    background-color: #494949;
+}
+#go {
+    height: 100px;
+    width:400px;
+    font-size: 40px;
+}
+    </style>
+    <center>
+        <button id="go" onclick="redo()">View Clicker Stats</button>
+        <br>
+    <label for="autocomplete" style="color: #FFFFFF; font-size: 50px;" id="margin">Search</label>
+    <br>
+    <input id="autocomplete" style="color: #FFFFFF;" placeholder="Search Term">
+    <br>
+
+</center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="table-responsive" style="border-style: none;">
+        <table class="table table-striped table-dark table-sm">
+            <thead>
+                <tr>
+                    <th style="border-style: solid;border-right-style: solid;">Top Clickers</th>
+    
+                    <th style="border-bottom-style: solid;">Clicks</th>
+                </tr>
+            </thead>
+            <tbody style="border-style: none;" class="counters">
+    
+    
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var c = 0;
+        var eee;
+        var lol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+     var tags = []
+        $.getJSON("http://localhost/",(data)=>{
+    for (var q = 0; q < data.length; q++) {
+tags[q] = data[q].name
+    }
+    console.log(tags)
+  })
+
+  $( "#autocomplete" ).autocomplete({
+  source: function( request, response ) {
+          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+          response( $.grep( tags, function( item ){
+              return matcher.test( item );
+          }) );
+      }
+});
+        function create() {
+            for (var t = 1; t <= eee; t++) {
+                var htmlcard = `<tr onclick="ee(this)" id="tr_${t}">
+                    <td style="border-right-style: solid;border-left-style: solid;">
+                        <img style="width: 40px;height: 40px;" id="img_${t}" src="https://mgcounts.com/assets/img/MGCounts.png">
+                        <strong id="name_${t}" class="name">Loading</strong></td>
+                        <td id="subs_${t}">TBC</td>
+                    </tr>`;
+                $('.counters').append(htmlcard)
+                c += 1;
+            }
+        }
+        $.getJSON("http://localhost/", (data) => {
+            eee = data.length
+            create()
+            for (var q = 0; q < eee; q++) {
+                updateData(q, data)
+            }
+        })
+        function hmm() {
+        $.getJSON("http://localhost/", (data) => {
+            eee = data.length
+            for (var q = 0; q < eee; q++) {
+                updateData(q, data)
+            }
+        })
+    } setInterval(hmm,1000)
+        function updateData(q, data) {
+            setTimeout(function () {
+    
+                var cnb = q+1;
+    
+                data[q].Subs = Math.floor(data[q].Subs)
+                document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q].clicks).format('0,0');
+                document.getElementById('name_' + cnb + '').innerHTML = data[q].name
+                document.getElementById('img_' + cnb + '').src = data[q].image
+                document.getElementById('tr_'+ cnb + '').value = data[q].cid
+            })
+        }
+
+
+
+        function ee(elmnt) {
+            console.log(elmnt.id)
+
+    window.location.href = "https://mgcounts.com/clickers.html?id="+elmnt.value+"";
+
+        }
+
+
+
+        function redo() {
+	var cidthing = document.getElementById('autocomplete').value
+    var clickcount = 'http://localhost/'
+        $.getJSON(clickcount, function(data) {
+            for (var q = 0; q < eee; q++) {
+if (cidthing == data[q].name) {
+
+    window.location.href = "https://mgcounts.com/clickers.html?id="+data[q].cid+"";
+}
+            }
+        });
+}
+	    
+	     /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+        this.page.url = "https://MGCounts.github.io";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "https://MGCounts.github.io"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://MGCounts.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+        
+        //comments
+
+
+    </script>
+    <br>
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	<div id="disqus_thread"></div>
+
+    </html>
