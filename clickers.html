@@ -82,12 +82,12 @@ color:#FFFFFF
     var tags = [];
 
     function clicklol() {
-        $.getJSON("http://localhost/addclick/"+id+"",(data)=>{
+        $.getJSON("https://warm-castle-50125.herokuapp.com/addclick/"+id+"",(data)=>{
         })
     }
     subs()
     function subs() {
-    $.getJSON("http://localhost/",(data)=>{
+    $.getJSON("https://warm-castle-50125.herokuapp.com/",(data)=>{
         for (var q = 0; q < data.length; q++) {
       if (id == data[q].cid) {
 document.getElementById('img').src = data[q].image
@@ -105,7 +105,7 @@ if (chart2.series[0].points.length == 1500) chart2.series[0].data[0].remove();
 var textBright = "#222"
     var lineColor = "#000000"
     var maxPoints = 20000;
-  Highcharts.getJSON('http://localhost/graph/'+id+'', function (data) {
+  Highcharts.getJSON('https://warm-castle-50125.herokuapp.com/graph/'+id+'', function (data) {
     
 // Create the chart
 var chart = new Highcharts.chart({
@@ -249,7 +249,7 @@ var c = 0;
             c += 1;
         }
     }
-    $.getJSON("http://localhost/graph/"+id+"", (data) => {
+    $.getJSON("https://warm-castle-50125.herokuapp.com/graph/"+id+"", (data) => {
         eee = data.length
         create()
         data.sort(function(a,b){return b[0] - a[0]});
