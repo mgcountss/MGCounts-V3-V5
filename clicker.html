@@ -63,7 +63,7 @@ color:#FFFFFF
         var eee;
         var lol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
      var tags = []
-        $.getJSON("http://localhost/",(data)=>{
+        $.getJSON("https://warm-castle-50125.herokuapp.com/",(data)=>{
     for (var q = 0; q < data.length; q++) {
 tags[q] = data[q].name
     }
@@ -90,7 +90,7 @@ tags[q] = data[q].name
                 c += 1;
             }
         }
-        $.getJSON("http://localhost/", (data) => {
+        $.getJSON("https://warm-castle-50125.herokuapp.com/", (data) => {
             eee = data.length
             create()
             for (var q = 0; q < eee; q++) {
@@ -98,7 +98,7 @@ tags[q] = data[q].name
             }
         })
         function hmm() {
-        $.getJSON("http://localhost/", (data) => {
+        $.getJSON("https://warm-castle-50125.herokuapp.com/", (data) => {
             eee = data.length
             for (var q = 0; q < eee; q++) {
                 updateData(q, data)
