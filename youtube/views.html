@@ -520,11 +520,10 @@ function checkfunct(cid) {
             console.log(data)
             if(data.id) {
                 document.getElementById('username').title = data.id
-            fetch('https://api.mgcounts.com/youtube/subscribers/'+data.id).then(res => res.json()).then(data => {
                 document.getElementById('userimg').src = data.image
-                document.getElementById('username').innerHTML = data.title
-            })
-            } else {
+                document.getElementById('username').innerHTML = data.name
+            }
+             else {
                 document.getElementById('username').title = 'Error Searching' 
                 document.getElementById('username').innerHTML = `Error Searching Try Again Later.` 
             }
