@@ -498,9 +498,10 @@ function updateimage2(image2) {
 } 
 
 
+   
     function checkfunct(cid) {
     if(cid.startsWith("UC") == true) {
-        location.href = `https://mgcounts.com/youtube/subscribers-est?id=${cid}`;
+        location.href = `https://mgcounts.com/youtube/subscribers-api?id=${cid}`;
     } else {
         fetch('https://api.mgcounts.com/youtube/search/'+cid).then(res => res.json()).then(data => {
             console.log(data)
@@ -518,6 +519,8 @@ function updateimage2(image2) {
         })
     }
 }
+     
+
      
 
 
