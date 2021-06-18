@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
+<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
+<script src="https://mgcounts.com/assets/js/odometer.js"></script>
+<title>Embed</title>
+
+<style>
+    #image {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    #title {
+        position: absolute;
+        top: 0%;
+        left: 80px;
+        font-size: 20px;
+        width: 245px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: 'Open Sans', sans-serif;
+        color: #000000;
+    }
+
+    #count {
+        position: absolute;
+        top: 25px;
+        left: 80px;
+        font-size: 35px;
+        width: 245px !important;
+        color: #000000;
+    }
+
+    body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: transparent;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+
+</style>
+    </head>
+    <br>
+    <br>
+    <br>
+
+    <body>
+        <br>
+        <br>
+        <br>
+    
+        <img id="image" class="image" src="" height="70" width="70">
+        <span id="title">
+        </span>
+        <span id="count" class="odometer">0</span>
+
+    </body>
+    <script>
+ 
+ var params = new URLSearchParams(document.location.search.substring(1));
+var ID = params.get("id");
+
+ async function getStats() {
+        let request = await fetch('https://mixerno.space/api/yt/comment/'+ID+'', { mode: "cors" })
+        let data = await request.json().catch(() => {})
+        if (!data) return;
+        count.innerHTML = data.items[0].snippet.likeCount
+        title.innerHTML = data.items[0].snippet.authorDisplayName
+        updateimage(data.items[0].snippet.authorProfileImageUrl);
+   }
+    setInterval(getStats, 3000)
+    getStats()
+
+    function updateimage(image) {
+    document.querySelector(".image").src = image;
+}
+    </script>
