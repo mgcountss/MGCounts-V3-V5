@@ -1,0 +1,125 @@
+<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer-fast.css">
+<script src="https://mgcounts.com/assets/js/odometer.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<br>
+<br>
+<br>
+<div class="main" style="text-align: center; display: flex; flex-direction: row;">
+    <div class="count" style="margin-left: 100px; border-color: black; border-style: solid; width: 500px;">
+    <img src="https://yt3.ggpht.com/ytc/AAUvwniCpzEy5Nc9k4zbT8yvW2JoaRrAZFehzOoKjdP36w=s800-c-k-c0x00ffffff-no-rj" style="height: 100px; width: 100px; border-radius: 50%;">
+    <h1>JackSucksAtLife</h1>
+    <h1 id="count" class="odometer" style="margin-top: -10px; font-size: 70px;">0</h1>
+    <br>
+    <div id="chart" style="margin-top:-30px;"></div>
+    <br>
+    </div>
+<div class="top" style="margin-left: 150px; border-color: black; border-style: solid;">
+    #01<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=Ugyb0OkJoZemhn5BD194AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    #02<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgwKrbV0HSl9Qa4TPXp4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    <br>
+    #03<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgzuC3zzpRZkjc5Qzsd4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    #04<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxkSlT9_wEWVA6vqmV4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    <br>
+    #05<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxrDalAu604XCBN_AF4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    #06<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxfyH5KFWOZi4mnHcZ4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    <br>
+    #07<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgyCjWEn8Ac3dk-8VuB4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    #08<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgytePUba3ndgnEC6dh4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    <br>
+    #09<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=Ugxv2Pk3-rtfWRL8ozJ4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    #10<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgjtQw8E3CESxngCoAEC" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+        <br>
+        <br>
+        <br>
+        <br>
+        <iframe src="https://mgcounts.com/embed/youtube/subscribers-est.html?id=UCewMTclBJZPaNEfbf-qYMGA" frameBorder="0"></iframe>
+        <iframe src="https://mgcounts.com/mysubs.html" frameBorder="0"></iframe>
+</div>
+</div>
+<script>
+            async function GetStats() {
+      let request = await fetch('https://mixerno.space/api/yt/comment/UgxLYmAzf1PL9LygaMt4AaABAg', { mode: "cors" })
+      let data = await request.json().catch(() => {})
+      if (!data) return;
+      count.innerHTML = data.items[0].snippet.likeCount
+      if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+          chart.series[0].addPoint([Date.now(), Math.floor(data.items[0].snippet.likeCount)])
+ }
+  setInterval(GetStats, 3000)
+  GetStats()
+
+  
+var textBright = "#FFFFFF"
+    var lineColor = "#FFFFFF"
+    var maxPoints = 20000;
+    
+
+    
+    var chart = new Highcharts.chart({
+      chart: {
+          renderTo: 'chart',
+          type: 'line',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+      },
+      title: {
+          text: ' '
+      },
+      xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 500,
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor,
+            title: {
+                style: {
+                    color: textBright
+                }
+            }
+      },
+      yAxis: {
+          title: {
+              text: ''
+          },
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor
+      },
+      credits: {
+          enabled: true,
+          text: "MGCounts"
+      },
+    
+      series: [{
+        showInLegend: false,
+         name: 'Views',
+        marker: { enabled: false },
+        color: '#FFFFFF',
+        lineColor: '#000000'
+      }]
+    });
+
+</script>
