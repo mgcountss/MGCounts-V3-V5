@@ -69,12 +69,12 @@
 var ID = params.get("id");
 
  async function getStats() {
-        let request = await fetch('https://mixerno.space/api/youtube/estimated/user/'+ID+'', { mode: "cors" })
+        let request = await fetch('https://beta.mixerno.space/api/youtube-subscriber-counter/channel/'+ID+'', { mode: "cors" })
         let data = await request.json().catch(() => {})
         if (!data) return;
-        count.innerHTML = data.SubscriberCount
-        title.innerHTML = data.name
-        updateimage(data.image);
+        count.innerHTML = data.userList[0].user.stats.subscriberCount
+        title.innerHTML = data.userList[0].user.name
+        updateimage(data.userList[0].user.avatar.default.url);
    }
     setInterval(getStats, 3000)
     getStats()
