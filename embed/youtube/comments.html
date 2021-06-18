@@ -76,7 +76,7 @@ var ID = params.get("id");
         title.innerHTML = data.items[0].snippet.authorDisplayName
         updateimage(data.items[0].snippet.authorProfileImageUrl);
    }
-    setInterval(getStats, 3000)
+    setInterval(getStats, 15000)
     getStats()
 
     function updateimage(image) {
