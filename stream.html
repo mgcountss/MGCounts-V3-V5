@@ -14,36 +14,36 @@
     <br>
     </div>
 <div class="top" style="margin-left: 150px; border-color: black; border-style: solid;">
+    <h2>Most Liked Comments</h2>
     #01<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=Ugyb0OkJoZemhn5BD194AaABAg" frameBorder="0"
         style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-    #02<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgwKrbV0HSl9Qa4TPXp4AaABAg" frameBorder="0"
+        #05<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxrDalAu604XCBN_AF4AaABAg" frameBorder="0"
         style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    <br>
+    #02<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgwKrbV0HSl9Qa4TPXp4AaABAg" frameBorder="0"
+    style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+    #06<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxfyH5KFWOZi4mnHcZ4AaABAg" frameBorder="0"
+    style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
     <br>
     #03<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgzuC3zzpRZkjc5Qzsd4AaABAg" frameBorder="0"
         style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+        #07<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgyCjWEn8Ac3dk-8VuB4AaABAg" frameBorder="0"
+        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
+        <br>
     #04<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxkSlT9_wEWVA6vqmV4AaABAg" frameBorder="0"
         style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-    <br>
-    #05<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxrDalAu604XCBN_AF4AaABAg" frameBorder="0"
+        #08<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgytePUba3ndgnEC6dh4AaABAg" frameBorder="0"
         style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-    #06<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgxfyH5KFWOZi4mnHcZ4AaABAg" frameBorder="0"
-        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-    <br>
-    #07<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgyCjWEn8Ac3dk-8VuB4AaABAg" frameBorder="0"
-        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-    #08<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgytePUba3ndgnEC6dh4AaABAg" frameBorder="0"
-        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-    <br>
-    #09<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=Ugxv2Pk3-rtfWRL8ozJ4AaABAg" frameBorder="0"
-        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-    #10<iframe src="https://mgcounts.com/embed/youtube/comments.html?id=UgjtQw8E3CESxngCoAEC" frameBorder="0"
-        style="height:80px;" style="height:100px;" style="height:60px;" style="height:80px;"></iframe>
-        <br>
-        <br>
-        <br>
-        <br>
+        <h2>Other Stats</h2>
         <iframe src="https://mgcounts.com/embed/youtube/subscribers-est.html?id=UCewMTclBJZPaNEfbf-qYMGA" frameBorder="0"></iframe>
         <iframe src="https://mgcounts.com/mysubs.html" frameBorder="0"></iframe>
+        <br>
+        <iframe style="margin-top: -80px;" src="https://mgcounts.com/embed/youtube/subscribers-est?id=UC68DIXWCmetC8N5J_Kc5gjQ" frameBorder="0"></iframe>
+        <iframe style="margin-top: -80px;" src="https://mgcounts.com/embed/youtube/comments.html?id=UgyUQPLSoj0FBnVeVqN4AaABAg" frameBorder="0"></iframe>
+        <div class="topthing" style="margin-top: -120px">
+        <h1 id="count2" class="odometer" style="font-size: 50px; margin-left: -300px;">0</h1>
+        <h2 style="margin-left: 200px; margin-top:-70px;"><= Likes To Next Goal</h2>
+        </div>
 </div>
 </div>
 <script>
@@ -54,6 +54,10 @@
       count.innerHTML = data.items[0].snippet.likeCount
       if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
           chart.series[0].addPoint([Date.now(), Math.floor(data.items[0].snippet.likeCount)])
+          function GetGoal(count) {
+  if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
+}
+count2.innerHTML = GetGoal(data.items[0].snippet.likeCount)
  }
   setInterval(GetStats, 3000)
   GetStats()
