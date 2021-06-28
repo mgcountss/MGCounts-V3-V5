@@ -1,329 +1,330 @@
+
 <html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
-<script src="https://mgcounts.com/assets/js/odometer.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/darkly/bootstrap.min.css">
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<style>
-    .name {
-        margin-left: 20px;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
+    <script src="https://mgcounts.com/assets/js/odometer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/darkly/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        .name {
+            margin-left: 20px;
+        }
+        .highcharts-title {
+            color: #FFFFFF
+        }
+        
+    #autocomplete {
+      height: 50px;
+      width: 1000px;
+      border-radius: 10px;
+      background-color: #494949
     }
-    .highcharts-title {
-        color: #FFFFFF
+    #autocomplete::placeholder {
+    color:#FFFFFF
     }
+    .body {
+        text-align: center;
+    }
+    .ui-menu-item-wrapper:hover {
+        background-color: #494949;
+    }
+    </style>
+    <body class="body">
+    <center>
+        <br>
+        <img id="img" style="border-radius: 50%; width:150px; height:150px;" src="https://mgcounts.com/assets/img/Old-YT.png">
+        <br>
+        <h1 id="namer">Loading</h1>
+        <h1 id="odometer" style="font-size: 100px;" class="odometer">0</h1>
+        <br>
+        <br>
+        <br>
+        <h6>Subscribers Since Page Opened</h6>
+        <div id="container2" style="height: 400px; width: 1000px; color: #000000;"></div>
     
-#autocomplete {
-  height: 50px;
-  width: 1000px;
-  border-radius: 10px;
-  background-color: #494949
-}
-#autocomplete::placeholder {
-color:#FFFFFF
-}
-.body {
-    text-align: center;
-}
-.ui-menu-item-wrapper:hover {
-    background-color: #494949;
-}
-</style>
-<body class="body">
-<center>
+        <h6>Total Subscribers</h6>
+        <div id="container" style="height: 400px; width: 1000px; color: #000000;"></div>
     <br>
-    <img id="img" style="border-radius: 50%; width:150px; height:150px;" src="https://mgcounts.com/Old-YT.png">
-    <br>
-    <h1 id="namer">Loading</h1>
-    <h1 id="odometer" style="font-size: 100px;" class="odometer">0</h1>
-    <br>
-    <br>
-    <br>
-    <h6>Subscribers Since Page Opened</h6>
-    <div id="container2" style="height: 400px; width: 1000px; color: #000000;"></div>
-
-    <h6>Total Subscribers</h6>
-    <div id="container2" style="height: 400px; width: 1000px; color: #000000;"></div>
-<br>
-<div class="table-responsive" style="border-style: none;">
-    <table class="table table-striped table-dark table-sm">
-        <thead>
-            <tr>
-                <th style="border-bottom-style: solid;">Commands</th>
-                <th style="border-bottom-style: solid;">Videos</th>
-                <th style="border-bottom-style: solid;">Streams</th>
-                <th style="border-bottom-style: solid;">Shorts</th>
-                <th style="border-bottom-style: solid;">Community Posts</th>
-                <th style="border-bottom-style: solid;">Edits</th>
-                <th style="border-bottom-style: solid;">Trendings</th>
-                <th style="border-bottom-style: solid;">Chances</th>
-                <th style="border-bottom-style: solid;">Shouts Giving</th>
-                <th style="border-bottom-style: solid;">Shouts Gotten</th>
-                <th style="border-bottom-style: solid;">SubBattles Made</th>
-                <th style="border-bottom-style: solid;">SubBattles</th>
-                <th style="border-bottom-style: solid;">Drama Created</th>
-                <th style="border-bottom-style: solid;">Drama Gotten</th>
-            </tr>
-            <tr>
-                <td id="coammnds">TBC</td>
-                    <td id="videos">TBC</td>
-                    <td id="streams">TBC</td>
-                    <td id="shorts">TBC</td>
-                    <td id="posts">TBC</td>
-                    <td id="edits">TBC</td>
-                    <td id="trending">TBC</td>
-                    <td id="chance">TBC</td>
-                    <td id="shoutoutsgiven">TBC</td>
-                    <td id="shoutoutsgotten">TBC</td>
-                    <td id="subbattlesmade">TBC</td>
-                    <td id="subbattlesgotten">TBC</td>
-                    <td id="dramacreated">TBC</td>
-                    <td id="dramagotten">TBC</td>
+    <div class="table-responsive" style="border-style: none;">
+        <table class="table table-striped table-dark table-sm">
+            <thead>
+                <tr>
+                    <th style="border-bottom-style: solid;">Commands</th>
+                    <th style="border-bottom-style: solid;">Videos</th>
+                    <th style="border-bottom-style: solid;">Streams</th>
+                    <th style="border-bottom-style: solid;">Shorts</th>
+                    <th style="border-bottom-style: solid;">Community Posts</th>
+                    <th style="border-bottom-style: solid;">Edits</th>
+                    <th style="border-bottom-style: solid;">Trendings</th>
+                    <th style="border-bottom-style: solid;">Chances</th>
+                    <th style="border-bottom-style: solid;">Shouts Giving</th>
+                    <th style="border-bottom-style: solid;">Shouts Gotten</th>
+                    <th style="border-bottom-style: solid;">SubBattles Made</th>
+                    <th style="border-bottom-style: solid;">SubBattles</th>
+                    <th style="border-bottom-style: solid;">Drama Created</th>
+                    <th style="border-bottom-style: solid;">Drama Gotten</th>
                 </tr>
-        </thead>
-            <tbody style="border-style: none;" class="counters">
-        </tbody>
-    </table>
-</div>
-
-
-
-
-<br>
-<div class="table-responsive" style="border-style: none;">
-    <table class="table table-striped table-dark table-sm">
-        <thead>
-            <tr>
-                <th style="border-style: solid;border-right-style: solid;">Date</th>
-                <th style="border-bottom-style: solid;">Total Subscribers</th>
-                <th style="border-bottom-style: solid;">Subscriber Gain</th>
-            </tr>
-        </thead>
-            <tbody style="border-style: none;" class="counters">
-        </tbody>
-    </table>
-</div>
-
-</center>
-</body>
-<script>
-    var params = new URLSearchParams(document.location.search.substring(1));
-    var id = params.get("id");
-    var tags = [];
-    subs()
-    function subs() {
-    $.getJSON("https://api.mgcounts.com/fake/subs",(data)=>{
-        for (var q = 0; q < data.length; q++) {
-      if (id == data[q].cid) {
-document.getElementById('img').src = data[q].image
-document.getElementById('odometer').innerHTML = data[q].Subs
-document.getElementById('namer').innerHTML = data[q].Name
-if (chart2.series[0].points.length == 1500) chart2.series[0].data[0].remove();
-          chart2.series[0].addPoint([Date.now(), Math.floor(data[q].Subs)])
-
-}
-      }
-    });
-} setInterval(subs,2000)
-
-   
-var textBright = "#222"
-    var lineColor = "#000000"
-    var maxPoints = 20000;
-  Highcharts.getJSON('https://api.mgcounts.com/fake/subs/'+id+'', function (data) {
+                <tr>
+                    <td id="coammnds">TBC</td>
+                        <td id="videos">TBC</td>
+                        <td id="streams">TBC</td>
+                        <td id="shorts">TBC</td>
+                        <td id="posts">TBC</td>
+                        <td id="edits">TBC</td>
+                        <td id="trending">TBC</td>
+                        <td id="chance">TBC</td>
+                        <td id="shoutoutsgiven">TBC</td>
+                        <td id="shoutoutsgotten">TBC</td>
+                        <td id="subbattlesmade">TBC</td>
+                        <td id="subbattlesgotten">TBC</td>
+                        <td id="dramacreated">TBC</td>
+                        <td id="dramagotten">TBC</td>
+                    </tr>
+            </thead>
+        </table>
+    </div>
     
-    document.getElementById('coammnds').innerHTML = data.commands.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('videos').innerHTML = data.videos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('streams').innerHTML = data.streams.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('shorts').innerHTML = data.chance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('posts').innerHTML = data.community.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('edits').innerHTML = data.edits.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('trending').innerHTML = data.trending.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('chance').innerHTML = data.chance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('shoutoutsgiven').innerHTML = data.shoutoutsgot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('shoutoutsgotten').innerHTML = data.shoutoutsgive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('subbattlesmade').innerHTML = data.subbattlesmade.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('subbattlesgotten').innerHTML = data.subbattlesgot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('dramacreated').innerHTML = data.dramaget.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    document.getElementById('dramagotten').innerHTML = data.dramagive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-
-// Create the chart
-var chart = new Highcharts.chart({
-
-  rangeSelector: {
-    selected: 1
-  },
-  chart: {
-    renderTo: 'container',
-    //container
-          type: 'spline',
-            zoomType: 'x',
-            backgroundColor: 'transparent',
-            plotBorderColor: 'transparent'
-      },
-      title: {
-          text: ' '
-      },
-      xAxis: {
-          type: 'datetime',
-          tickPixelInterval: 500,
-            gridLineColor: textBright,
-            labels: {
-                style: {
-                    color: textBright
-                }
-            },
-            lineColor: lineColor,
-            minorGridLineColor: '#bdbdbd',
-            tickColor: lineColor,
-            title: {
-                style: {
-                    color: textBright
-                }
-            }
-      },
-      yAxis: {
-          title: {
-              text: ''
-          },
-            gridLineColor: textBright,
-            labels: {
-                style: {
-                    color: textBright
-                }
-            },
-            lineColor: lineColor,
-            minorGridLineColor: '#bdbdbd',
-            tickColor: lineColor
-      },
-      credits: {
-          enabled: true,
-          text: "MGCounts"
-      },
     
-      series: [{
-        showInLegend: false,
-         name: 'Subscribers',
-         data: data,
-        marker: { enabled: false },
-        color: '#000000',
-        lineColor: '#FFFFFF'
-      }]
-    });
-
-});
-
-var chart2 = new Highcharts.chart({
-
-rangeSelector: {
-  selected: 1
-},
-chart: {
-  renderTo: 'container2',
-        type: 'spline',
-          zoomType: 'x',
-          backgroundColor: 'transparent',
-          plotBorderColor: 'transparent'
-    },
-    title: {
-        text: ' '
-    },
-    xAxis: {
-        type: 'datetime',
-        tickPixelInterval: 500,
-          gridLineColor: textBright,
-          labels: {
-              style: {
-                  color: textBright
-              }
-          },
-          lineColor: lineColor,
-          minorGridLineColor: '#bdbdbd',
-          tickColor: lineColor,
-          title: {
-              style: {
-                  color: textBright
-              }
+    
+    
+    <br>
+    <div class="table-responsive" style="border-style: none;">
+        <table class="table table-striped table-dark table-sm">
+            <thead>
+                <tr>
+                    <th style="border-style: solid;border-right-style: solid;">Date</th>
+                    <th style="border-bottom-style: solid;">Total Subscribers</th>
+                    <th style="border-bottom-style: solid;">Subscriber Gain</th>
+                </tr>
+            </thead>
+                <tbody style="border-style: none;" class="counters">
+            </tbody>
+        </table>
+    </div>
+    
+    </center>
+    </body>
+    <script>
+        var params = new URLSearchParams(document.location.search.substring(1));
+        var id = params.get("id");
+        var tags = [];
+        subs()
+        function subs() {
+        $.getJSON("https://api.mgcounts.com/fake/subs",(data)=>{
+            for (var q = 0; q < data.length; q++) {
+          if (id == data[q].cid) {
+    document.getElementById('img').src = data[q].image
+    document.getElementById('odometer').innerHTML = data[q].Subs
+    document.getElementById('namer').innerHTML = data[q].Name
+    if (chart2.series[0].points.length == 1500) chart2.series[0].data[0].remove();
+              chart2.series[0].addPoint([Date.now(), Math.floor(data[q].Subs)])
+    
+    }
           }
+        });
+    } setInterval(subs,2000)
+    
+       
+    var textBright = "#222"
+        var lineColor = "#000000"
+        var maxPoints = 20000;
+      Highcharts.getJSON('https://api.mgcounts.com/fake/subs/'+id+'', function (data) {
+        
+        document.getElementById('coammnds').innerHTML = data.commands.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('videos').innerHTML = data.videos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('streams').innerHTML = data.streams.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('shorts').innerHTML = data.chance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('posts').innerHTML = data.community.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('edits').innerHTML = data.edits.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('trending').innerHTML = data.trending.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('chance').innerHTML = data.chance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('shoutoutsgiven').innerHTML = data.shoutoutsgot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('shoutoutsgotten').innerHTML = data.shoutoutsgive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('subbattlesmade').innerHTML = data.subbattlesmade.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('subbattlesgotten').innerHTML = data.subbattlesgot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('dramacreated').innerHTML = data.dramaget.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        document.getElementById('dramagotten').innerHTML = data.dramagive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    
+    // Create the chart
+    Highcharts.getJSON('https://api.mgcounts.com/fake/graph/'+id+'', function (data) {
+    var chart = new Highcharts.chart({
+    
+    rangeSelector: {
+      selected: 1
     },
-    yAxis: {
-        title: {
-            text: ''
+    chart: {
+      renderTo: 'container',
+      //container
+            type: 'spline',
+              zoomType: 'x',
+              backgroundColor: 'transparent',
+              plotBorderColor: 'transparent'
         },
-          gridLineColor: textBright,
-          labels: {
-              style: {
-                  color: textBright
+        title: {
+            text: ' '
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500,
+              gridLineColor: textBright,
+              labels: {
+                  style: {
+                      color: textBright
+                  }
+              },
+              lineColor: lineColor,
+              minorGridLineColor: '#bdbdbd',
+              tickColor: lineColor,
+              title: {
+                  style: {
+                      color: textBright
+                  }
               }
-          },
-          lineColor: lineColor,
-          minorGridLineColor: '#bdbdbd',
-          tickColor: lineColor
-    },
-    credits: {
-        enabled: true,
-        text: "MGCounts"
-    },
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+              gridLineColor: textBright,
+              labels: {
+                  style: {
+                      color: textBright
+                  }
+              },
+              lineColor: lineColor,
+              minorGridLineColor: '#bdbdbd',
+              tickColor: lineColor
+        },
+        credits: {
+            enabled: true,
+            text: "MGCounts"
+        },
+      
+        series: [{
+          showInLegend: false,
+           name: 'Subscribers',
+           data: data,
+          marker: { enabled: false },
+          color: '#000000',
+          lineColor: '#FFFFFF'
+        }]
+      });
   
-    series: [{
-      showInLegend: false,
-       name: 'Subscribers',
-      marker: { enabled: false },
-      color: '#000000',
-      lineColor: '#FFFFFF'
-    }]
   });
-
-var c = 0;
-    var eee;
-    var lol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-    function create() {
-        for (var t = 1; t <= eee; t++) {
-            var htmlcard = `<tr>
-                <td id="date_${t}">TBC</td>
-                    <td id="subs_${t}">TBC</td>
-                    <td id="subgain_${t}">TBC</td>
-                </tr>`;
-            $('.counters').append(htmlcard)
-            c += 1;
+}
+      )
+    var chart2 = new Highcharts.chart({
+    
+    rangeSelector: {
+      selected: 1
+    },
+    chart: {
+      renderTo: 'container2',
+            type: 'spline',
+              zoomType: 'x',
+              backgroundColor: 'transparent',
+              plotBorderColor: 'transparent'
+        },
+        title: {
+            text: ' '
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500,
+              gridLineColor: textBright,
+              labels: {
+                  style: {
+                      color: textBright
+                  }
+              },
+              lineColor: lineColor,
+              minorGridLineColor: '#bdbdbd',
+              tickColor: lineColor,
+              title: {
+                  style: {
+                      color: textBright
+                  }
+              }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+              gridLineColor: textBright,
+              labels: {
+                  style: {
+                      color: textBright
+                  }
+              },
+              lineColor: lineColor,
+              minorGridLineColor: '#bdbdbd',
+              tickColor: lineColor
+        },
+        credits: {
+            enabled: true,
+            text: "MGCounts"
+        },
+      
+        series: [{
+          showInLegend: false,
+           name: 'Subscribers',
+          marker: { enabled: false },
+          color: '#000000',
+          lineColor: '#FFFFFF'
+        }]
+      });
+    
+    var c = 0;
+        var eee;
+        var lol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+        function create() {
+            for (var t = 1; t <= eee; t++) {
+                var htmlcard = `<tr>
+                    <td id="date_${t}">TBC</td>
+                        <td id="subs_${t}">TBC</td>
+                        <td id="subgain_${t}">TBC</td>
+                    </tr>`;
+                $('.counters').append(htmlcard)
+                c += 1;
+            }
         }
-    }
-    $.getJSON("https://api.mgcounts.com/fake/subs/"+id+"", (data) => {
-        eee = data.length
-        create()
-        data.sort(function(a,b){return b[0] - a[0]});
-        for (var q = 0; q < eee; q++) {
-            updateData(q, data)
-        }
-    })
-    var lastsubs = [0]
-    function updateData(q, data) {
-        setTimeout(function () {
-            var cnb = q+1;
-
-            data[q][1] = Math.floor(data[q][1])
-            document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q][1]).format('0,0');
-            var day = new Date(data[q][0]).getDate()
-            var month = new Date(data[q][0]).getMonth()+1
-            var year = new Date(data[q][0]).getFullYear()
-            var hour = new Date(data[q][0]).getHours()
-            
-
-            document.getElementById('date_' + cnb + '').innerHTML = year+"-"+month+"-"+day+" Hour: "+hour
-                lastsubs[q] = data[q][1]
-document.getElementById('subgain_' + cnb + '').innerHTML = "+"+numeral(lastsubs[q-1]-data[q][1]).format('0,0');
+        $.getJSON("https://api.mgcounts.com/fake/graph/"+id+"", (data) => {
+            eee = data.length
+            create()
+            data.sort(function(a,b){return b[0] - a[0]});
+            for (var q = 0; q < eee; q++) {
+                updateData(q, data)
+            }
         })
-    }
-
-</script>
-
-
-</html>
+        var lastsubs = [0]
+        function updateData(q, data) {
+            setTimeout(function () {
+                var cnb = q+1;
+    
+                data[q][1] = Math.floor(data[q][1])
+                document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q][1]).format('0,0');
+                var day = new Date(data[q][0]).getDate()
+                var month = new Date(data[q][0]).getMonth()+1
+                var year = new Date(data[q][0]).getFullYear()
+                var hour = new Date(data[q][0]).getHours()
+                
+    
+                document.getElementById('date_' + cnb + '').innerHTML = year+"-"+month+"-"+day+" Hour: "+hour
+                    lastsubs[q] = data[q][1]
+    document.getElementById('subgain_' + cnb + '').innerHTML = "+"+numeral(lastsubs[q-1]-data[q][1]).format('0,0');
+            })
+        }
+    
+    </script>
+    
+    
+    </html>
