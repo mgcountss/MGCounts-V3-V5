@@ -167,7 +167,6 @@
             <li><a class="btn" style="color: White;" href="https://statcounts.com/">StatCounts</a></li>
             <li><a class="btn" style="color: White;" href="https://mixerno.space/">Mixerno.space</a></li>
             <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter">Change Channel</a></li></li>
-            <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter2">Embed</a></li></li>
             <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li></li>
           </ul>
         </div>
@@ -273,32 +272,6 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog" style="background-color: #292b2c;">
-    
-      <div class="modal-header">
-      <div class="modal-body">
-              </div>
-              <center>
-
-               <h1 style="color: white;">Embed Link</h1>
-               <br>
-               <input id="embed" type="text" style="width: 560px;height: 80px; background-color: #222222; color: #FFFFFF;" value="https://mgcounts.com/embed/subscribers-api" readonly><br>
-
-          
-          </div>
-          
-          </div>
-          
-             
-                </center>
-            </div>
-      </div>
-        </div>
-    </div>
-  </div>
-</div>
-
 <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog" style="background-color: #292b2c;">
     
@@ -354,17 +327,10 @@ if (url.searchParams.get('id')) {
 }
 
 function myFunction() {
-
   var copyText = document.getElementById("channelIdThing");
-
   copyText.select();
   copyText.setSelectionRange(0, 99999); 
-
-
   document.execCommand("copy");
-
-
-  alert("Copied the text: " + copyText.value);
 }
 
 function updatePageHmm(){
@@ -399,7 +365,6 @@ async function getYTStats() {
         odometer2.innerHTML = data.totalviews
         odometer3.innerHTML = data.videos
         title.innerHTML = data.name
-        document.getElementById("channelIdThing").value = data.cid
 
         updateimage(data.image);
         updateimage2(data.banner);
@@ -417,8 +382,7 @@ async function getYTStats() {
     getYTStats()
 
     
-    document.getElementById("embed").value =
-              "https://mgcounts.com/embed/youtube/subscribers-est?id="+ID;
+    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/youtube/subscribers-est?id="+ID;
            
               $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/subscribers-est?id=${ID}" readonly>');
 
