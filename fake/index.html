@@ -157,16 +157,17 @@
         .odometer {
             font-family: 'Open Sans', sans-serif;
         }
-        input::placeholder {
-		color: #FFFFFF;
-	}
-    input {
-        height: 50px;
-		background-color: #494949;
-		color: #FFFFFF;
-		width: 90%
-    }
 
+        input::placeholder {
+            color: #FFFFFF;
+        }
+
+        input {
+            height: 50px;
+            background-color: #494949;
+            color: #FFFFFF;
+            width: 90%
+        }
     </style>
 </head>
 
@@ -213,7 +214,7 @@
 
 
 
-            </div>
+        </div>
 
         </div>
 
@@ -221,34 +222,7 @@
         </div>
     </center>
 
-    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog" style="background-color: #292b2c;">
 
-            <div class="modal-header">
-                <div class="modal-body">
-                </div>
-                <center>
-
-                    <h1 style="color: white;">Embed Link</h1>
-                    <br>
-                    <input id="embed" type="text"
-                        style="width: 560px;height: 80px; background-color: #222222; color: #FFFFFF;"
-                        value="https://mgcounts.com/embed/storyfire/followers.html" readonly><br>
-
-
-            </div>
-
-        </div>
-
-
-        </center>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
 
     <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -286,41 +260,72 @@
     </div>
     </div>
 
-<br>
-<input id="name" placeholder="Channel Name">
-<br>
-<input id="subs" placeholder="Channel Subs">
-<br>
-<input id="image3" placeholder="Channel Image">
-<br>
-<input id="banner" placeholder="Channel Banner">
-<br>
-<input id="rate1" placeholder="Sub Gain (Min)">
-<br>
-<input id="rate2" placeholder="Sub Gain (Max)">
-<br>
-<input id="updatetime" placeholder="Update Time (In Seconds)">
-<br>
-<button onclick="start()" style="height: 40px; width: 70%; font-size: 20px;">Start</button>
-<br>
-<button onclick="stop()" style="height: 40px; width: 70%; font-size: 20px;">Stop</button>
-</center>
+    <br>
+    <input id="name" placeholder="Channel Name">
+    <br>
+    <input id="subs" placeholder="Channel Subs">
+    <br>
+    <input id="image3" placeholder="Channel Image">
+    <br>
+    <input id="banner" placeholder="Channel Banner">
+    <br>
+    <input id="rate1" placeholder="Sub Gain (Min)">
+    <br>
+    <input id="rate2" placeholder="Sub Gain (Max)">
+    <br>
+    <input id="updatetime" placeholder="Update Time (In Seconds)">
+    <br>
+    <input id="apimode" placeholder="Channel ID">
+    <br>
+    <br>
+    <input type="checkbox" id="accept">
+    <h4 style="color:#FFFFFF;"">Set Channel Branding With Api</h4>
+    <button onclick="api()" style="height: 40px; width: 70%; font-size: 20px;">Enable Api Mode</button>
+    <br>
+    <br>
+    <button onclick="start()" style="height: 40px; width: 70%; font-size: 20px;">Start</button>
+    <br>
+    <button onclick="stop()" style="height: 40px; width: 70%; font-size: 20px;">Stop</button>
+    </center>
 </body>
 
 <script>
     var params = new URLSearchParams(document.location.search.substring(1));
     var odometerColor = params.get("o");
-    var ID = "huaPiB3qL1aE7gMCsWJxu9JLiLF3";
-    url = new URL(window.location.href);
 
-    function random(min, max){
-  return Math.floor(Math.random()* (max-min) + min);
-  }
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    var ee;
 
-    if (url.searchParams.get('id')) {
+    function api() {
+        clearInterval(ee)
+        ee = setInterval(GetApi, 60000)
+        GetApi()
+    }
+    var apisubs = 0;
+    async function GetApi() {
+        var cid = document.getElementById('apimode').value
+        let request = await fetch('https://api.mgcounts.com/youtube/subscribers/' + cid + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        console.log(data)
+console.log(apisubs == data.subscribers)
 
-        var ID = params.get("id");
+if (document.getElementById('accept').checked == true) {
+    document.getElementById('image').src = data.image
 
+    document.getElementById('image2').src = data.banner
+} else {
+
+}
+
+
+if (apisubs != data.subscribers) {
+    document.getElementById('odometer').innerHTML = data.subscribers
+        } else { 
+        }
+        apisubs = data.subscribers
     }
 
     function updatePageHmm() {
@@ -335,7 +340,6 @@
         location.search = '?&o=' + colorThing + ''
     }
 
-
     if (odometerColor == "1") {
         $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast.css">');
     }
@@ -345,29 +349,41 @@
     if (odometerColor == "3") {
         $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
     }
-var e;
+    var e = 2000;
 
     function start() {
         clearInterval(e)
         var d = parseFloat(document.getElementById('updatetime').value) * 1000
-         e = setInterval(GetStats, d)
+        e = setInterval(GetStats, d)
     }
     function stop() {
         clearInterval(e)
     }
 
- function GetStats() {
-     var current = parseFloat(document.getElementById('subs').value);
-     
-     var min = parseFloat(document.getElementById('rate1').value);
-     var max = parseFloat(document.getElementById('rate2').value);
+    function GetStats() {
 
-     var newsubs = current + random(min,max)
+        var current = parseFloat(document.getElementById('subs').value);
+
+        var min = parseFloat(document.getElementById('rate1').value);
+        var max = parseFloat(document.getElementById('rate2').value);
+
+        var newsubs = current + random(min, max)
         odometer.innerHTML = newsubs
         title.innerHTML = document.getElementById('name').value
 
-        updateimage(document.getElementById('image3').value);
-        updateimage2(document.getElementById('banner').value);
+        if (document.getElementById('image3').value) {
+            document.getElementById('image').src = document.getElementById('image3').value
+        } else {
+            document.getElementById('image').src = "https://mgcounts.com/assets/img/Old-YT.png"
+        }
+
+        if (document.getElementById('banner').value) {
+            document.getElementById('image2').src = document.getElementById('banner').value
+        } else {
+            document.getElementById('image2').src = "https://mgcounts.com/assets/img/Old-YT.png"
+        }
+
+
 
         if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
         chart.series[0].addPoint([Date.now(), Math.floor(newsubs)])
@@ -440,15 +456,6 @@ var e;
             lineColor: '#FFFFFF'
         }]
     });
-
-
-    function updateimage(image) {
-        document.querySelector(".image").src = image;
-    }
-
-    function updateimage2(image2) {
-        document.querySelector(".image2").src = image2;
-    }
 </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
