@@ -104,6 +104,7 @@
             flex: 10;
             column-gap: 20px;
             justify-content: space-between;
+            text-align: center;
         }
 
         ::-webkit-scrollbar {
@@ -278,8 +279,22 @@
     <input id="apimode" placeholder="Channel ID">
     <br>
     <br>
-    <input type="checkbox" id="accept">
-    <h4 style="color:#FFFFFF;"">Set Channel Branding With Api</h4>
+    <div class="container">
+        <div>
+            <input type="checkbox" id="abbreviate">
+            <h4 style="color:#FFFFFF;">Abbreviate Number?</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <input type="checkbox" id="accept">
+            <h4 style="color:#FFFFFF;">Set Channel Branding With Api</h4>
+        </div>
+        <div>
+            <input type="checkbox" id="testest">
+            <h4 style="color:#FFFFFF;">Enable Auto Estimate (Experimental)</h4>
+        </div>
+    </div>
     <button onclick="api()" style="height: 40px; width: 70%; font-size: 20px;">Enable Api Mode</button>
     <br>
     <br>
@@ -290,172 +305,7 @@
 </body>
 
 <script>
-    var params = new URLSearchParams(document.location.search.substring(1));
-    var odometerColor = params.get("o");
-
-    function random(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-    }
-    var ee;
-
-    function api() {
-        clearInterval(ee)
-        ee = setInterval(GetApi, 60000)
-        GetApi()
-    }
-    var apisubs = 0;
-    async function GetApi() {
-        var cid = document.getElementById('apimode').value
-        let request = await fetch('https://api.mgcounts.com/youtube/subscribers/' + cid + '', { mode: "cors" })
-        let data = await request.json().catch(() => { })
-        if (!data) return;
-        console.log(data)
-console.log(apisubs == data.subscribers)
-
-if (document.getElementById('accept').checked == true) {
-    document.getElementById('image').src = data.image
-    document.getElementById('title').innerHTML = data.title
-    document.getElementById('image2').src = data.banner
-} else {
-
-}
-
-
-if (apisubs != data.subscribers) {
-    document.getElementById('odometer').innerHTML = data.subscribers
-        } else { 
-        }
-        apisubs = data.subscribers
-    }
-
-    function updatePageHmm() {
-        var nameIdThing = document.getElementById("searchHmm").value;
-        var z = location.search;
-        location.search = '?o=' + odometerColor + ''
-    }
-
-    function updatePage() {
-        var colorThing = document.getElementById("odometerChanger").value;
-        var x = location.search;
-        location.search = '?&o=' + colorThing + ''
-    }
-
-    if (odometerColor == "1") {
-        $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast.css">');
-    }
-    if (odometerColor == "2") {
-        $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-colored.css">');
-    }
-    if (odometerColor == "3") {
-        $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
-    }
-    var e = 2000;
-
-    function start() {
-        clearInterval(e)
-        var d = parseFloat(document.getElementById('updatetime').value) * 1000
-        e = setInterval(GetStats, d)
-    }
-    function stop() {
-        clearInterval(e)
-    }
-
-    function GetStats() {
-
-        var current = parseFloat(document.getElementById('subs').value);
-
-        var min = parseFloat(document.getElementById('rate1').value);
-        var max = parseFloat(document.getElementById('rate2').value);
-
-        var newsubs = current + random(min, max)
-        odometer.innerHTML = newsubs
-        title.innerHTML = document.getElementById('name').value
-
-        if (document.getElementById('image3').value) {
-            document.getElementById('image').src = document.getElementById('image3').value
-        } else {
-            document.getElementById('image').src = "https://mgcounts.com/assets/img/Old-YT.png"
-        }
-
-        if (document.getElementById('banner').value) {
-            document.getElementById('image2').src = document.getElementById('banner').value
-        } else {
-            document.getElementById('image2').src = "https://mgcounts.com/assets/img/Old-YT.png"
-        }
-
-
-
-        if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-        chart.series[0].addPoint([Date.now(), Math.floor(newsubs)])
-
-        function GetGoal(count) {
-            if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
-        }
-        GetGoal(parseFloat(newsubs))
-        document.getElementById('subs').value = parseFloat(newsubs)
-    }
-    var textBright = "#bdbdbd"
-    var lineColor = "#000000"
-    var maxPoints = 20000;
-
-
-
-    var chart = new Highcharts.chart({
-        chart: {
-            renderTo: 'chart',
-            type: 'line',
-            zoomType: 'x',
-            backgroundColor: 'transparent',
-            plotBorderColor: 'transparent'
-        },
-        title: {
-            text: ' '
-        },
-        xAxis: {
-            type: 'datetime',
-            tickPixelInterval: 500,
-            gridLineColor: textBright,
-            labels: {
-                style: {
-                    color: textBright
-                }
-            },
-            lineColor: lineColor,
-            minorGridLineColor: '#bdbdbd',
-            tickColor: lineColor,
-            title: {
-                style: {
-                    color: textBright
-                }
-            }
-        },
-        yAxis: {
-            title: {
-                text: ''
-            },
-            gridLineColor: textBright,
-            labels: {
-                style: {
-                    color: textBright
-                }
-            },
-            lineColor: lineColor,
-            minorGridLineColor: '#bdbdbd',
-            tickColor: lineColor
-        },
-        credits: {
-            enabled: true,
-            text: "MGCounts"
-        },
-
-        series: [{
-            showInLegend: false,
-            name: 'Subscribers',
-            marker: { enabled: false },
-            color: '#000000',
-            lineColor: '#FFFFFF'
-        }]
-    });
+   var _0x218c=['apimode','search','series','1LlqQgs','append','Subscribers','subscribers','title','https://api.mgcounts.com/youtube/subscribers/','floor','#bdbdbd','value','?o=','#000000','https://mgcounts.com/assets/img/Old-YT.png','ceil','banner','rate2','data','toString','updatetime','2EQOQWP','229lPqSSl','log10','location','3QRVzzr','getElementById','00000000','chart','rate1','transparent','cors','line','<link\x20rel=\x22stylesheet\x22\x20type=\x22text/css\x22\x20href=\x22https://mgcounts.com/assets/css/odometer-fast-colored.css\x22>','1iZAnUF','4383DcEnLu','140494jyiWtq','datetime','000000000000','json','slice','random','0000000000','now','<link\x20rel=\x22stylesheet\x22\x20type=\x22text/css\x22\x20href=\x22https://mgcounts.com/assets/css/odometer-fast.css\x22>','image3','head','472141KWsTKP','MGCounts','abbreviate','testest','image2','000','src','addPoint','738373BBKahS','accept','searchHmm','5669vjrfQF','0000000000000','get','subs','1tZqzjB','000000','318727kMyWSE','image','checked','substring','314396cdxHOZ','00000000000','innerHTML'];var _0xfb2144=_0xe070;(function(_0x112f7e,_0x8639c3){var _0x5a88e=_0xe070;while(!![]){try{var _0x2e1313=parseInt(_0x5a88e(0x218))+parseInt(_0x5a88e(0x21e))*parseInt(_0x5a88e(0x20e))+parseInt(_0x5a88e(0x214))*parseInt(_0x5a88e(0x1ed))+-parseInt(_0x5a88e(0x20b))*parseInt(_0x5a88e(0x1f6))+parseInt(_0x5a88e(0x1f8))*parseInt(_0x5a88e(0x212))+parseInt(_0x5a88e(0x1e9))*parseInt(_0x5a88e(0x203))+-parseInt(_0x5a88e(0x1f7))*parseInt(_0x5a88e(0x1ea));if(_0x2e1313===_0x8639c3)break;else _0x112f7e['push'](_0x112f7e['shift']());}catch(_0x2efc3c){_0x112f7e['push'](_0x112f7e['shift']());}}}(_0x218c,0x971be));var params=new URLSearchParams(document[_0xfb2144(0x1ec)][_0xfb2144(0x21c)][_0xfb2144(0x217)](0x1)),odometerColor=params[_0xfb2144(0x210)]('o'),newsubs=0x0,timesince=0x0,oldsubs=0x0,eee;function abbreviateNumber(_0x1db662){var _0x312976=_0xfb2144;if(_0x1db662<=0x3e7)return _0x1db662;else{if(_0x1db662>0x3e7&&_0x1db662<0x270f)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+'0');else{if(_0x1db662>0x270f&&_0x1db662<0x1869f)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+'00');else{if(_0x1db662>0x1869f&&_0x1db662<0xf423f)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+_0x312976(0x208));else{if(_0x1db662>0xf423f&&_0x1db662<0x98967f)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+'0000');else{if(_0x1db662>0x98967f&&_0x1db662<0x5f5e0ff)return parseInt(_0x1db662[_0x312976(0x1e7)]()['slice'](0x0,0x3)+'00000');else{if(_0x1db662>0x5f5e0ff&&_0x1db662<0x3b9ac9ff)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+_0x312976(0x213));else{if(_0x1db662>0x3b9ac9ff&&_0x1db662<0x2540be3ff)return parseInt(_0x1db662[_0x312976(0x1e7)]()['slice'](0x0,0x3)+'0000000');else{if(_0x1db662>0x2540be3ff&&_0x1db662<0x174876e7ff)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+_0x312976(0x1ef));else{if(_0x1db662>0x174876e7ff&&_0x1db662<0xe8d4a50fff)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+'000000000');else{if(_0x1db662>0xe8d4a50fff&&_0x1db662<0x9184e729fff)return parseInt(_0x1db662['toString']()['slice'](0x0,0x3)+_0x312976(0x1fe));else{if(_0x1db662>0x9184e729fff&&_0x1db662<0x5af3107a3fff)return parseInt(_0x1db662[_0x312976(0x1e7)]()['slice'](0x0,0x3)+_0x312976(0x219));else{if(_0x1db662>0x5af3107a3fff&&_0x1db662<0x38d7ea4c67fff)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+_0x312976(0x1fa));else{if(_0x1db662>0x38d7ea4c67fff&&_0x1db662<0x2386f26fc10000)return parseInt(_0x1db662[_0x312976(0x1e7)]()[_0x312976(0x1fc)](0x0,0x3)+_0x312976(0x20f));}}}}}}}}}}}}}}function random(_0x4aa306,_0x1793bf){var _0x4ca0f5=_0xfb2144;return Math[_0x4ca0f5(0x1dd)](Math[_0x4ca0f5(0x1fd)]()*(_0x1793bf-_0x4aa306)+_0x4aa306);}var ee;function _0xe070(_0x4db15d,_0x25eb20){return _0xe070=function(_0x218c51,_0xe070e6){_0x218c51=_0x218c51-0x1da;var _0x33f5e5=_0x218c[_0x218c51];return _0x33f5e5;},_0xe070(_0x4db15d,_0x25eb20);}function api(){clearInterval(ee),ee=setInterval(GetApi,0xea60),GetApi();}var apisubs=0x0;async function GetApi(){var _0x1f19bb=_0xfb2144,_0x4e9beb=document[_0x1f19bb(0x1ee)](_0x1f19bb(0x21b))[_0x1f19bb(0x1df)];let _0x1458b5=await fetch(_0x1f19bb(0x1dc)+_0x4e9beb+'',{'mode':_0x1f19bb(0x1f3)}),_0x2659cc=await _0x1458b5[_0x1f19bb(0x1fb)]()['catch'](()=>{});if(!_0x2659cc)return;console['log'](_0x2659cc);if(document[_0x1f19bb(0x1ee)](_0x1f19bb(0x20c))['checked']==!![])document[_0x1f19bb(0x1ee)](_0x1f19bb(0x215))[_0x1f19bb(0x209)]=_0x2659cc['image'],document[_0x1f19bb(0x1ee)](_0x1f19bb(0x1db))[_0x1f19bb(0x21a)]=_0x2659cc[_0x1f19bb(0x1db)],document['getElementById'](_0x1f19bb(0x207))[_0x1f19bb(0x209)]=_0x2659cc[_0x1f19bb(0x1e4)];else{}function _0x38bd33(){timesince++;}if(apisubs!=_0x2659cc[_0x1f19bb(0x1da)]){document[_0x1f19bb(0x1ee)]('odometer')[_0x1f19bb(0x21a)]=_0x2659cc[_0x1f19bb(0x1da)],newsubs=parseFloat(_0x2659cc['subscribers']),document[_0x1f19bb(0x1ee)]('subs')['value']=parseFloat(newsubs);if(document['getElementById'](_0x1f19bb(0x206))['checked']==!![]){var _0x4c8fcd=parseFloat(_0x2659cc[_0x1f19bb(0x1da)])-parseFloat(oldsubs),_0x4411d3=parseFloat(timesince),_0x4d2bb6=parseFloat(_0x4c8fcd/_0x4411d3);document[_0x1f19bb(0x1ee)](_0x1f19bb(0x1f1))[_0x1f19bb(0x1df)]=parseFloat(_0x4d2bb6*0x2),document['getElementById'](_0x1f19bb(0x1e5))[_0x1f19bb(0x1df)]=parseFloat(_0x4d2bb6*0x2);}clearInterval(eee),eee=setInterval(_0x38bd33,0x3e8),timesince=0x0,oldsubs=_0x2659cc[_0x1f19bb(0x1da)];}else newsubs=newsubs;apisubs=_0x2659cc[_0x1f19bb(0x1da)];}function updatePageHmm(){var _0x152801=_0xfb2144,_0x39fb9d=document[_0x152801(0x1ee)](_0x152801(0x20d))['value'],_0x3f59ba=location[_0x152801(0x21c)];location[_0x152801(0x21c)]=_0x152801(0x1e0)+odometerColor+'';}function updatePage(){var _0x4ad1fa=_0xfb2144,_0x15109e=document[_0x4ad1fa(0x1ee)]('odometerChanger')['value'],_0xe4dc1e=location[_0x4ad1fa(0x21c)];location[_0x4ad1fa(0x21c)]='?&o='+_0x15109e+'';}odometerColor=='1'&&$('head')['append'](_0xfb2144(0x200));odometerColor=='2'&&$(_0xfb2144(0x202))[_0xfb2144(0x21f)]('<link\x20rel=\x22stylesheet\x22\x20type=\x22text/css\x22\x20href=\x22https://mgcounts.com/assets/css/odometer-colored.css\x22>');odometerColor=='3'&&$('head')[_0xfb2144(0x21f)](_0xfb2144(0x1f5));var e=0x7d0;function start(){var _0x4032e1=_0xfb2144;clearInterval(e);var _0x25396b=parseFloat(document[_0x4032e1(0x1ee)](_0x4032e1(0x1e8))['value'])*0x3e8;e=setInterval(GetStats,_0x25396b);}function stop(){clearInterval(e);}function GetStats(){var _0x312250=_0xfb2144,_0x4313a9=parseFloat(document[_0x312250(0x1ee)](_0x312250(0x211))[_0x312250(0x1df)]),_0x406a52=parseFloat(document[_0x312250(0x1ee)](_0x312250(0x1f1))[_0x312250(0x1df)]),_0x5d23db=parseFloat(document[_0x312250(0x1ee)](_0x312250(0x1e5))['value']);newsubs=_0x4313a9+random(_0x406a52,_0x5d23db);document[_0x312250(0x1ee)](_0x312250(0x205))[_0x312250(0x216)]==!![]&&(newsubs=abbreviateNumber(newsubs));odometer[_0x312250(0x21a)]=newsubs;if(document[_0x312250(0x1ee)](_0x312250(0x20c))[_0x312250(0x216)]==!![]){}else title['innerHTML']=document[_0x312250(0x1ee)]('name')[_0x312250(0x1df)],document['getElementById'](_0x312250(0x201))[_0x312250(0x1df)]?document[_0x312250(0x1ee)]('image')[_0x312250(0x209)]=document[_0x312250(0x1ee)](_0x312250(0x201))[_0x312250(0x1df)]:document[_0x312250(0x1ee)](_0x312250(0x215))[_0x312250(0x209)]=_0x312250(0x1e2),document[_0x312250(0x1ee)](_0x312250(0x1e4))[_0x312250(0x1df)]?document['getElementById'](_0x312250(0x207))[_0x312250(0x209)]=document[_0x312250(0x1ee)](_0x312250(0x1e4))[_0x312250(0x1df)]:document[_0x312250(0x1ee)](_0x312250(0x207))[_0x312250(0x209)]=_0x312250(0x1e2);if(chart['series'][0x0]['points']['length']==0x5dc)chart[_0x312250(0x21d)][0x0][_0x312250(0x1e6)][0x0]['remove']();chart[_0x312250(0x21d)][0x0][_0x312250(0x20a)]([Date[_0x312250(0x1ff)](),Math['floor'](newsubs)]);function _0xde5ba2(_0x48c198){var _0xe9acff=_0x312250;if(_0x48c198<0xa)return 0xa;var _0x42b012=Math[_0xe9acff(0x1dd)](Math[_0xe9acff(0x1eb)](_0x48c198)),_0x588f73=Math[_0xe9acff(0x1e3)](_0x48c198/0xa**_0x42b012),_0x48c291=_0x588f73*0xa**_0x42b012,_0x1a6df7=_0x48c291-_0x48c198;return _0x1a6df7;}_0xde5ba2(parseFloat(newsubs)),document['getElementById'](_0x312250(0x211))[_0x312250(0x1df)]=parseFloat(newsubs);}var textBright=_0xfb2144(0x1de),lineColor=_0xfb2144(0x1e1),maxPoints=0x4e20,chart=new Highcharts[(_0xfb2144(0x1f0))]({'chart':{'renderTo':'chart','type':_0xfb2144(0x1f4),'zoomType':'x','backgroundColor':_0xfb2144(0x1f2),'plotBorderColor':_0xfb2144(0x1f2)},'title':{'text':'\x20'},'xAxis':{'type':_0xfb2144(0x1f9),'tickPixelInterval':0x1f4,'gridLineColor':textBright,'labels':{'style':{'color':textBright}},'lineColor':lineColor,'minorGridLineColor':'#bdbdbd','tickColor':lineColor,'title':{'style':{'color':textBright}}},'yAxis':{'title':{'text':''},'gridLineColor':textBright,'labels':{'style':{'color':textBright}},'lineColor':lineColor,'minorGridLineColor':'#bdbdbd','tickColor':lineColor},'credits':{'enabled':!![],'text':_0xfb2144(0x204)},'series':[{'showInLegend':![],'name':_0xfb2144(0x220),'marker':{'enabled':![]},'color':_0xfb2144(0x1e1),'lineColor':'#FFFFFF'}]});
 </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
