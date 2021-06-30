@@ -53,45 +53,7 @@
         <h6>Total Subscribers</h6>
         <div id="container" style="height: 400px; width: 1000px; color: #000000;"></div>
     <br>
-    <div class="table-responsive" style="border-style: none;">
-        <table class="table table-striped table-dark table-sm">
-            <thead>
-                <tr>
-                    <th style="border-bottom-style: solid;">Commands</th>
-                    <th style="border-bottom-style: solid;">Videos</th>
-                    <th style="border-bottom-style: solid;">Streams</th>
-                    <th style="border-bottom-style: solid;">Shorts</th>
-                    <th style="border-bottom-style: solid;">Community Posts</th>
-                    <th style="border-bottom-style: solid;">Edits</th>
-                    <th style="border-bottom-style: solid;">Trendings</th>
-                    <th style="border-bottom-style: solid;">Chances</th>
-                    <th style="border-bottom-style: solid;">Shouts Giving</th>
-                    <th style="border-bottom-style: solid;">Shouts Gotten</th>
-                    <th style="border-bottom-style: solid;">SubBattles Made</th>
-                    <th style="border-bottom-style: solid;">SubBattles</th>
-                    <th style="border-bottom-style: solid;">Drama Created</th>
-                    <th style="border-bottom-style: solid;">Drama Gotten</th>
-                </tr>
-                <tr>
-                    <td id="coammnds">TBC</td>
-                        <td id="videos">TBC</td>
-                        <td id="streams">TBC</td>
-                        <td id="shorts">TBC</td>
-                        <td id="posts">TBC</td>
-                        <td id="edits">TBC</td>
-                        <td id="trending">TBC</td>
-                        <td id="chance">TBC</td>
-                        <td id="shoutoutsgiven">TBC</td>
-                        <td id="shoutoutsgotten">TBC</td>
-                        <td id="subbattlesmade">TBC</td>
-                        <td id="subbattlesgotten">TBC</td>
-                        <td id="dramacreated">TBC</td>
-                        <td id="dramagotten">TBC</td>
-                    </tr>
-            </thead>
-        </table>
-    </div>
-    
+
     
     
     
@@ -136,22 +98,8 @@
     var textBright = "#222"
         var lineColor = "#000000"
         var maxPoints = 20000;
-      Highcharts.getJSON('https://api.mgcounts.com/fake/subs/'+id+'', function (data) {
-        
-        document.getElementById('coammnds').innerHTML = data.commands.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('videos').innerHTML = data.videos.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('streams').innerHTML = data.streams.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('shorts').innerHTML = data.chance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('posts').innerHTML = data.community.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('edits').innerHTML = data.edits.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('trending').innerHTML = data.trending.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('chance').innerHTML = data.chance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('shoutoutsgiven').innerHTML = data.shoutoutsgot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('shoutoutsgotten').innerHTML = data.shoutoutsgive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('subbattlesmade').innerHTML = data.subbattlesmade.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('subbattlesgotten').innerHTML = data.subbattlesgot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('dramacreated').innerHTML = data.dramaget.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        document.getElementById('dramagotten').innerHTML = data.dramagive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+
+
     
     // Create the chart
     Highcharts.getJSON('https://api.mgcounts.com/fake/graph/'+id+'', function (data) {
@@ -219,8 +167,7 @@
       });
   
   });
-}
-      )
+
     var chart2 = new Highcharts.chart({
     
     rangeSelector: {
