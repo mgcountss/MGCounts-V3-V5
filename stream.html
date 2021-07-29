@@ -138,7 +138,7 @@ neww = neww
 neww = "+"+neww
 }
 gain.innerHTML = neww
-last = data.userList[0].stats.subscriberCount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+last = data.userList[0].stats.subscriberCount
 ref.push(newww)
 
 
@@ -161,7 +161,7 @@ time = Math.floor(20000000 - data.userList[0].stats.subscriberCount)
 
 setInterval(function() {
     cur--
-    other.innerHTML = Math.floor(cur).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')+" Seconds."
+    other.innerHTML = Math.floor(cur)+" Seconds."
 },1000)
 
 
