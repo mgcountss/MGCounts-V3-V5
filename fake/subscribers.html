@@ -48,13 +48,13 @@ color:#FFFFFF
             <thead>
                 <tr>
                     <th style="border-style: solid;border-right-style: solid;">Top Channels</th>
-    
+
                     <th style="border-bottom-style: solid;">Subscribers</th>
                 </tr>
             </thead>
             <tbody style="border-style: none;" class="counters">
-    
-    
+
+
             </tbody>
         </table>
     </div>
@@ -90,7 +90,6 @@ tags[q] = data[q].Name
                 c += 1;
             }
         }
-	    
         $.getJSON("https://api.mgcounts.com/fake/subs/", (data) => {
             eee = data.length
             create()
@@ -100,9 +99,9 @@ tags[q] = data[q].Name
         })
         function updateData(q, data) {
             setTimeout(function () {
-    
+
                 var cnb = q+1;
-    
+
                 data[q].Subs = Math.floor(data[q].Subs)
                 document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q].Subs).format('0,0');
                 document.getElementById('name_' + cnb + '').innerHTML = data[q].Name
@@ -111,27 +110,6 @@ tags[q] = data[q].Name
             })
         }
 
-	    function repeat() {
-	            $.getJSON("https://api.mgcounts.com/fake/subs/", (data) => {
-            eee = data.length
-            for (var q = 0; q < eee; q++) {
-                updateData(q, data)
-            }
-        })
-        function updateData(q, data) {
-            setTimeout(function () {
-                var cnb = q+1;
-                data[q].Subs = Math.floor(data[q].Subs)
-                document.getElementById('subs_' + cnb + '').innerHTML = numeral(data[q].Subs).format('0,0');
-                document.getElementById('name_' + cnb + '').innerHTML = data[q].Name
-                document.getElementById('img_' + cnb + '').src = data[q].image
-                document.getElementById('tr_'+ cnb + '').value = data[q].cid
-            })
-        }
-        function ee(elmnt) {
-            console.log(elmnt.id)
-    window.location.href = "https://mgcounts.com/fake/users.html?id="+elmnt.value+"";
-        }
 
 
         function ee(elmnt) {
@@ -141,8 +119,7 @@ tags[q] = data[q].Name
 
         }
 
-	    }
-	      setInterval(repeat, 2000)
+
 
         function redo() {
 	var cidthing = document.getElementById('autocomplete').value
@@ -156,7 +133,7 @@ if (cidthing == data[q].Name) {
             }
         });
 }
-	    
+
 	     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
@@ -172,7 +149,7 @@ if (cidthing == data[q].Name) {
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-        
+
         //comments
 
 
