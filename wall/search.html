@@ -45,15 +45,23 @@
 
 <script>
     function search() {
+        fetch('https://api.mgcounts.com/create/'+document.getElementById('input2').value+'')
+        .then(response => response.text())
+  .then(data => {
+    if (data === "already") {
         location.href = "/wall?id="+document.getElementById('input').value
+    } else {
+        alert("Create a wall first!")
     }
-
+  })
+    }
+//https://api.mgcounts.com/wall/
     function create() {
         fetch('https://api.mgcounts.com/create/'+document.getElementById('input2').value+'')
   .then(response => response.text())
   .then(data => {
       if (data === "already") {
-          document.getElementById('error').innerHTML = "Use Another Name!"
+          alert("Use another name!")
       } else {
         location.href = "/wall?id="+document.getElementById('input2').value
       }
