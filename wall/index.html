@@ -70,13 +70,13 @@
     var params = new URLSearchParams(document.location.search.substring(1));
 var id = params.get("id");
      $.getJSON("https://api.mgcounts.com/wallStats/"+id+"", function (data) {
-         if (data == unknown) {
+         if (data == false) {
              location.href = "/wall/search"
          } else {
              
          }
      })
- $.getJSON("https://api.mgcounts.com/wallStats/"+id+"", function (channels) {
+ $.getJSON("https://api.mgcounts.com/wallStats/"+id+"", function (data) {
     var channelcount = parseFloat(data);
 var chanName = "Loading";
 var bgColor = "rgba(255, 255, 255,)";
