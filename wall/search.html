@@ -62,7 +62,7 @@
         if (parseFloat(document.getElementById('input3').value) > 50) {
             alert("Max number must be less than 50")
         } else {
-        fetch('https://api.mgcounts.com/create/'+document.getElementById('input2').value+'/'+document.getElementById('input3').value+'')
+        fetch('https://api.mgcounts.com/create/'+document.getElementById('input2').value+'/'+parseFloat(document.getElementById('input3').value)+'')
   .then(response => response.text())
   .then(data => {
       if (data === "already") {
