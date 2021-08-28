@@ -341,7 +341,7 @@
     }
 
     async function getYTStats() {
-        let request = await fetch('https://mgcounts.com/youtube/user/' + ID + '', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/youtube/user/' + ID + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
         odometer.innerHTML = data.items[0].statistics.subscriberCount
@@ -432,7 +432,7 @@
         var search = document.getElementById('search').value
         s()
         async function s() {
-        let request = await fetch('https://mgcounts.com/youtube/channel/search/' + search + '', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/youtube/channel/search/' + search + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
 document.getElementById('name1').title = data.items[0].id.channelId
