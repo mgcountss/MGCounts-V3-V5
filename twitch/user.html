@@ -412,5 +412,8 @@ if (data.channels[0].profile_banner == null) {
 
     gtag('config', 'UA-177075755-1');
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
+<script>
+var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+</script>
 </html>
