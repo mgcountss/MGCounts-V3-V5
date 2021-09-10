@@ -119,3 +119,7 @@
 .main-odo {
   font-weight: normal;
 }
+
+.odometer-inside {
+vertical-align: middle;
+}
