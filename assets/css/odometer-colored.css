@@ -116,3 +116,6 @@
 .main-odo {
   font-weight: normal;
 }
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default, .odometer-formatting-mark, .odometer-digit, .odometer-inside {
+    vertical-align: middle;
+}
