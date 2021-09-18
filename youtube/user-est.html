@@ -189,6 +189,7 @@
             <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image2" class="image2">
             <br>
             <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image" class="image">
+
             <br>
             <h1 id="title">Loading</h1>
             <h1 class="odometer" id="odometer"></h1>
@@ -214,7 +215,7 @@
             </div>
             <input readonly type="text" value="Loading" id="channelIdThing"
                 style="width: 100%; text-align: center; font-size: 30px; background-color: transparent; color: white; "
-                onclick="myFunction()">
+                >
         </div>
 
         </div>
@@ -373,7 +374,7 @@
     var chart = new Highcharts.chart({
         chart: {
             renderTo: 'chart',
-            type: 'line',
+            type: 'spline',
             zoomType: 'x',
             backgroundColor: 'transparent',
             plotBorderColor: 'transparent'
@@ -449,7 +450,9 @@ document.getElementById('name3').innerHTML = data.items[2].snippet.title
 
         }
     }
+
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];

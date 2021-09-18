@@ -211,13 +211,13 @@ h1#main {
 
       <h1 id="Box-Text">YouTube</h1>
 <br>
-      <a href="./youtube/user" id="Box-Text">YouTube Subscriber Count (API)</a>
+      <a href="./youtube/user.html" id="Box-Text">YouTube Subscriber Count (API)</a>
 <br>
 <br>
-<a href="https://mgcounts.com/youtube/user-est.html" id="Box-Text">YouTube Estimated Subscriber Count</a>
+<a href="./youtube/user-est.html" id="Box-Text">YouTube Estimated Subscriber Count</a>
         <br>
 <br>
-   <a href="https://mgcounts.com/youtube/video.html" id="Box-Text">YouTube Video View Count</a>     
+   <a href="./youtube/view-count.html" id="Box-Text">YouTube Video View Count</a>     
 <br>
 <br>
     </div>
@@ -228,7 +228,7 @@ h1#main {
     <h1 id="Box-Text">Shoutout Wall</h1>
     <br> 
     <br>
-<a href="./wall/search" id="Box-Text">Shout Wall Maker!</a>
+<a href="https://mgcounts.com/wall/search" id="Box-Text">Shout Wall Maker!</a>
 <br>
 <br>
   </div>
@@ -239,7 +239,7 @@ h1#main {
     <div class="boxThing5">
       <h1>Discord</h1>
       <br>
-      <a href="https://mgcounts.com/discord/server.html" id="Box-Text">Discord Server Members</a>
+      <a href="https://mgcounts.com/discord/members.html" id="Box-Text">Discord Server Members</a>
       <br> 
       <br>
       <a href="https://mgcounts.com/discord/mee6.html" id="Box-Text">Mee6 XP Counter</a>
@@ -258,7 +258,7 @@ h1#main {
     <h1 id="Box-Text">Gab</h1>
 <br>
 <br>
-  <a href="https://mgcounts.com/gab/user.html" id="Box-Text">Gab Followers</a>
+  <a href="https://mgcounts.com/gab/users.html" id="Box-Text">Gab Followers</a>
   <br>
   <br>
   <a href="https://mgcounts.com/gab/posts.html" id="Box-Text">Gab Posts Likes</a>
@@ -274,6 +274,20 @@ h1#main {
       <a href="/fake">Fake Subscriber Counter</a>
   <br>
   <br>
+      <!-- 
+      <h1>Stream</h1>
+  <br>
+  <br>
+      <a href="https://mgcounts.com/fake/subscribers.html">Fake Sub Count</a>
+  <br>
+  <br>
+      <a href="https://mgcounts.com/fake/compare/search">Fake Sub Count Compare</a>
+      <br>
+<br>
+            <a href="https://mgcounts.com/fake/graph">Fake Sub Count Graph</a>
+      <br>
+<br>
+-->
   </div>
   <div class="boxThing5">
     <h1 id="Box-Text">Global Clickers</h1>
@@ -302,10 +316,10 @@ h1#main {
     <h1 id="Box-Text">StoryFire</h1>
     <br>
     <br>
-    <a href="/storyfire/user" id="Box-Text">StoryFire Followers</a>
+    <a href="https://mgcounts.com/storyfire/followers.html" id="Box-Text">StoryFire Followers</a>
     <br>
     <br>
-    <a href="https://mgcounts.com/storyfire/video.html" id="Box-Text">StoryFire Video View Counter</a>
+    <a href="https://mgcounts.com/storyfire/videos.html" id="Box-Text">StoryFire Video View Counter</a>
     <br>
     <br>
     <br>
@@ -332,6 +346,22 @@ h1#main {
 <br>
 
   </div>
+
+ <div class="boxThing5">
+
+    <h1 id="Box-Text">Reddit</h1>
+<br>
+<br>
+  <a href="https://mgcounts.com/reddit/subreddit.html" id="Box-Text">SubReddit Member Count</a>
+  <br>
+  <br>
+  <a href="https://mgcounts.com/" id="Box-Text">Coming Soon</a>
+
+<br>
+<br>
+
+  </div>
+ 
   
 
  
@@ -343,18 +373,6 @@ h1#main {
     <br>
     <br>
     <a href="https://mgcounts.com/dlinkorg/compare/home.html" id="Box-Text">DLinkorg Compare</a>
-    <br>
-    <br>
-  </div>
-    
-      <div class="boxThing5">
-    <h1 id="Box-Text">Twitch</h1>
-    <br>
-    <br>
-    <a href="https://mgcounts.com/twitch/user.html" id="Box-Text">Twitch Followers</a>
-    <br>
-    <br>
-    <a href="https://mgcounts.com/twitch/stream.html" id="Box-Text">Twitch Live Viewers</a>
     <br>
     <br>
   </div>
@@ -403,7 +421,7 @@ $("#main,#h1,#a").slideDown(750);
       requests.innerHTML = data
 
  }
-  setInterval(GetStats, 2000)
+  setInterval(GetStats, 1000)
   GetStats()
 
 </script>
@@ -443,6 +461,7 @@ $("#main,#h1,#a").slideDown(750);
   gtag('js', new Date());
 
   gtag('config', 'UA-177075755-1');
+  
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
 <script>

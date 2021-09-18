@@ -215,7 +215,7 @@
             </div>
             <input readonly type="text" value="Loading" id="channelIdThing"
                 style="width: 100%; text-align: center; font-size: 30px; background-color: transparent; color: white; "
-                onclick="myFunction()">
+                >
         </div>
 
         </div>
@@ -330,8 +330,13 @@
         odometer2.innerHTML = data.following_count
         odometer3.innerHTML = data.statuses_count
         title.innerHTML = data.username
+        if (data.header_static == "https://gab.com/headers/original/missing.png") {
+            document.getElementById('image').src = data.avatar_static
+            document.getElementById('image2').src = data.avatar_static
+        }else{
         document.getElementById('image').src = data.avatar_static
         document.getElementById('image2').src = data.header_static
+        }
         defaultID = ID
 
         if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();

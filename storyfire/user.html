@@ -215,7 +215,7 @@
             </div>
             <input readonly type="text" value="Loading" id="channelIdThing"
                 style="width: 100%; text-align: center; font-size: 30px; background-color: transparent; color: white; "
-                onclick="myFunction()">
+                >
         </div>
 
         </div>
@@ -240,8 +240,8 @@
                     <br>
                     <br>
                     <br>
-             
-                </center>
+                    <h5 style="color: white;">Search</h5>
+                               </center>
             </div>
         </div>
     </div>
@@ -356,7 +356,7 @@
     var chart = new Highcharts.chart({
         chart: {
             renderTo: 'chart',
-            type: 'line',
+            type: 'spline',
             zoomType: 'x',
             backgroundColor: 'transparent',
             plotBorderColor: 'transparent'
@@ -403,7 +403,7 @@
 
         series: [{
             showInLegend: false,
-            name: 'Subscribers',
+            name: 'Followers',
             marker: { enabled: false },
             color: '#000000',
             lineColor: '#FFFFFF'
@@ -418,5 +418,8 @@
 
     gtag('config', 'UA-177075755-1');
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
+<script>
+var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+</script>
 </html>
