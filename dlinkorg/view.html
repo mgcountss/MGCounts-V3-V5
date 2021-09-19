@@ -225,9 +225,9 @@
 
                <h1 style="color: white;">Embed Link</h1>
                <br>
-               <input id="embed" type="text" style="width: 560px;height: 80px; background-color: #222222; color: #FFFFFF;" value="https://mgcounts.com/embed/dlinkorg.html" readonly><br>
-
-          
+                       <input readonly type="text" value="Loading" id="channelIdThing"
+                style="width: 100%; text-align: center; font-size: 30px; background-color: transparent; color: white; "
+                >          
           </div>
           
           </div>
@@ -349,10 +349,8 @@ odometer4.innerHTML = GetGoal(data.Subs)
   setInterval(GetStats, 3000)
   GetStats()
 
-  document.getElementById("embed").value =
-              "https://mgcounts.com/embed/dlinkorg.html?id="+ID;
-           
-              $('#1').html('<input id="embed" type="text" style="width: 560px;height: 80px;" value="https://mgcounts.com/embed/dlinkorg.html?id=${ID}" readonly>');
+
+    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/dlinkorg/user.html?id=" + ID;
 
 
 
