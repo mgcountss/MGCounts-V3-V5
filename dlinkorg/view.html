@@ -326,12 +326,6 @@ async function GetStats() {
       odometer2.innerHTML = data.Category
       title.innerHTML = data.Name
       defaultID = ID
-      document.getElementById("channelIdThing").value = ID
-
-
-
-
-
 
           if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
           chart.series[0].addPoint([Date.now(), Math.floor(data.Subs)])
@@ -341,23 +335,12 @@ async function GetStats() {
 }
 odometer4.innerHTML = GetGoal(data.Subs)
 
-
-
-
-
  }
   setInterval(GetStats, 3000)
   GetStats()
 
 
     document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/dlinkorg/user.html?id=" + ID;
-
-
-
-
-
-
-
 
 
 var textBright = "#bdbdbd"
