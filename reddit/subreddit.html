@@ -321,7 +321,7 @@
         //odometer3.innerHTML = data.statuses_count
         title.innerHTML = data.data.display_name_prefixed
         
-        document.getElementById('image').src = testImage(data.data.banner_background_image)
+        document.getElementById('image').src = testImage(data.data.mobile_banner_image)
         document.getElementById('image2').src = testImage2(data.data.community_icon)
         
         defaultID = ID
@@ -355,7 +355,7 @@ function imageNotFound2() {
 document.getElementById('image2').src = "https://styles.redditmedia.com/t5_13so7p/styles/bannerBackgroundImage_pql0bbiqaxm31.png?width=4000&s=d6e5c6110a3d7f52549f81178bdf7684265903bf"
 }
 
-    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/reddit/subreddit?id=" + ID;
+    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/reddit/subreddit.html?id=" + ID;
 
 
     var textBright = "#bdbdbd"
