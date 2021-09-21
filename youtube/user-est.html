@@ -359,7 +359,7 @@
         function GetGoal(count) {
             if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
         }
-        odometer4.innerHTML = GetGoal(data.subs)
+        odometer4.innerHTML = GetGoal(Math.floor(data.subs))
 
     }
     setInterval(getYTStats, 5000)
