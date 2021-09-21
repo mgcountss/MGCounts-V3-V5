@@ -345,7 +345,7 @@
         let request = await fetch('https://api.mgcounts.com/youtube/est/' + ID + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
-        odometer.innerHTML = data.subs
+        odometer.innerHTML = Math.floor(data.subs)
         odometer2.innerHTML = data.views
         odometer3.innerHTML = data.videos
         title.innerHTML = data.name
