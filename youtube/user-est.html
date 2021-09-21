@@ -134,7 +134,7 @@
             box-shadow: 0 0 30px black;
             border-radius: 50%;
             object-fit: cover;
-            margin-top: -19%;
+            margin-top: -225px;
             margin-left: -83%;
             height: 175px;
             width: 175px;
@@ -342,24 +342,24 @@
     }
 
     async function getYTStats() {
-        let request = await fetch('https://v6.mixerno.space/api/youtube-channel-counter/mgcounts/' + ID + '', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/youtube/est/' + ID + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
-        odometer.innerHTML = data.counts[0].count
-        odometer2.innerHTML = data.counts[3].count
-        odometer3.innerHTML = data.counts[5].count
-        title.innerHTML = data.user[0].count
-        document.getElementById('image').src = data.user[1].count
-        document.getElementById('image2').src = data.user[2].count
+        odometer.innerHTML = data.subs
+        odometer2.innerHTML = data.views
+        odometer3.innerHTML = data.videos
+        title.innerHTML = data.name
+        document.getElementById('image').src = data.image
+        document.getElementById('image2').src = data.banner
         defaultID = ID
 
         if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-        chart.series[0].addPoint([Date.now(), Math.floor(data.counts[0].count)])
+        chart.series[0].addPoint([Date.now(), Math.floor(data.subs)])
 
         function GetGoal(count) {
             if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
         }
-        odometer4.innerHTML = GetGoal(data.counts[0].count)
+        odometer4.innerHTML = GetGoal(data.subs)
 
     }
     setInterval(getYTStats, 5000)
