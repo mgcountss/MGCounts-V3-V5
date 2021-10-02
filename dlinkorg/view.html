@@ -1,17 +1,20 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
 <link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
 <script src="https://mgcounts.com/assets/js/odometer.js"></script>
 <title>MGCounts</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/darkly/bootstrap.min.css">
 <style>
     
   h6 {
@@ -160,17 +163,7 @@
 </head>
 <body id="body">
   <center>
-  <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <ul class="nav navbar-nav">
-            <li><a class="btn" style="color: White;" href="https://mgcounts.com">MGCounts</a></li>
-            <li><a class="btn" style="color: White;" href="https://statcounts.com/">StatCounts</a></li>
-            <li><a class="btn" style="color: White;" href="https://mixerno.space/">Mixerno.space</a></li>
-            <li><a class="btn" style="color: white;" href="./home.html">Change User</a></li></li>
-            <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter2">Embed</a></li></li>
-            <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li></li>
-          </ul>
-        </div>
+
       </nav><div class="boxThing">    
         <br>
         <br>
@@ -208,8 +201,25 @@
                    </div>
                    
                   </div>
-                  
-    
+</div>
+<br>
+<div class="stats" style="width: 50%; background-color: #222222;">
+  <div id="total" style="width: 100%; height: 400px; color: #000000;"></div>
+  <h6>Total Subscribers</h6>
+</div>
+<br>
+<div class="table-responsive" style="border-style: none; width: 50%; background-color: #222222;">
+  <table class="table table-striped table-dark table-sm">
+      <thead>
+          <tr>
+              <th style="color: #FFFFFF; border-style: solid;border-right-style: solid;">Date</th>
+              <th style="color: #FFFFFF; border-bottom-style: solid;">Total Subscribers</th>
+              <th style="color: #FFFFFF; border-bottom-style: solid;">Subscriber Gain</th>
+          </tr>
+      </thead>
+          <tbody style="border-style: none;" class="counters">
+      </tbody>
+  </table>
 </div>
 </center>
 
@@ -289,7 +299,6 @@ var ID3 = ID+1
 url = new URL(window.location.href);
 
 if (url.searchParams.get('id')) {
-
   var ID2 = params.get("id");
   var ID = ID2 - 1
   console.log(ID)
@@ -318,6 +327,7 @@ if (odometerColor == "3") {
 }
 
 
+
 async function GetStats() {
       let request = await fetch('https://api.mgcounts.com/dlinkorg/users/'+ID+'', { mode: "cors" })
       let data = await request.json().catch(() => {})
@@ -339,6 +349,48 @@ odometer4.innerHTML = GetGoal(data.Subs)
   setInterval(GetStats, 3000)
   GetStats()
 
+  var c = 0;
+        var eee;
+        var lol = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+        function create() {
+            for (var t = 1; t <= eee; t++) {
+                var htmlcard = `<tr>
+                    <td id="date_${t}">TBC</td>
+                        <td id="subs_${t}">TBC</td>
+                        <td id="subgain_${t}">TBC</td>
+                    </tr>`;
+                $('.counters').append(htmlcard)
+                c += 1;
+            }
+        }
+        $.getJSON("https://api.mgcounts.com/dlinkorg/graph/"+ID+"", (data) => {
+            eee = data.length
+            create()
+            data.sort(function(a,b){return b[0] - a[0]});
+            for (var q = 0; q < eee; q++) {
+                updateData(q, data)
+            }
+        })
+        var lastsubs = [0]
+        function updateData(q, data) {
+            setTimeout(function () {
+                var cnb = q+1;
+    
+                data[q][1] = Math.floor(data[q][1])
+                document.getElementById('subs_' + cnb + '').innerHTML = data[q][1].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+                var day = new Date(data[q][0]).getDate()
+                var month = new Date(data[q][0]).getMonth()+1
+                var year = new Date(data[q][0]).getFullYear()
+                var hour = new Date(data[q][0]).getHours()
+
+                document.getElementById('date_' + cnb + '').innerHTML = year+"-"+month+"-"+day+""
+                    lastsubs[q] = data[q][1]
+                    var cb = q-1
+                    var newvalue = lastsubs[cb]-data[q][1]
+    document.getElementById('subgain_' + cnb + '').innerHTML = "+"+newvalue.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')+""
+            })
+        }
 
     document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/dlinkorg/user.html?id=" + ID;
 
@@ -416,6 +468,71 @@ function updateimage2(image2) {
 } 
 
 
+Highcharts.getJSON('https://api.mgcounts.com/dlinkorg/graph/'+ID+'', function (data) {
+    var chart = new Highcharts.chart({
+    
+    rangeSelector: {
+      selected: 1
+    },
+    chart: {
+      renderTo: 'total',
+      //container
+            type: 'line',
+              zoomType: 'x',
+              backgroundColor: 'transparent',
+              plotBorderColor: 'transparent'
+        },
+        title: {
+            text: ' '
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500,
+              gridLineColor: textBright,
+              labels: {
+                  style: {
+                      color: textBright
+                  }
+              },
+              lineColor: lineColor,
+              minorGridLineColor: '#bdbdbd',
+              tickColor: lineColor,
+              title: {
+                  style: {
+                      color: textBright
+                  }
+              }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+              gridLineColor: textBright,
+              labels: {
+                  style: {
+                      color: textBright
+                  }
+              },
+              lineColor: lineColor,
+              minorGridLineColor: '#bdbdbd',
+              tickColor: lineColor
+        },
+        credits: {
+            enabled: true,
+            text: "MGCounts"
+        },
+      
+        series: [{
+          showInLegend: false,
+           name: 'Subscribers',
+           data: data,
+          marker: { enabled: false },
+          color: '#000000',
+          lineColor: '#FFFFFF'
+        }]
+      });
+  
+  });
 
 
 
@@ -430,7 +547,10 @@ function updateimage2(image2) {
 
   gtag('config', 'UA-177075755-1');
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
+<script>
+    var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+    </script>
 
 
 </html>
