@@ -135,17 +135,18 @@
             box-shadow: 0 0 30px black;
             border-radius: 50%;
             object-fit: cover;
-            margin-top: -19%;
+            margin-top: -225px;
             margin-left: -83%;
             height: 175px;
             width: 175px;
         }
 
         #image2 {
-            object-fit: cover;
-            margin-top: -80px;
+                 object-fit: cover;
+            margin-top: -103px;
             width: 100%;
             height: 200px;
+            border-radius: 7px;
         }
 
         #image:hover {
@@ -203,6 +204,7 @@
                 </div>
 
             </div>
+            <div id="clickerBox"></div>
             <input readonly type="text" value="Loading" id="channelIdThing"
                 style="width: 100%; text-align: center; font-size: 30px; background-color: transparent; color: white; "
                 >
@@ -289,7 +291,13 @@
     if (url.searchParams.get('id')) {
         var ID = params.get("id");
     }
-
+if (ID == 3 || ID == "3") {
+    var importCode = `
+<button style="font-size: 50px;" onclick='addClick()'>Add Click</button>
+<button style="font-size: 50px;" onclick='removeClick()'>Remove Click</button>
+    `
+    $('#clickerBox').append(importCode)
+}
     function updatePageHmm() {
         var nameIdThing = document.getElementById("searchHmm").value;
         var z = location.search;
@@ -311,6 +319,20 @@
     if (odometerColor == "3") {
         $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
     }
+
+    function addClick() {
+        fetch("https://api.mgcounts.com/globalclicker/v3/add", {
+  "body": null,
+  "method": "POST",
+});
+    }
+    function removeClick() {
+        fetch("https://api.mgcounts.com/globalclicker/v3/remove", {
+  "body": null,
+  "method": "POST",
+});
+    }
+
 
     async function getYTStats() {
         let request = await fetch('https://api.mgcounts.com/globalclicker/v' + ID + '', { mode: "cors" })
