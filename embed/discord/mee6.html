@@ -73,3 +73,6 @@ var CID = params.get("cid");
     setInterval(getStats, 5000)
     getStats()
     </script>
+    <script>
+        var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+        </script>

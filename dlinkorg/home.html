@@ -260,7 +260,6 @@ for (var l = 0; l <= 05; l++) {
   $('.counters').append(htmlrow);
     for (var t = 0; t <= 50; t++) {
       var htmlcard = `
-
       
       <div class="channel_${c} card" onclick="location.href='./view.html?id=${c}';" id="card_thing_${c}">
       <div class="cnb" onclick="location.href='./view.html?id=${c}';">${c}</div>
@@ -308,6 +307,8 @@ setInterval(update,10000);
   gtag('config', 'UA-177075755-1');
 </script>
 
-
+<script>
+    var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+    </script>
 
 </html>

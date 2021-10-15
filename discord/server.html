@@ -53,7 +53,7 @@
             font-size: 50px;
             font-family: 'Open Sans', sans-serif;
             color: #FFFFFF;
-            margin-top: -10px;
+            margin-top: -1%;
             transition: 1s !important;
         }
 
@@ -69,7 +69,6 @@
             font-size: 105px;
             font-family: 'Open Sans', sans-serif;
             color: #FFFFFF;
-            margin-top: 0px;
         }
 
         #odometer2 {
@@ -135,17 +134,18 @@
             box-shadow: 0 0 30px black;
             border-radius: 50%;
             object-fit: cover;
-            margin-top: -19%;
+            margin-top: -225px;
             margin-left: -83%;
             height: 175px;
             width: 175px;
         }
 
         #image2 {
-            object-fit: cover;
-            margin-top: -80px;
+                 object-fit: cover;
+            margin-top: -103px;
             width: 100%;
             height: 200px;
+            border-radius: 7px;
         }
 
         #image:hover {
@@ -316,6 +316,9 @@
         let request = await fetch('https://api.mgcounts.com/discord/' + ID + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
+        if (data.message) {
+            alert("Discord is rate limiting me.")
+        }
         odometer.innerHTML = data.approximate_member_count
         odometer2.innerHTML = data.approximate_presence_count
         title.innerHTML = data.guild.name

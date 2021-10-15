@@ -135,17 +135,18 @@
             box-shadow: 0 0 30px black;
             border-radius: 50%;
             object-fit: cover;
-            margin-top: -19%;
+            margin-top: -225px;
             margin-left: -83%;
             height: 175px;
             width: 175px;
         }
 
         #image2 {
-            object-fit: cover;
-            margin-top: -80px;
+                 object-fit: cover;
+            margin-top: -103px;
             width: 100%;
             height: 200px;
+            border-radius: 7px;
         }
 
         #image:hover {
@@ -317,12 +318,10 @@
         let data = await request.json().catch(() => { })
         if (!data) return;
         odometer.innerHTML = data.data.subscribers
-        //odometer2.innerHTML = data.following_count
-        //odometer3.innerHTML = data.statuses_count
         title.innerHTML = data.data.display_name_prefixed
-        
-        document.getElementById('image').src = testImage(data.data.mobile_banner_image)
-        document.getElementById('image2').src = testImage2(data.data.community_icon)
+        document.getElementById('image').src = data.data.community_icon.split('?')[0]
+        //data.data.community_icon
+        document.getElementById('image2').src = data.data.mobile_banner_image
         
         defaultID = ID
 
@@ -337,23 +336,6 @@
     }
     setInterval(getYTStats, 5000)
     getYTStats()
-
-    function testImage(URL) {
-    var tester=new Image();
-    tester.onerror=imageNotFound;
-    tester.src=URL;
-}
-    function testImage2(URL) {
-    var tester=new Image();
-    tester.onerror=imageNotFound2;
-    tester.src=URL;
-}
-function imageNotFound() {
-document.getElementById('image').src = "https://www.redditinc.com/assets/images/site/reddit-logo.png"
-}
-function imageNotFound2() {
-document.getElementById('image2').src = "https://styles.redditmedia.com/t5_13so7p/styles/bannerBackgroundImage_pql0bbiqaxm31.png?width=4000&s=d6e5c6110a3d7f52549f81178bdf7684265903bf"
-}
 
     document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/reddit/subreddit.html?id=" + ID;
 

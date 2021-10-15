@@ -268,7 +268,6 @@ for (var l = 0; l <= 05; l++) {
       <div class="cnb" id="cnb_${c}" id="onclick="">${c}</div>
       <div class="chnam" onclick="">Loading</div>
       <div class="subscriberCount" onclick="">0</div>
-
       </div>`;
       $('.row_'+l).append(htmlcard);
       c += 1;
@@ -334,6 +333,8 @@ setInterval(update,10000);
   gtag('config', 'UA-177075755-1');
 </script>
 
-
+<script>
+    var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+    </script>
 
 </html>
