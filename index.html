@@ -1,269 +1,274 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://code.highcharts.com/stock/highstock.js"></script>
-<link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
-<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
-<script src="https://mgcounts.com/assets/js/odometer.js"></script>
-<title>MGCounts</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<script id="dsq-count-scr" src="//mgcounts.disqus.com/count.js" async></script>
-<style>
-a:hover {
-    color: white;
-    font-size: 190%;
-    transition: 1s;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #FFFFFF;
-    transition: 1s;
-  }
-  
-  h6:hover {
-    color: #FFFFFF;
-    font-size: 250%;
-    transition: 1s;
-  }
-  
-  h6 {
-    text-decoration: none;
-    color: White;
-    transition: 1s;
-    font-size: 190%;
-    font-family: 'Roboto', sans-serif; 
-  }
-  
-  img:hover {
-    color: white;
-    width: 100px;height: 100px;
-    transition: 1s;
-  }
-  
-  img {
-    color: white;
-    width: 50px;height: 50px;
-    transition: 1s;
-  }
-  
-  .navbar-nav > li{
-    padding-left:40px;
-    padding-right:40px;
-  }
-  
-  .boxThing {
-    width: 14%;
-    border: 0.5px solid rgba(255, 255, 255, 0.5);
-    padding: 2px;
-    margin: 5px;
-    border-radius: 25px;
-    background-color: #222222;
-  }
-  
-  .boxThing2 {
-    width: 13%;
-    border: 0.5px solid rgba(255, 255, 255, 0.5);
-    padding: 2px;
-    margin: 5px;
-    border-radius: 25px;
-    background-color: #222222;
-  }
-  
-  .boxThing3 {
-    width: 12%;
-    border: 0.5px solid rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    margin: 5px;
-    border-radius: 25px;
-    background-color: #222222;
-  }
-  
-  .boxThing4 {
-    width: 11%;
-    border: 0.5px solid rgba(255, 255, 255, 0.5);
-    padding: 2px;
-    margin: 5px;
-    border-radius: 25px;
-    background-color: #222222;
-  }
-  
-  .boxThing5 {
-    width: 100%;
-    border-color: rgba(255, 255, 255, 0.5);
-    border: 0.5px solid rgba(255, 255, 255, 0.5);
-    border-radius: 25px;
-    background-color: #222222;
-  }
-    
-  .boxThing6 {
-    width: 1400px;
-    border-color: rgba(255, 255, 255, 0.5);
-    border: 0.5px solid rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    transition: 0.3s !important;
-    background-color: #222222;
-  }
+<html lang="en">
 
-  h1#odometer {
-       font-size: 70px;
-       font-family: 'Open Sans', sans-serif;
-  }
-  
-  h1#odometer2 {
-       font-size: 50px;
-       font-family: 'Open Sans', sans-serif;
-  }
-  
-  h1#odometer3 {
-       font-size: 50px;
-       font-family: 'Open Sans', sans-serif;
-  }
-  
-  h1#odometer4 {
-       font-size: 50px;
-       font-family: 'Open Sans', sans-serif;
-  }
-  
-  h1#odometer5 {
-       font-size: 50px;
-       font-family: 'Open Sans', sans-serif;
-  }
-  
-  h1#odometer6 {
-       font-size: 50px;
-       font-family: 'Open Sans', sans-serif;
-  }
-  
-  h1 {
-      font-size: x-large;  
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
+  <link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
+  <script src="https://mgcounts.com/assets/js/odometer.js"></script>
+  <title>MGCounts</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <script id="dsq-count-scr" src="//mgcounts.disqus.com/count.js" async></script>
+  <style>
+    a:hover {
+      color: white;
+      font-size: 190%;
+      transition: 1s;
+    }
+
+    a {
+      text-decoration: none;
       color: #FFFFFF;
-  }
+      transition: 1s;
+    }
 
-  .container {
-          display: flex;
-          flex-direction: row;
-          flex: 10;
-          column-gap: 20px;
-  justify-content: space-between;
-      }
-  
-      ::-webkit-scrollbar {
+    h6:hover {
+      color: #FFFFFF;
+      font-size: 250%;
+      transition: 1s;
+    }
+
+    h6 {
+      text-decoration: none;
+      color: White;
+      transition: 1s;
+      font-size: 190%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    img:hover {
+      color: white;
+      width: 100px;
+      height: 100px;
+      transition: 1s;
+    }
+
+    img {
+      color: white;
+      width: 50px;
+      height: 50px;
+      transition: 1s;
+    }
+
+    .navbar-nav>li {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .boxThing {
+      width: 14%;
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      padding: 2px;
+      margin: 5px;
+      border-radius: 25px;
+      background-color: #222222;
+    }
+
+    .boxThing2 {
+      width: 13%;
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      padding: 2px;
+      margin: 5px;
+      border-radius: 25px;
+      background-color: #222222;
+    }
+
+    .boxThing3 {
+      width: 12%;
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      padding: 10px;
+      margin: 5px;
+      border-radius: 25px;
+      background-color: #222222;
+    }
+
+    .boxThing4 {
+      width: 11%;
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      padding: 2px;
+      margin: 5px;
+      border-radius: 25px;
+      background-color: #222222;
+    }
+
+    .boxThing5 {
+      width: 100%;
+      border-color: rgba(255, 255, 255, 0.5);
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      border-radius: 25px;
+      background-color: #222222;
+    }
+
+    .boxThing6 {
+      width: 1400px;
+      border-color: rgba(255, 255, 255, 0.5);
+      border: 0.5px solid rgba(255, 255, 255, 0.5);
+      border-radius: 5px;
+      transition: 0.3s !important;
+      background-color: #222222;
+    }
+
+    h1#odometer {
+      font-size: 70px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1#odometer2 {
+      font-size: 50px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1#odometer3 {
+      font-size: 50px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1#odometer4 {
+      font-size: 50px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1#odometer5 {
+      font-size: 50px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1#odometer6 {
+      font-size: 50px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1 {
+      font-size: x-large;
+      color: #FFFFFF;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex: 10;
+      column-gap: 20px;
+      justify-content: space-between;
+    }
+
+    ::-webkit-scrollbar {
       width: 8px
-  }
-  
-  ::-webkit-scrollbar-thumb {
-      background: #686868
-  }
-  
-  ::-webkit-scrollbar-track {
-      background: #000
-  }
+    }
 
-  #image {
+    ::-webkit-scrollbar-thumb {
+      background: #686868
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000
+    }
+
+    #image {
       border: solid .5vh !Important;
       border-radius: 100%;
       border-color: rgb(79, 79, 79) !Important;
       box-shadow: 0 0 100px black;
       border-radius: 50%;
-      margin-top:-80px; object-fit: cover;
-  }
+      margin-top: -80px;
+      object-fit: cover;
+    }
 
-body {
-  transition: 1s !important;
-  background-color: #1a1a1a;
-}
+    body {
+      transition: 1s !important;
+      background-color: #1a1a1a;
+    }
 
-h1#main { 
-  font-size: 150px;
-  background-color: #222;
-  width: 50%;
-  border-radius: 20px;
-   }
+    h1#main {
+      font-size: 1000%;
+      background-color: #222;
+      width: 50%;
+      border-radius: 20px;
+    }
 
-.box {
-  border-top: 5px solid;
-  background-image: linear-gradient(to right, red,rgb(255, 0, 255) , purple , purple, rgb(255, 0, 255), red);
-}
-
-</style>
+    .box {
+      border-top: 5px solid;
+      background-image: linear-gradient(to right, red, rgb(255, 0, 255), purple, purple, rgb(255, 0, 255), red);
+    }
+  </style>
 </head>
+
 <body>
 
 
 
   <center>
-      <div id="box" class="box">
-    <h1 id="main">MGCounts</h1>
-    <br>
+    <div id="box" class="box">
+      <h1 id="main" style="width: 100%; font-size: auto;">MGCounts</h1>
+      <br>
     </div>
     <br>
     <br>
     <br>
     <br>
     <div class="container">
-    <div class="boxThing5">
+      <div class="boxThing5">
 
-      <h1 id="Box-Text">YouTube</h1>
-<br>
-      <a href="./youtube/user.html" id="Box-Text">YouTube Subscriber Count (API)</a>
-<br>
-<br>
-<a href="./youtube/user-est.html" id="Box-Text">YouTube Estimated Subscriber Count</a>
+        <h1 id="Box-Text">YouTube</h1>
         <br>
-<br>
-   <a href="./youtube/video.html" id="Box-Text">YouTube Video View Count</a>     
-<br>
-<br>
+        <a href="./youtube/user.html" id="Box-Text">YouTube Subscriber Count (API)</a>
+        <br>
+        <br>
+        <a href="./youtube/user-est.html" id="Box-Text">YouTube Estimated Subscriber Count</a>
+        <br>
+        <br>
+        <a href="./youtube/video.html" id="Box-Text">YouTube Video View Count</a>
+        <br>
+        <br>
+      </div>
+
+
+
+
+      <div class="boxThing5">
+        <h1>Discord</h1>
+        <br>
+        <a href="./discord/server.html" id="Box-Text">Discord Server Members</a>
+        <br>
+        <br>
+        <a href="./discord/mee6.html" id="Box-Text">Mee6 XP Counter</a>
+        <br>
+        <br>
+      </div>
+      <br>
+
+      <div class="boxThing5">
+
+        <h1 id="Box-Text">Gab</h1>
+        <br>
+        <a href="./gab/user.html" id="Box-Text">Gab Followers</a>
+        <br>
+        <br>
+        <a href="./gab/posts.html" id="Box-Text">Gab Posts Likes</a>
+
+        <br>
+        <br>
+      </div>
+      <br>
+      <br>
+      <br>
     </div>
-
-        
-       
-        
-    <div class="boxThing5">
-      <h1>Discord</h1>
-      <br>
-      <a href="./discord/server.html" id="Box-Text">Discord Server Members</a>
-      <br> 
-      <br>
-      <a href="./discord/mee6.html" id="Box-Text">Mee6 XP Counter</a>
-      <br> 
-      <br>
-    </div>
-<br>
-
-  <div class="boxThing5">
-
-    <h1 id="Box-Text">Gab</h1>
-<br>
-  <a href="./gab/user.html" id="Box-Text">Gab Followers</a>
-  <br>
-  <br>
-  <a href="./gab/posts.html" id="Box-Text">Gab Posts Likes</a>
-
-<br>
-<br></div>
-<br>
-<br>
-<br>
-</div>
-<br>
-<br>
-<br>
-  <div class="container">
-  <div class="boxThing5">
-  <h1 id="Box-Text">Fake</h1>
-  <br>
-  <br>
-      <a href="/fake">Fake Subscriber Counter</a>
-  <br>
-  <br>
-      <!-- 
+    <br>
+    <div class="container">
+      <div class="boxThing5">
+        <h1 id="Box-Text">Fake</h1>
+        <br>
+        <br>
+        <a href="/fake">Fake Subscriber Counter</a>
+        <br>
+        <br>
+        <!-- 
       <h1>Stream</h1>
   <br>
   <br>
@@ -277,185 +282,212 @@ h1#main {
       <br>
 <br>
 -->
-  </div>
-  <div class="boxThing5">
-    <h1 id="Box-Text">Global Clickers</h1>
-    <br> 
-    <br>
-<a href="./globalclicker/index.html?id=1" id="Box-Text">Global Clicker V1</a>
-<br>
-<br>
-<a href="./globalclicker/index.html?id=2" id="Box-Text">Global Clicker V2</a>
-<br>
-<br>
-<a href="./globalclicker/index.html?id=3" id="Box-Text">Global Clicker V3</a>
-<br>
-<br>
-<a href="./globalclicker/index.html?id=4" id="Box-Text">Global Clicker V4</a>
-<br>
-<br>
-<a href="./globalclicker/index.html?id=5" id="Box-Text">Global Clicker V5</a>
-      <br>
-<br>
-<a href="./globalclicker/index.html?id=6" id="Box-Text">Global Clicker V6</a>
-      <br>
-      <br>
+      </div>
+      <div class="boxThing5">
+        <h1 id="Box-Text">Global Clickers</h1>
+        <br>
+        <br>
+        <a href="./globalclicker/index.html?id=1" id="Box-Text">Global Clicker V1</a>
+        <br>
+        <br>
+        <a href="./globalclicker/index.html?id=2" id="Box-Text">Global Clicker V2</a>
+        <br>
+        <br>
+        <a href="./globalclicker/index.html?id=3" id="Box-Text">Global Clicker V3</a>
+        <br>
+        <br>
+        <a href="./globalclicker/index.html?id=4" id="Box-Text">Global Clicker V4</a>
+        <br>
+        <br>
+        <a href="./globalclicker/index.html?id=5" id="Box-Text">Global Clicker V5</a>
+        <br>
+        <br>
+        <a href="./globalclicker/index.html?id=6" id="Box-Text">Global Clicker V6</a>
+        <br>
+        <br>
+      </div>
+      <div class="boxThing5">
+        <h1 id="Box-Text">StoryFire</h1>
+        <br>
+        <br>
+        <a href="./storyfire/user.html" id="Box-Text">StoryFire Followers</a>
+        <br>
+        <br>
+        <a href="./storyfire/video.html" id="Box-Text">StoryFire Video View Counter</a>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
     </div>
-  <div class="boxThing5">
-    <h1 id="Box-Text">StoryFire</h1>
     <br>
-    <br>
-    <a href="./storyfire/user.html" id="Box-Text">StoryFire Followers</a>
-    <br>
-    <br>
-    <a href="./storyfire/video.html" id="Box-Text">StoryFire Video View Counter</a>
-    <br>
-    <br>
-    <br>
-    <br>
-  </div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-  <div class="boxThing5">
+    <div class="container">
+      <div class="boxThing5">
+        <h1 id="Box-Text">Twitch</h1>
+        <br>
+        <br>
+        <a href="./twitch/user.html" id="Box-Text">Twitch Follower Count</a>
+        <br>
+        <br>
+        <a href="./twitch/stream.html" id="Box-Text">Twitch Live Viewers</a>
+        <br>
+        <br>
+      </div>
 
-    <h1 id="Box-Text">Twitch</h1>
-<br>
-<br>
-  <a href="./twitch/user.html" id="Box-Text">Twitch Follower Count</a>
-  <br>
-  <br>
-  <a href="./twitch/stream.html" id="Box-Text">Twitch Live Viewers</a>
+      <div class="boxThing5">
+        <h1 id="Box-Text">Reddit</h1>
+        <br>
+        <br>
+        <a href="./reddit/subreddit.html" id="Box-Text">SubReddit Member Count</a>
+        <br>
+        <br>
+        <a href="./" id="Box-Text">Coming Soon</a>
+        <br>
+        <br>
+      </div>
 
-<br>
-<br>
 
-  </div>
 
- <div class="boxThing5">
 
-    <h1 id="Box-Text">Reddit</h1>
-<br>
-<br>
-  <a href="./reddit/subreddit.html" id="Box-Text">SubReddit Member Count</a>
-  <br>
-  <br>
-  <a href="./" id="Box-Text">Coming Soon</a>
+      <div class="boxThing5">
+        <h1 id="Box-Text">DLinkorg</h1>
+        <br>
+        <br>
+        <a href="./dlinkorg/home.html" id="Box-Text">DLinkorg Followers</a>
+        <br>
+        <br>
+        <a href="./dlinkorg/compare/home.html" id="Box-Text">DLinkorg Compare</a>
+        <br>
+        <br>
+        <a href="./dlinkorg/compare/home.html" id="Box-Text">DLinkorg Bar Chart</a>
+        <br>
+        <br>
+      </div>
+    </div>
+    <br>
 
-<br>
-<br>
 
-  </div>
- 
-  
-
- 
-  <div class="boxThing5">
-    <h1 id="Box-Text">DLinkorg</h1>
-    <br>
-    <br>
-    <a href="./dlinkorg/home.html" id="Box-Text">DLinkorg Followers</a>
-    <br>
-    <br>
-    <a href="./dlinkorg/compare/home.html" id="Box-Text">DLinkorg Compare</a>
-    <br>
-    <br>
-    <a href="./dlinkorg/compare/home.html" id="Box-Text">DLinkorg Bar Chart</a>
-    <br>
-    <br>
-  </div>
-</div>
-
-    <br>
-  </div>
-</div>
-</center>
+    <div class="container">
+      <div class="boxThing5">
+        <h1 id="Box-Text">MrBeast</h1>
+        <br>
+        <br>
+        <a href="./mrbeast/teamtrees" id="Box-Text">#TeamTress</a>
+        <br>
+        <br>
+        <a href="./mrbeast/teamseas" id="Box-Text">#TeamSeas</a>
+        <br>
+        <br>
+      </div>
+      <div class="boxThing5">
+      <h1>Coming Soon</h1>
+        <br>
+        <br>
+        <a href="./" id="Box-Text">Coming Soon</a>
+        <br>
+        <br>
+        <a href="./" id="Box-Text">Coming Soon</a>
+        <br>
+        <br>
+      </div>
+      <div class="boxThing5">
+        <h1 id="Box-Text">Coming Soon</h1>
+        <br>
+        <br>
+        <a href="./" id="Box-Text">Coming Soon</a>
+        <br>
+        <br>
+        <a href="./" id="Box-Text">Coming Soon</a>
+        <br>
+        <br>
+      </div>
+    </div>
+  </center>
 </body>
 
 
 
 <script>
-$("#main,#h1,#a").hide();
-$("#main,#h1,#a").slideDown(750);
+  $("#main,#h1,#a").hide();
+  $("#main,#h1,#a").slideDown(750);
 
 
 
 </script>
-    
-    <script>
-  
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-    var disqus_config = function () {
-        this.page.url = "https://MGCounts.github.io";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "https://MGCounts.github.io"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
+<script>
 
-    (function () { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://MGCounts.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-        
-        //comments
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-        async function GetStats() {
-      let request = await fetch('https://api.mgcounts.com/stats', { mode: "cors" })
-      let data = await request.json().catch(() => {})
-      if (!data) return;
-      requests.innerHTML = data
+  var disqus_config = function () {
+    this.page.url = "https://MGCounts.github.io";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "https://MGCounts.github.io"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
 
- }
+  (function () { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://MGCounts.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+
+  //comments
+
+  async function GetStats() {
+    let request = await fetch('https://api.mgcounts.com/stats', { mode: "cors" })
+    let data = await request.json().catch(() => { })
+    if (!data) return;
+    requests.innerHTML = data
+
+  }
   setInterval(GetStats, 1000)
   GetStats()
 
 </script>
-    
-    
-    <br>
-    <center><div class="boxThing6">
 
-        <h1>Requests</h1>
-        <br>
-        <h1 class="odometer" id="requests">0</h1>
-        <br>
-        </div></center>
+
+<br>
 <center>
-    <br>
-    <br>
-    <br>
-    <div class="boxThing6">
-<div id="disqus_thread"></div>
+  <div class="boxThing6">
 
-</div></center>
+    <h1>Requests</h1>
+    <br>
+    <h1 class="odometer" id="requests">0</h1>
+    <br>
+  </div>
+</center>
+<center>
+  <br>
+  <br>
+  <br>
+  <div class="boxThing6">
+    <div id="disqus_thread"></div>
+
+  </div>
+</center>
 <br>
 <br>
 <br>
 <br>
 
-  <br>
-  <br>
-  <br>
-  <br>
+<br>
+<br>
+<br>
+<br>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'UA-177075755-1');
-  
+
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
 <script>
-var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+  var socket = io('https://api.mgcounts.com', { transports: ['websocket'] });
 </script>
