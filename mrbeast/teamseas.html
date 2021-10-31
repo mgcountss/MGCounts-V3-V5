@@ -314,6 +314,7 @@
         let request = await fetch('https://api.mgcounts.com/teamseas', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
+        if (!data.total_seas) {}else{
         title.innerHTML = "#TeamSeas"
         document.getElementById('image').src = "https://teamseas.org/assets/images/teamseas-logo.png"
         document.getElementById('image2').src = "https://teamseas.org/assets/images/TeamSeasLogo.png"
@@ -330,7 +331,7 @@
             if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
         }
         odometer3.innerHTML = GetGoal(data.total_seas)
-
+        }
     }
     setInterval(getYTStats, 5000)
     getYTStats()
