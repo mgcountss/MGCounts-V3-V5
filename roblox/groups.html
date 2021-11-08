@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
     <link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
     <script src="https://mgcounts.com/assets/js/odometer.js"></script>
-    <title>MGCounts - #TeamSeas</title>
+    <title>MGCounts - Roblox</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -53,7 +53,7 @@
             font-size: 50px;
             font-family: 'Open Sans', sans-serif;
             color: #FFFFFF;
-            margin-top: -1%;
+            margin-top: -10px;
             transition: 1s !important;
         }
 
@@ -69,6 +69,7 @@
             font-size: 105px;
             font-family: 'Open Sans', sans-serif;
             color: #FFFFFF;
+            margin-top: 0px;
         }
 
         #odometer2 {
@@ -173,6 +174,9 @@
                     <li><a class="btn" style="color: White;" href="https://statcounts.com/">StatCounts</a></li>
                     <li><a class="btn" style="color: White;" href="https://mixerno.space/">Mixerno.space</a></li>
                     <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block"
+                            data-toggle="modal" data-target="#exampleModalCenter">Change User</a></li>
+                    </li>
+                    <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block"
                             data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li>
                     </li>
                 </ul>
@@ -194,23 +198,21 @@
             <br>
             <div class="container">
                 <div class="boxThing2">
-                    <h1 style="color:white;" id="title2">Newest Donation:</h1>
-                    <h1 style="color:white;" id="newest">Loading</h1>
-                    <br>
-                    <h1 class="odometer" id="odometer2">0</h1>
-                </div>
-                <div class="boxThing2">
-                    <h1 style="color:white;" id="title2">Top Donation:</h1>
-                    <h1 style="color:white;" id="topName">Loading</h1>
+                    <h1 style="color:white;" id="title2">Goal</h1>
                     <br>
                     <h1 class="odometer" id="odometer4">0</h1>
                 </div>
                 <div class="boxThing2">
-                    <h1 style="color:white;" id="title2">Goal</h1>
+                    <h1 style="color:white;" id="title2">Friends</h1>
                     <br>
                     <h1 class="odometer" id="odometer3">0</h1>
                 </div>
             </div>
+            <input readonly type="text" value="Loading" id="channelIdThing"
+                style="width: 100%; text-align: center; font-size: 30px; background-color: transparent; color: white;">
+        </div>
+
+        </div>
         </div>
     </center>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -221,23 +223,27 @@
                 <div class="modal-body">
                 </div>
                 <center>
-                    <h1 style="color: white;">Change Server</h1>
+                    <h1 style="color: white;">Change User</h1>
                     <br>
 
-                    <h5 style="color: white;">Server Invite Code</h5>
+                    <h5 style="color: white;">User ID</h5>
                     <form id="FormThing" onsubmit="updatePageHmm()">
-                        <input type="text" placeholder="Server Invite Code" name="id" id="searchHmm">
+                        <input type="text" placeholder="User ID" name="id" id="searchHmm">
                         <input type="submit" value="Count!">
                     </form>
                     <br>
                     <br>
                     <br>
-
+                </center>
             </div>
-
         </div>
+    </div>
+    <br>
+    </div>
 
-        </center>
+    </div>
+
+    </center>
     </div>
     </div>
     </div>
@@ -282,7 +288,11 @@
 <script>
     var params = new URLSearchParams(document.location.search.substring(1));
     url = new URL(window.location.href);
+    var ID = "1";
     var odometerColor = params.get("o");
+    if (url.searchParams.get('id')) {
+        var ID = params.get("id");
+    }
 
     function updatePageHmm() {
         var nameIdThing = document.getElementById("searchHmm").value;
@@ -306,32 +316,34 @@
         $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
     }
 
-    async function getYTStats() {
-        let request = await fetch('https://api.mgcounts.com/teamseas', { mode: "cors" })
+    async function getStats() {
+        let request = await fetch('https://api.mgcounts.com/roblox/groups/' + ID + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
-        title.innerHTML = "#TeamSeas"
-        document.getElementById('image').src = "https://teamseas.org/assets/images/teamseas-logo.png"
-        document.getElementById('image2').src = "https://teamseas.org/assets/images/TeamSeasLogo.png"
-        odometer.innerHTML = data.total_seas
-        newest.innerHTML = data.latestName
-        odometer2.innerHTML = data.latestNum
-        topName.innerHTML = data.mostName
-        odometer4.innerHTML = data.mostNum
-
+        odometer.innerHTML = data.memberCount
+        title.innerHTML = data.name
         if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-        chart.series[0].addPoint([Date.now(), Math.floor(data.total_seas)])
-
+        chart.series[0].addPoint([Date.now(), Math.floor(data.memberCount)])
         function GetGoal(count) {
             if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
         }
-        odometer3.innerHTML = GetGoal(data.total_seas)
-
+        odometer4.innerHTML = GetGoal(data.memberCount)
     }
-    setInterval(getYTStats, 5000)
-    getYTStats()
+    setInterval(getStats, 10000)
+    getStats()
 
-    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/teamseas.html";
+    setInterval(image,120000)
+    image()
+
+    async function image() {
+let request = await fetch("https://api.mgcounts.com/roblox/group/image/"+ID+"", { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        console.log(data)
+        document.getElementById('image').src = data.data[0].imageUrl
+        document.getElementById('image2').src = data.data[0].imageUrl
+    }
+    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/roblox/groups.html?id=" + ID;
 
 
     var textBright = "#bdbdbd"
