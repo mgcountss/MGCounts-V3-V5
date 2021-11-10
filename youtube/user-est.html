@@ -346,21 +346,21 @@
         let request = await fetch('https://api.mgcounts.com/youtube/est/' + ID + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
-        odometer.innerHTML = Math.floor(data.subs)
-        odometer2.innerHTML = data.views
-        odometer3.innerHTML = data.videos
-        title.innerHTML = data.name
-        document.getElementById('image').src = data.image
-        document.getElementById('image2').src = data.banner
+        odometer.innerHTML = Math.floor(data.counts[0].count)
+        odometer2.innerHTML = data.counts[3].count
+        odometer3.innerHTML = data.counts[5].count
+        title.innerHTML = data.user[0].count
+        document.getElementById('image').src = data.user[1].count
+        document.getElementById('image2').src = data.user[2].count
         defaultID = ID
 
         if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-        chart.series[0].addPoint([Date.now(), Math.floor(data.subs)])
+        chart.series[0].addPoint([Date.now(), Math.floor(data.counts[0].count)])
 
         function GetGoal(count) {
             if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
         }
-        odometer4.innerHTML = GetGoal(Math.floor(data.subs))
+        odometer4.innerHTML = GetGoal(Math.floor(data.counts[0].count))
 
     }
     setInterval(getYTStats, 5000)
