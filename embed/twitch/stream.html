@@ -77,5 +77,5 @@ async function GetStats2() {
     setInterval(getStats, 10000)
     </script>
         <script>
-            var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+            var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
             </script>

@@ -488,6 +488,6 @@ odometer8.innerHTML = xp - data.players[n].xp
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
 <script>
-var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
 </script>
 </html>

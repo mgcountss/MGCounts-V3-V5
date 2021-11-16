@@ -77,5 +77,5 @@ document.querySelector('.image').src = "https://www.redditinc.com/assets/images/
 }
     </script>
         <script>
-            var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+            var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
             </script>

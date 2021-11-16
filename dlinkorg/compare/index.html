@@ -516,7 +516,7 @@ function updateimage2(image2) {
 </script>
 
 <script>
-    var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
+    var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
     </script>
 
 </html>

@@ -241,25 +241,20 @@
         <br>
         <br>
       </div>
-      <br>
 
-      <div class="boxThing5">
-
-        <h1 id="Box-Text">Gab</h1>
-        <br>
-        <a href="./gab/user.html" id="Box-Text">Gab Followers</a>
-        <br>
-        <br>
-        <a href="./gab/posts.html" id="Box-Text">Gab Posts Likes</a>
-
-        <br>
-        <br>
-      </div>
-      <br>
-      <br>
-      <br>
+        <div class="boxThing5">
+          <h1 id="Box-Text">MrBeast</h1>
+          <br>
+          <br>
+          <a href="./mrbeast/teamtrees" id="Box-Text">#TeamTrees</a>
+          <br>
+          <br>
+          <a href="./mrbeast/teamseas" id="Box-Text">#TeamSeas</a>
+          <br>
+          <br>
+        </div>
     </div>
-    <br>
+<br>
     <div class="container">
       <div class="boxThing5">
         <h1 id="Box-Text">Fake</h1>
@@ -369,16 +364,14 @@
 
     <div class="container">
       <div class="boxThing5">
-        <h1 id="Box-Text">MrBeast</h1>
-        <br>
-        <br>
-        <a href="./mrbeast/teamtrees" id="Box-Text">#TeamTrees</a>
-        <br>
-        <br>
-        <a href="./mrbeast/teamseas" id="Box-Text">#TeamSeas</a>
-        <br>
-        <br>
-      </div>
+      <h1 id="Box-Text">Gab</h1>
+      <br>
+      <a href="./gab/user.html" id="Box-Text">Gab Followers</a>
+      <br>
+      <br>
+      <a href="./gab/posts.html" id="Box-Text">Gab Posts Likes</a>
+          </div>
+          
       <div class="boxThing5">
       <h1>Roblox</h1>
         <br>
@@ -443,23 +436,37 @@
     let data = await request.json().catch(() => { })
     if (!data) return;
     requests.innerHTML = data
-
   }
   setInterval(GetStats, 1000)
   GetStats()
+
+  async function GetStats2() {
+    let request = await fetch('https://api.mgcounts.com/online', { mode: "cors" })
+    let data = await request.json().catch(() => { })
+    if (!data) return;
+    online.innerHTML = data
+  }
+  setInterval(GetStats2, 5000)
+  GetStats2()
+
 
 </script>
 
 
 <br>
 <center>
-  <div class="boxThing6">
-
-    <h1>Requests</h1>
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;" class="boxThing6">
+    <div>
+    <h1>API Requests</h1>
     <br>
-    <h1 class="odometer" id="requests">0</h1>
-    <br>
+    <h1 style="font-size: 100px;" class="odometer" id="requests">0</h1>
   </div>
+  <div>
+    <h1>Online Users:</h1>
+    <br>
+    <h1 style="font-size: 100px;" class="odometer" id="online">0</h1>
+  </div>
+</div>
 </center>
 <center>
   <br>
@@ -492,5 +499,5 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
 <script>
-  var socket = io('https://api.mgcounts.com', { transports: ['websocket'] });
+  var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
 </script>
