@@ -57,12 +57,15 @@
         font-family: 'Roboto', sans-serif;
         color: #FFFFFF;
         margin-top: 0px;
-        margin-left: 100px;
+        float: right;
+        left: -50px;
     }
 
     .cimg {
         height: 100px;
         width: 100px;
+        border-radius: 50%;
+        border: solid #000 4px;
     }
 </style>
 
@@ -94,16 +97,15 @@
             }
             var htmlcard = `<div class="channel_${d} card" id="card_thing_${d}">
                 <div class="cnb">${b}</div>
-            <div id="chart_${d}" class="charts" height="90px" width="375px"></div>
       <img src="https://mgcounts.com/assets/img/Old-YT.png" alt="" id="img_${d}" class="cimg">
       <div class="chnam" id="name_${d}">Loading</div>
       <div class="subscriberCount odometer" id="xp_${d}">0</div>
       <br>
-        <h3 style="margin-top: 20px; font-size: 25px; margin-left: 0px;">Level:</h3>
+        <h3 style="margin-top: 60px; font-size: 25px; margin-left: 0px;">Level:</h3>
         <h1 class="odometer" id="level_${d}" style="font-size: 40px; margin-left: 75px; margin-top: -65px;">0</h1>
         <br>
-        <h3 style="margin-top: -70px; font-size: 25px; margin-left: 155px;">MSGs:</h3>
-        <h1 class="odometer" id="msg_${d}" style="font-size: 40px; margin-left: 235px; margin-top: -70px;">0</h1>
+        <h3 style="margin-top: -65px; font-size: 25px; margin-left: 155px;">MSGs:</h3>
+        <h1 class="odometer" id="msg_${d}" style="font-size: 40px; margin-left: 235px; margin-top: -65px;">0</h1>
       </div>`
 
             $('.row_' + l).append(htmlcard);
@@ -119,6 +121,9 @@
             var total = rows*num
             for (var q = 0; q < total; q++) {
                 var a = q + 1
+                if (data.players[q].xp > 999999) {
+                    document.getElementById('xp_' + a + '').style.left = "-20px"
+                }
                 document.getElementById('xp_' + a + '').innerHTML = data.players[q].xp
                 document.getElementById('level_' + a + '').innerHTML = data.players[q].level
                 document.getElementById('name_' + a + '').innerHTML = data.players[q].username
