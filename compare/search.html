@@ -56,12 +56,13 @@
                         <option value="twitchfollowers">Twitch Followers</option>
                         <option value="twitchviewers">Twitch Viewers</option>
                         <option value="redditmembers">Reddit Member Count</option>
-                        <option value="dlinkorgfollowers">DLinkorg Followers</option>
+                        <option value="teamseas">#TeamSeas Donation Count</option>
+                        <option value="teamtrees">#TeamTrees Donation Count</option>
                     </select>
                     <br>
                     <br>
                     <div id="query1">
-                    <input placeholder="Query" id="search1">
+                        <input placeholder="Query" id="search1">
                     </div>
                     <br>
                     <br>
@@ -91,12 +92,13 @@
                         <option value="twitchfollowers">Twitch Followers</option>
                         <option value="twitchviewers">Twitch Viewers</option>
                         <option value="redditmembers">Reddit Member Count</option>
-                        <option value="dlinkorgfollowers">DLinkorg Followers</option>
+                        <option value="teamseas">#TeamSeas Donation Count</option>
+                        <option value="teamtrees">#TeamTrees Donation Count</option>
                     </select>
                     <br>
                     <br>
                     <div id="query2">
-                    <input id="search2" placeholder="Query">
+                        <input id="search2" placeholder="Query">
                     </div>
                     <br>
                     <br>
@@ -121,169 +123,306 @@
     var url1 = ""
     var url2 = ""
     document.getElementById("select1").addEventListener('change', function () {
+        if (document.getElementById('select1').value == 'teamseas') {
+            document.getElementById('search1').remove()
+            document.getElementById('img1').style.width = "100px"
+            document.getElementById('img1').style.borderRadius = "100px"
+            document.getElementById('inputa').remove()
+        }
+        if (document.getElementById('select1').value == 'teamtrees') {
+            document.getElementById('search1').remove()
+            document.getElementById('img1').style.width = "100px"
+            document.getElementById('img1').style.borderRadius = "100px"
+            document.getElementById('inputa').remove()
+        }
         if (document.getElementById('select1').value == 'discordmembers') {
+            if (document.getElementById('search1')) { } else {
+                if (document.getElementById('search1')) { } else {
+                    var a = document.createElement('INPUT')
+                    a.id = "search1"
+                    document.getElementById('query1').append(a)
+                }
+            }
             document.getElementById('search1').placeholder = "Server Invite ID"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'gabfollowers') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Username"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'gabpostlikes') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Post ID"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'globalclicker') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "V: "
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'storyfirefollowers') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "User ID"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'twitchfollowers') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Username"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'twitchviewers') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Streamer Username"
             document.getElementById('img1').style.width = "200px"
             document.getElementById('img1').style.borderRadius = "20px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'redditmembers') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "R/ "
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'youtubeapi') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Search"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'youtubeest') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Search"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'youtubeviews') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Search"
             document.getElementById('img1').style.width = "200px"
             document.getElementById('img1').style.borderRadius = "20px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'storyfireviews') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Video ID"
             document.getElementById('img1').style.width = "200px"
             document.getElementById('img1').style.borderRadius = "20px"
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'mee6xp') {
+            if (document.getElementById('search1')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search1"
+                document.getElementById('query1').append(a)
+            }
             document.getElementById('search1').placeholder = "Server ID"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
-            var a = document.createElement('INPUT')
-            a.id = "inputa"
-            a.placeholder = "Username"
+            var b = document.createElement('INPUT')
+            b.id = "inputa"
+            b.placeholder = "Username"
             document.getElementById('query1').append(a)
         }
     })
     document.getElementById("select2").addEventListener('change', function () {
+        if (document.getElementById('select2').value == 'teamseas') {
+            document.getElementById('search2').remove()
+            document.getElementById('img2').style.width = "100px"
+            document.getElementById('img2').style.borderRadius = "100px"
+        }
+        if (document.getElementById('select2').value == 'teamtrees') {
+            document.getElementById('search2').remove()
+            document.getElementById('img2').style.width = "100px"
+            document.getElementById('img2').style.borderRadius = "100px"
+        }
         if (document.getElementById('select2').value == 'discordmembers') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Server Invite ID"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'storyfireviews') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Video ID"
             document.getElementById('img2').style.width = "200px"
             document.getElementById('img2').style.borderRadius = "20px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'gabfollowers') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Username"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'gabpostlikes') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Post ID"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'globalclicker') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "V: "
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'storyfirefollowers') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "User ID"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'twitchfollowers') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Username"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'twitchviewers') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Streamer Username"
             document.getElementById('img1').style.width = "200px"
             document.getElementById('img1').style.borderRadius = "20px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'redditmembers') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "R/ "
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'youtubeapi') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Search"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'youtubeest') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Search"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'youtubeviews') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
             document.getElementById('search2').placeholder = "Search"
-            document.getElementById('img1').style.width = "200px"
-            document.getElementById('img1').style.borderRadius = "20px"
-            document.getElementById('inputb').remove()
+            document.getElementById('img2').style.width = "200px"
+            document.getElementById('img2').style.borderRadius = "20px"
         }
         if (document.getElementById('select2').value == 'mee6xp') {
             document.getElementById('search2').placeholder = "Server ID"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
-            var a = document.createElement('INPUT')
-            a.id = "inputb"
-            a.placeholder = "Username"
-            document.getElementById('query2').append(a)
+            var b = document.createElement('INPUT')
+            b.id = "inputb"
+            b.placeholder = "Username"
+            document.getElementById('query2').append(b)
         }
     })
     function search1() {
@@ -295,7 +434,7 @@
                 if (!data) return;
                 document.getElementById('img1').src = data.items[0].snippet.thumbnails.high.url
                 document.getElementById('name1').innerHTML = data.items[0].snippet.title
-                url1 = "?youtubeapi1="+data.items[0].id.channelId+""
+                url1 = "?youtubeapi1=" + data.items[0].id.channelId + ""
             }
         }
         if (document.getElementById('select1').value == 'youtubeest') {
@@ -306,7 +445,7 @@
                 if (!data) return;
                 document.getElementById('img1').src = data.items[0].snippet.thumbnails.high.url
                 document.getElementById('name1').innerHTML = data.items[0].snippet.title
-                url1 = "?youtubeest1="+data.items[0].id.channelId+""
+                url1 = "?youtubeest1=" + data.items[0].id.channelId + ""
             }
         }
         if (document.getElementById('select1').value == 'youtubeviews') {
@@ -317,7 +456,7 @@
                 if (!data) return;
                 document.getElementById('img1').src = data.items[0].snippet.thumbnails.high.url
                 document.getElementById('name1').innerHTML = data.items[0].snippet.title
-                url1 = "?youtubeviews1="+data.items[0].id.videoId+""
+                url1 = "?youtubeviews1=" + data.items[0].id.videoId + ""
             }
         }
         if (document.getElementById('select1').value == 'discordmembers') {
@@ -326,9 +465,9 @@
                 let request = await fetch('https://api.mgcounts.com/discord/' + document.getElementById('search1').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
-                document.getElementById('img1').src = "https://cdn.discordapp.com/icons/"+data.guild.id+"/"+data.guild.icon+".png"
+                document.getElementById('img1').src = "https://cdn.discordapp.com/icons/" + data.guild.id + "/" + data.guild.icon + ".png"
                 document.getElementById('name1').innerHTML = data.guild.name
-                url1 = "?discordmembers1="+document.getElementById('search1').value+""
+                url1 = "?discordmembers1=" + document.getElementById('search1').value + ""
             }
         }
         if (document.getElementById('select1').value == 'mee6xp') {
@@ -338,12 +477,12 @@
                 let data = await request.json().catch(() => { })
                 if (!data) return;
                 for (var m = 0; m < data.players.length; m++) {
-                if (document.getElementById('inputa').value == data.players[m].username) {
-                document.getElementById('img1').src = 'https://cdn.discordapp.com/avatars/' + data.players[m].id + '/' + data.players[m].avatar + '.png'
-                document.getElementById('name1').innerHTML = data.players[m].username
-                url1 = "?serverid1="+document.getElementById('search1').value+"&username1="+data.players[m].username+""
-      }
-    }
+                    if (document.getElementById('inputa').value == data.players[m].username) {
+                        document.getElementById('img1').src = 'https://cdn.discordapp.com/avatars/' + data.players[m].id + '/' + data.players[m].avatar + '.png'
+                        document.getElementById('name1').innerHTML = data.players[m].username
+                        url1 = "?serverid1=" + document.getElementById('search1').value + "&username1=" + data.players[m].username + ""
+                    }
+                }
             }
         }
         if (document.getElementById('select1').value == 'gabfollowers') {
@@ -352,9 +491,9 @@
                 let request = await fetch('https://api.mgcounts.com/gab/users/' + document.getElementById('search1').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
-                document.getElementById('img1').src = data.followers_count
-                document.getElementById('name1').innerHTML = data.avatar_static
-                url1 = "?gabfollowers1="+document.getElementById('search1').value+""
+                document.getElementById('img1').src = data.avatar_static
+                document.getElementById('name1').innerHTML = data.username
+                url1 = "?gabfollowers1=" + document.getElementById('search1').value + ""
             }
         }
         if (document.getElementById('select1').value == 'gabpostlikes') {
@@ -363,9 +502,9 @@
                 let request = await fetch('https://api.mgcounts.com/gab/posts/' + document.getElementById('search1').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
-                document.getElementById('img1').src = data.favourites_count
-                document.getElementById('name1').innerHTML = data.account.avatar_static
-                url1 = "?gabpostlikes1="+document.getElementById('search1').value+""
+                document.getElementById('name1').innerHTML = data.content
+                document.getElementById('img1').innerHTML = data.account.avatar_static
+                url1 = "?gabpostlikes1=" + document.getElementById('search1').value + ""
             }
         }
         if (document.getElementById('select1').value == 'globalclicker') {
@@ -376,7 +515,7 @@
                 if (!data) return;
                 document.getElementById('img1').src = data.image
                 document.getElementById('name1').innerHTML = data.clicker
-                url1 = "?globalclicker1="+document.getElementById('search1').value+""
+                url1 = "?globalclicker1=" + document.getElementById('search1').value + ""
             }
         }
         if (document.getElementById('select1').value == 'storyfirefollowers') {
@@ -387,7 +526,7 @@
                 if (!data) return;
                 document.getElementById('img1').src = data.userimage
                 document.getElementById('name1').innerHTML = data.username
-                url1 = "?storyfirefollowers1="+document.getElementById('search1').value+""
+                url1 = "?storyfirefollowers1=" + document.getElementById('search1').value + ""
             }
         }
         if (document.getElementById('select1').value == 'storyfireviews') {
@@ -396,9 +535,9 @@
                 let request = await fetch('https://api.mgcounts.com/storyfire/videos/' + document.getElementById('search1').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
-                document.getElementById('img1').src = data.video.storyImage 
+                document.getElementById('img1').src = data.video.storyImage
                 document.getElementById('name1').innerHTML = data.video.title
-                url1 = "?storyfireviews1="+document.getElementById('search1').value+""
+                url1 = "?storyfireviews1=" + document.getElementById('search1').value + ""
             }
         }
         if (document.getElementById('select1').value == 'twitchfollowers') {
@@ -409,7 +548,7 @@
                 if (!data) return;
                 document.getElementById('img1').src = data.channels[0].logo
                 document.getElementById('name1').innerHTML = data.channels[0].display_name
-                url1 = "?twitchfollowers1="+document.getElementById('search1').value+""
+                url1 = "?twitchfollowers1=" + document.getElementById('search1').value + ""
             }
         }
         if (document.getElementById('select1').value == 'twitchviewers') {
@@ -421,52 +560,42 @@
                 var e = data.channels[0]._id
                 ss()
                 async function ss() {
-                let request = await fetch('https://api.mgcounts.com/twitch/streams/' + e + '', { mode: "cors" })
-                let data = await request.json().catch(() => { })
-                if (!data) return;
-                url1 = "?twitchviewers1="+e+""
-                if (data.stream == null) {
-          alert("Stream is currently offline.")
-      } else {
-                document.getElementById('img1').src = data.stream.channel.logo
-                document.getElementById('name1').innerHTML = data.stream.channel.status
-      }
-            }
+                    let request = await fetch('https://api.mgcounts.com/twitch/streams/' + e + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    if (!data) return;
+                    url1 = "?twitchviewers1=" + e + ""
+                    if (data.stream == null) {
+                        alert("Stream is currently offline.")
+                    } else {
+                        document.getElementById('img1').src = data.stream.channel.logo
+                        document.getElementById('name1').innerHTML = data.stream.channel.status
+                    }
+                }
             }
 
         }
         if (document.getElementById('select1').value == 'redditmembers') {
             s()
             async function s() {
-                let request = await fetch('https://api.mgcounts.com/youtube/video/search/' + document.getElementById('search1').value + '', { mode: "cors" })
+                let request = await fetch('https://api.mgcounts.com/reddit/subreddit/' + document.getElementById('search1').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
                 document.getElementById('img1').src = data.data.community_icon.split('?')[0]
                 document.getElementById('name1').innerHTML = data.data.display_name_prefixed
-                url1 = "?redditmembers1="+document.getElementById('search1').value+""
+                url1 = "?redditmembers1=" + document.getElementById('search1').value + ""
             }
         }
-        if (document.getElementById('select1').value == 'dlinkorgfollowers') {
-    $.getJSON("https://api.mgcounts.com/dlinkorg/all",(data)=>{
-
-        for (var q = 0; q < 250; q++) {
-            if (data.users[q].Name == document.getElementById('search1').value) {
-            document.getElementById('img1').src = "https://mgcounts.com/assets/img/Old-YT.png"
-            document.getElementById('name1').innerHTML = data.users[q].Name
-            var e = q+1
-            url1 = "?dlinkorgfollowers1="+e+""
+        if (document.getElementById('select1').value == 'teamseas') {
+            document.getElementById('img1').src = "https://teamseas.org/assets/images/teamseas-logo.png"
+            document.getElementById('name1').innerHTML = "#TeamSeas"
+            url1 = "?&teamseas1=true"
         }
-        }
-    });
+        if (document.getElementById('select1').value == 'teamtrees') {
+            document.getElementById('img1').src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Team_Trees_circle_logo.svg/1200px-Team_Trees_circle_logo.svg.png"
+            document.getElementById('name1').innerHTML = "#TeamTrees"
+            url1 = "?&teamtrees1=true"
         }
     }
-
-
-
-
-
-
-
 
 
 
@@ -479,7 +608,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.items[0].snippet.thumbnails.high.url
                 document.getElementById('name2').innerHTML = data.items[0].snippet.title
-                url2 = "&youtubeapi2="+data.items[0].id.channelId+""
+                url2 = "&youtubeapi2=" + data.items[0].id.channelId + ""
             }
         }
         if (document.getElementById('select2').value == 'youtubeest') {
@@ -490,7 +619,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.items[0].snippet.thumbnails.high.url
                 document.getElementById('name2').innerHTML = data.items[0].snippet.title
-                url2 = "&youtubeest2="+data.items[0].id.channelId+""
+                url2 = "&youtubeest2=" + data.items[0].id.channelId + ""
             }
         }
         if (document.getElementById('select2').value == 'storyfireviews') {
@@ -499,9 +628,9 @@
                 let request = await fetch('https://api.mgcounts.com/storyfire/videos/' + document.getElementById('search1').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
-                document.getElementById('img2').src = data.video.storyImage 
+                document.getElementById('img2').src = data.video.storyImage
                 document.getElementById('name2').innerHTML = data.video.title
-                url1 = "&storyfireviews2="+document.getElementById('search2').value+""
+                url1 = "&storyfireviews2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'youtubeviews') {
@@ -512,7 +641,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.items[0].snippet.thumbnails.high.url
                 document.getElementById('name2').innerHTML = data.items[0].snippet.title
-                url2 = "&youtubeviews2="+data.items[0].id.videoId+""
+                url2 = "&youtubeviews2=" + data.items[0].id.videoId + ""
             }
         }
         if (document.getElementById('select2').value == 'discordmembers') {
@@ -521,9 +650,9 @@
                 let request = await fetch('https://api.mgcounts.com/discord/' + document.getElementById('search2').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
-                document.getElementById('img2').src = "https://cdn.discordapp.com/icons/"+data.guild.id+"/"+data.guild.icon+".png"
+                document.getElementById('img2').src = "https://cdn.discordapp.com/icons/" + data.guild.id + "/" + data.guild.icon + ".png"
                 document.getElementById('name2').innerHTML = data.guild.name
-                url2 = "&discordmembers2="+document.getElementById('search2').value+""
+                url2 = "&discordmembers2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'mee6xp') {
@@ -533,12 +662,12 @@
                 let data = await request.json().catch(() => { })
                 if (!data) return;
                 for (var m = 0; m < data.players.length; m++) {
-                if (document.getElementById('inputb').value == data.players[m].username) {
-                document.getElementById('img2').src = 'https://cdn.discordapp.com/avatars/' + data.players[m].id + '/' + data.players[m].avatar + '.png'
-                document.getElementById('name2').innerHTML = data.players[m].username
-                url2 = "&serverid2="+document.getElementById('search2').value+"&username2="+data.players[m].username+""
-      }
-    }
+                    if (document.getElementById('inputb').value == data.players[m].username) {
+                        document.getElementById('img2').src = 'https://cdn.discordapp.com/avatars/' + data.players[m].id + '/' + data.players[m].avatar + '.png'
+                        document.getElementById('name2').innerHTML = data.players[m].username
+                        url2 = "&serverid2=" + document.getElementById('search2').value + "&username2=" + data.players[m].username + ""
+                    }
+                }
             }
         }
         if (document.getElementById('select2').value == 'gabfollowers') {
@@ -547,9 +676,9 @@
                 let request = await fetch('https://api.mgcounts.com/gab/users/' + document.getElementById('search2').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
-                document.getElementById('img2').src = data.followers_count
-                document.getElementById('name2').innerHTML = data.avatar_static
-                url2 = "&gabfollowers2="+document.getElementById('search2').value+""
+                document.getElementById('img2').src = data.avatar_static
+                document.getElementById('name2').innerHTML = data.username
+                url2 = "&gabfollowers2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'gabpostlikes') {
@@ -560,7 +689,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.favourites_count
                 document.getElementById('name2').innerHTML = data.account.avatar_static
-                url2 = "&gabpostlikes2="+document.getElementById('search2').value+""
+                url2 = "&gabpostlikes2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'globalclicker') {
@@ -571,7 +700,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.image
                 document.getElementById('name2').innerHTML = data.clicker
-                url2 = "&globalclicker2="+document.getElementById('search2').value+""
+                url2 = "&globalclicker2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'storyfirefollowers') {
@@ -582,7 +711,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.userimage
                 document.getElementById('name2').innerHTML = data.username
-                url2 = "&storyfirefollowers2="+document.getElementById('search2').value+""
+                url2 = "&storyfirefollowers2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'twitchfollowers') {
@@ -593,7 +722,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.channels[0].logo
                 document.getElementById('name2').innerHTML = data.channels[0].display_name
-                url2 = "&twitchfollowers2="+document.getElementById('search2').value+""
+                url2 = "&twitchfollowers2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'twitchviewers') {
@@ -605,46 +734,44 @@
                 var e = data.channels[0]._id
                 ss()
                 async function ss() {
-                let request = await fetch('https://api.mgcounts.com/twitch/streams/' + e + '', { mode: "cors" })
-                let data = await request.json().catch(() => { })
-                if (!data) return;
-                url1 = "&twitchviewers2="+e+""
-                if (data.stream == null) {
-          alert("Stream is currently offline.")
-      } else {
-                document.getElementById('img2').src = data.stream.channel.logo
-                document.getElementById('name2').innerHTML = data.stream.channel.status
-      }
-            }
+                    let request = await fetch('https://api.mgcounts.com/twitch/streams/' + e + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    if (!data) return;
+                    url2 = "&twitchviewers2=" + e + ""
+                    if (data.stream == null) {
+                        alert("Stream is currently offline.")
+                    } else {
+                        document.getElementById('img2').src = data.stream.channel.logo
+                        document.getElementById('name2').innerHTML = data.stream.channel.status
+                    }
+                }
             }
         }
         if (document.getElementById('select2').value == 'redditmembers') {
             s()
             async function s() {
-                let request = await fetch('https://api.mgcounts.com/youtube/video/search/' + document.getElementById('search2').value + '', { mode: "cors" })
+                let request = await fetch('https://api.mgcounts.com/reddit/subreddit/' + document.getElementById('search2').value + '', { mode: "cors" })
                 let data = await request.json().catch(() => { })
                 if (!data) return;
                 document.getElementById('img2').src = data.data.community_icon.split('?')[0]
                 document.getElementById('name2').innerHTML = data.data.display_name_prefixed
-                url1 = "&redditmembers2="+document.getElementById('search2').value+""
+                url2 = "&redditmembers2=" + document.getElementById('search2').value + ""
             }
         }
-        if (document.getElementById('select2').value == 'dlinkorgfollowers') {
-    $.getJSON("https://api.mgcounts.com/dlinkorg/all",(data)=>{
-
-        for (var q = 0; q < 250; q++) {
-            if (data.users[q].Name == document.getElementById('search2').value) {
-            document.getElementById('img2').src = "https://mgcounts.com/assets/img/Old-YT.png"
-            document.getElementById('name2').innerHTML = data.users[q].Name
-            url1 = "&dlinkorgfollowers2="+e+""
+        if (document.getElementById('select2').value == 'teamseas') {
+            document.getElementById('img2').src = "https://teamseas.org/assets/images/teamseas-logo.png"
+            document.getElementById('name2').innerHTML = "#TeamSeas"
+            url2 = "&teamseas2=true"
         }
-        }
-    });
+        if (document.getElementById('select2').value == 'teamtrees') {
+            document.getElementById('img2').src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Team_Trees_circle_logo.svg/1200px-Team_Trees_circle_logo.svg.png"
+            document.getElementById('name2').innerHTML = "#TeamTrees"
+            url2 = "&teamtrees2=true"
         }
     }
 
     function start() {
-        var url = "https://mgcounts.com/compare"+url1+""+url2+""
+        var url = "https://mgcounts.com/compare" + url1 + "" + url2 + ""
         window.location.href = url
     }
 </script>
@@ -661,5 +788,5 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
 <script>
-    var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
+    var socket = io('https://api.mgcounts.com?&urlPath=' + document.URL + '', { transports: ['websocket'] });
 </script>

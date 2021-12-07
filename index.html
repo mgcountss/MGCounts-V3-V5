@@ -196,21 +196,23 @@
       border-top: 5px solid;
       background-image: linear-gradient(to right, red, rgb(255, 0, 255), purple, purple, rgb(255, 0, 255), red);
     }
+
+    strong {
+      font-size: 25px;
+    }
   </style>
 </head>
 
 <body>
-
-
-
   <center>
     <div id="box" class="box">
       <h1 id="main" style="width: 100%; font-size: auto;">MGCounts</h1>
       <br>
     </div>
-    <br>
-    <br>
-    <br>
+    <div style="font-size: 25px; cursor: pointer;" id="news" class="alert alert-success">
+      <strong>News:</strong> We just added <strong><a style="color: #3c763d;"
+          href="/compare/search">comparing</a></strong> to the site!
+    </div>
     <br>
     <div class="container">
       <div class="boxThing5">
@@ -242,23 +244,21 @@
         <br>
       </div>
 
-        <div class="boxThing5">
-          <h1 id="Box-Text">MrBeast</h1>
-          <br>
-          <br>
-          <a href="./mrbeast/teamtrees" id="Box-Text">#TeamTrees</a>
-          <br>
-          <br>
-          <a href="./mrbeast/teamseas" id="Box-Text">#TeamSeas</a>
-          <br>
-          <br>
-        </div>
+      <div class="boxThing5">
+        <h1 id="Box-Text">MrBeast</h1>
+        <br>
+        <a href="./mrbeast/teamtrees" id="Box-Text">#TeamTrees</a>
+        <br>
+        <br>
+        <a href="./mrbeast/teamseas" id="Box-Text">#TeamSeas</a>
+        <br>
+        <br>
+      </div>
     </div>
-<br>
+    <br>
     <div class="container">
       <div class="boxThing5">
         <h1 id="Box-Text">Fake</h1>
-        <br>
         <br>
         <a href="/fake">Fake Subscriber Counter</a>
         <br>
@@ -280,7 +280,6 @@
       </div>
       <div class="boxThing5">
         <h1 id="Box-Text">Global Clickers</h1>
-        <br>
         <br>
         <a href="./globalclicker/index.html?id=1" id="Box-Text">Global Clicker V1</a>
         <br>
@@ -304,7 +303,6 @@
       <div class="boxThing5">
         <h1 id="Box-Text">StoryFire</h1>
         <br>
-        <br>
         <a href="./storyfire/user.html" id="Box-Text">StoryFire Followers</a>
         <br>
         <br>
@@ -320,7 +318,6 @@
       <div class="boxThing5">
         <h1 id="Box-Text">Twitch</h1>
         <br>
-        <br>
         <a href="./twitch/user.html" id="Box-Text">Twitch Follower Count</a>
         <br>
         <br>
@@ -331,7 +328,6 @@
 
       <div class="boxThing5">
         <h1 id="Box-Text">Reddit</h1>
-        <br>
         <br>
         <a href="./reddit/subreddit.html" id="Box-Text">SubReddit Member Count</a>
         <br>
@@ -346,7 +342,6 @@
 
       <div class="boxThing5">
         <h1>Roblox</h1>
-        <br>
         <br>
         <a href="./roblox/groups.html" id="Box-Text">Roblox Group Members</a>
         <br>
@@ -364,14 +359,14 @@
 
     <div class="container">
       <div class="boxThing5">
-      <h1 id="Box-Text">Gab</h1>
-      <br>
-      <a href="./gab/user.html" id="Box-Text">Gab Followers</a>
-      <br>
-      <br>
-      <a href="./gab/posts.html" id="Box-Text">Gab Posts Likes</a>
-          </div>
-          
+        <h1 id="Box-Text">Gab</h1>
+        <br>
+        <a href="./gab/user.html" id="Box-Text">Gab Followers</a>
+        <br>
+        <br>
+        <a href="./gab/posts.html" id="Box-Text">Gab Posts Likes</a>
+      </div>
+
       <div class="boxThing5">
         <h1 id="Box-Text">Coming Soon</h1>
         <br>
@@ -434,7 +429,7 @@
     if (!data) return;
     requests.innerHTML = data
   }
-  setInterval(GetStats, 1000)
+  setInterval(GetStats, 2000)
   GetStats()
 
   async function GetStats2() {
@@ -446,6 +441,9 @@
   setInterval(GetStats2, 5000)
   GetStats2()
 
+  document.getElementById('news').addEventListener('click', function () {
+    window.location.href = "/compare/search"
+  })
 
 </script>
 
@@ -454,16 +452,16 @@
 <center>
   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;" class="boxThing6">
     <div>
-    <h1>API Requests</h1>
-    <br>
-    <h1 style="font-size: 100px;" class="odometer" id="requests">0</h1>
+      <h1>API Requests</h1>
+      <br>
+      <h1 style="font-size: 100px;" class="odometer" id="requests">0</h1>
+    </div>
+    <div>
+      <h1>Online Users:</h1>
+      <br>
+      <h1 style="font-size: 100px;" class="odometer" id="online">0</h1>
+    </div>
   </div>
-  <div>
-    <h1>Online Users:</h1>
-    <br>
-    <h1 style="font-size: 100px;" class="odometer" id="online">0</h1>
-  </div>
-</div>
 </center>
 <center>
   <br>
@@ -496,5 +494,5 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
 <script>
-  var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
+  var socket = io('https://api.mgcounts.com?&urlPath=' + document.URL + '', { transports: ['websocket'] });
 </script>
