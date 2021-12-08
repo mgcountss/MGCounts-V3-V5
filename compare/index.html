@@ -695,13 +695,13 @@
         }
         setInterval(load1, 5000)
         setInterval(load2, 5000)
-        setTimeout(function() {
+        setInterval(function() {
             chart1.series[0].update({ name: document.getElementById('name1').innerHTML }, false);
             chart1.redraw();
 
             chart2.series[0].update({ name: document.getElementById('name2').innerHTML }, false);
             chart2.redraw();
-        },1000)
+        },10000)
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
     <script>
