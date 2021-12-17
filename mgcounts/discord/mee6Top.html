@@ -1,0 +1,151 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
+<script src="https://mgcounts.com/assets/js/odometer.js"></script>
+<style>
+    body {
+        background-color: #000;
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: #FFF;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: -5px;
+    }
+
+    .card {
+        height: 150px;
+        width: 400px;
+        padding: 5px;
+        margin: 5px;
+        text-align: left;
+        background: #222222;
+        margin-left: 1px;
+        border: 5px solid #ffffff;
+        border-radius: 10px;
+    }
+
+    .row {
+        display: inline-block;
+    }
+
+    .cnb {
+        font-size: 35px;
+        font-family: 'Roboto Medium';
+        float: left;
+        margin-right: 10px;
+        margin-left: 10px;
+        color: #FFFFFF;
+        margin-top: -1px;
+    }
+
+    .chnam {
+        font-family: 'Roboto', sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 25px;
+        margin-left: 160px;
+        color: #FFFFFF;
+        margin-top: -100px;
+    }
+
+    .subscriberCount {
+        transition: color 2s;
+        font-size: 50px;
+        font-family: 'Roboto', sans-serif;
+        color: #FFFFFF;
+        margin-top: 0px;
+        float: right;
+        left: -50px;
+    }
+
+    .cimg {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: solid #000 4px;
+    }
+</style>
+
+<body>
+    <div id="holder" class="holder"></div>
+</body>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var rows = 4;
+    var num = 6;
+    if (params.get('rows')) {
+        rows = params.get('rows')
+    }
+    if (params.get('num')) {
+        num = params.get('num')
+    }
+    //style="display: grid; grid-template-columns: repeat(4, 1fr);"
+    var c = 0;
+    for (var l = 1; l <= rows; l++) {
+        var randomColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+        var htmlrow = `<div class="row_${l} row"></div>`;
+        $('.holder').append(htmlrow);
+        for (var t = 1; t <= num; t++) {
+            var b = c + 1
+            var d = c + 1
+            if (b < 10) {
+                b = "0" + b + ""
+            }
+            var htmlcard = `<div class="channel_${d} card" id="card_thing_${d}">
+                <div class="cnb">${b}</div>
+      <img src="https://mgcounts.com/assets/img/Old-YT.png" alt="" id="img_${d}" class="cimg">
+      <div class="chnam" id="name_${d}">Loading</div>
+      <div class="subscriberCount odometer" id="xp_${d}">0</div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 50px; width: 100%;">
+        <div>
+        <h3 style="font-size: 25px;">Level:</h3>
+        <h1 class="odometer" id="level_${d}" style="font-size: 35px; margin-top: -35px;">0</h1>
+        </div>
+        <div style="">
+        <h3 style="font-size: 25px;">MSGs:</h3>
+        <h1 class="odometer" id="msg_${d}" style="font-size: 35px; margin-top: -35px;">0</h1>
+        </div>
+        </div>
+      </div>`
+
+            $('.row_' + l).append(htmlcard);
+            c += 1;
+        }
+    }
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var ID = params.get('id')
+    function update() {
+        $.getJSON("https://api.mgcounts.com/mee6/server/" + ID + "", (data) => {
+            console.log(data)
+            data.players.sort(function (a, b) { return b.xp - a.xp });
+            var total = rows*num
+            for (var q = 0; q < total; q++) {
+                var a = q + 1
+                if (data.players[q].xp > 999999) {
+                    document.getElementById('xp_' + a + '').style.left = "-20px"
+                }
+                document.getElementById('xp_' + a + '').innerHTML = data.players[q].xp
+                document.getElementById('level_' + a + '').innerHTML = data.players[q].level
+                document.getElementById('name_' + a + '').innerHTML = data.players[q].username
+                document.getElementById('msg_' + a + '').innerHTML = data.players[q].message_count
+                document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
+                imgLoaded('img_' + a + '')
+            }
+        });
+    }
+    function imgLoaded(imgElementId) {
+        setTimeout(function () {
+            var imgElement = document.getElementById(imgElementId)
+            var check = imgElement.complete && imgElement.naturalHeight !== 0;
+            if (check == false) {
+                imgElement.src = 'https://cdn.discordapp.com/embed/avatars/1.png'
+            }
+        }, 1000)
+    }
+    update()
+    setInterval(update, 15000)
+</script>
