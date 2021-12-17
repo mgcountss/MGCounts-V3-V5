@@ -24,7 +24,7 @@
     function update() {
         $.getJSON("https://api.mgcounts.com/mee6/server/" + ID + "", (data) => {
             data.players.sort(function (a, b) { return b.xp - a.xp });
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[0].id+"", (json) => {
                     var a = 1 
                     var q = 0
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -35,7 +35,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[1].id+"", (json) => {
                     var a = 2
                     var q = 1
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -46,7 +46,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[2].id+"", (json) => {
                     var a = 3 
                     var q = 2
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -57,7 +57,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[3].id+"", (json) => {
                     var a = 4
                     var q = 3
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -68,7 +68,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[4].id+"", (json) => {
                     var a = 5 
                     var q = 4
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -79,7 +79,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[5].id+"", (json) => {
                     var a = 6
                     var q = 5
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -90,7 +90,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[6].id+"", (json) => {
                     var a = 7 
                     var q = 6
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -101,7 +101,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[7].id+"", (json) => {
                     var a = 8 
                     var q = 7
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -112,7 +112,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[8].id+"", (json) => {
                     var a = 9 
                     var q = 8
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -123,7 +123,7 @@
                 document.getElementById('img_' + a + '').src = 'https://cdn.discordapp.com/avatars/' + data.players[q].id + '/' + data.players[q].avatar + '.png'
                 imgLoaded('img_' + a + '')
                 })
-                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[q].id+"", (json) => {
+                $.getJSON("https://mixerno.space/raw-analytics-api/single-api/mee6User/" + ID + "$"+data.players[9].id+"", (json) => {
                     var a = 10 
                     var q = 9
                     //document.getElementById('count_' + a + '').innerHTML = data.players[q].xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
