@@ -68,8 +68,8 @@
     <script>
         var params = new URLSearchParams(document.location.search.substring(1));
         var url = new URL(window.location.href);
-        var search1 = params.get('youtubeapi1') || params.get('youtubeest1') || params.get('discordmembers1') || params.get('gabfollowers1') || params.get('gabpostlikes1') || params.get('globalclicker1') || params.get('storyfirefollowers1') || params.get('twitchfollowers1') || params.get('twitchviewers1') || params.get('redditmembers1') || params.get('youtubeviews1') || params.get('serverid1') || params.get('storyfireviews1')
-        var search2 = params.get('youtubeapi2') || params.get('youtubeest2') || params.get('discordmembers2') || params.get('gabfollowers2') || params.get('gabpostlikes2') || params.get('globalclicker2') || params.get('storyfirefollowers2') || params.get('twitchfollowers2') || params.get('twitchviewers2') || params.get('redditmembers2') || params.get('youtubeviews2') || params.get('serverid2') || params.get('storyfireviews2')
+        var search1 = params.get('gamejolt1') || params.get('youtubeapi1') || params.get('youtubeest1') || params.get('robloxfollowers1') || params.get('robloxgroup1') || params.get('discordmembers1') || params.get('gabfollowers1') || params.get('gabpostlikes1') || params.get('globalclicker1') || params.get('storyfirefollowers1') || params.get('twitchfollowers1') || params.get('twitchviewers1') || params.get('redditmembers1') || params.get('youtubeviews1') || params.get('serverid1') || params.get('storyfireviews1')
+        var search2 = params.get('gamejolt2') || params.get('youtubeapi2') || params.get('youtubeest2') || params.get('robloxfollowers2') || params.get('robloxgroup2') || params.get('discordmembers2') || params.get('gabfollowers2') || params.get('gabpostlikes2') || params.get('globalclicker2') || params.get('storyfirefollowers2') || params.get('twitchfollowers2') || params.get('twitchviewers2') || params.get('redditmembers2') || params.get('youtubeviews2') || params.get('serverid2') || params.get('storyfireviews2')
         document.getElementById('search1').value = search1
         document.getElementById('search2').value = search2
         var count1 = null;
@@ -103,7 +103,8 @@
                 showInLegend: false,
                 marker: { enabled: false },
                 lineWidth: 4,
-                lineColor: "#FFF"
+                lineColor: "#FFF",
+                name: "Series1"
             }]
         });
 
@@ -136,7 +137,8 @@
                 showInLegend: false,
                 marker: { enabled: false },
                 lineWidth: 4,
-                lineColor: "#FFF"
+                lineColor: "#FFF",
+                name: "Series2"
             }]
         });
 
@@ -188,6 +190,20 @@
                     document.getElementById('name1').innerHTML = "#TeamTrees"
                     document.getElementById('count1').innerHTML = data.total_trees
                     count1 = data.total_trees
+                }
+            }
+            if (!url.searchParams.get('gamejolt1')) {
+            } else {
+                s()
+                async function s() {
+                    let request = await fetch('https://api.mgcounts.com/gamejolt/user/' + document.getElementById('search1').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('img1').src = data.payload.user.img_avatar
+                    document.getElementById('banner1').src = data.payload.user.img_avatar
+                    document.getElementById('name1').innerHTML = data.payload.user.display_name
+                    document.getElementById('count1').innerHTML = data.payload.user.follower_count
+                    count1 = data.payload.user.follower_count
                 }
             }
             if (!url.searchParams.get('teamseas1')) {
@@ -421,10 +437,69 @@
                     count1 = data.data.subscribers
                 }
             }
+            if (!url.searchParams.get('robloxgroup1')) {
+            } else {
+                s()
+                ss()
+                async function s() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/groups/' + document.getElementById('search1').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('name1').innerHTML = data.name
+                    document.getElementById('count1').innerHTML = data.memberCount  
+                    count1 = data.memberCount
+                }
+                async function ss() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/group/image/' + document.getElementById('search1').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    document.getElementById('img1').src = data.data[0].imageUrl
+                    document.getElementById('banner1').src = data.data[0].imageUrl
+                }
+            }
+            if (!url.searchParams.get('robloxfollowers1')) {
+            } else {
+                s()
+                ss()
+                sss()
+                async function s() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/user/' + document.getElementById('search1').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('name1').innerHTML = data.Username
+                }
+                async function ss() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/user/followers/' + document.getElementById('search1').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('count1').innerHTML = data.count
+                    count1 = data.count
+                }
+                async function sss() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/user/image/' + document.getElementById('search1').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('img1').src = data.data[0].imageUrl
+                    document.getElementById('banner1').src = data.data[0].imageUrl
+                }
+            }
         }
 
 
         function load2() {
+            if (!url.searchParams.get('gamejolt2')) {
+            } else {
+                s()
+                async function s() {
+                    let request = await fetch('https://api.mgcounts.com/gamejolt/user/' + document.getElementById('search2').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('img2').src = data.payload.user.img_avatar
+                    document.getElementById('banner2').src = data.payload.user.img_avatar
+                    document.getElementById('name2').innerHTML = data.payload.user.display_name
+                    document.getElementById('count2').innerHTML = data.payload.user.follower_count
+                    count2 = data.payload.user.follower_count
+                }
+            }
             if (!url.searchParams.get('teamtrees2')) {
             } else {
                 s()
@@ -669,6 +744,51 @@
                     document.getElementById('name2').innerHTML = data.data.display_name_prefixed
                     document.getElementById('count2').innerHTML = data.data.subscribers
                     count2 = data.data.subscribers
+                }
+            }
+            if (!url.searchParams.get('robloxgroup2')) {
+            } else {
+                s()
+                ss()
+                async function s() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/groups/' + document.getElementById('search2').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('name2').innerHTML = data.name
+                    document.getElementById('count2').innerHTML = data.memberCount  
+                    count2 = data.memberCount
+                }
+                async function ss() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/group/image/' + document.getElementById('search2').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    document.getElementById('img2').src = data.data[0].imageUrl
+                    document.getElementById('banner2').src = data.data[0].imageUrl
+                }
+            }
+            if (!url.searchParams.get('robloxfollowers2')) {
+            } else {
+                s()
+                ss()
+                sss()
+                async function s() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/user/' + document.getElementById('search2').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('name2').innerHTML = data.Username
+                }
+                async function ss() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/user/followers/' + document.getElementById('search2').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('count2').innerHTML = data.count
+                    count2 = data.count
+                }
+                async function sss() {
+                    let request = await fetch('https://api.mgcounts.com/roblox/user/image/' + document.getElementById('search2').value + '', { mode: "cors" })
+                    let data = await request.json().catch(() => { })
+                    setTimeout(graph, 500)
+                    document.getElementById('img2').src = data.data[0].imageUrl
+                    document.getElementById('banner2').src = data.data[0].imageUrl
                 }
             }
         }

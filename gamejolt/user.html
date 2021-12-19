@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
     <link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
     <script src="https://mgcounts.com/assets/js/odometer.js"></script>
-    <title>MGCounts - StoryFire</title>
+    <title>MGCounts - GameJolt</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -103,7 +103,6 @@
           flex: 10;
           column-gap: 20px;
   justify-content: space-between;
-  width: 100%;
   text-align: center;
         }
 
@@ -174,7 +173,7 @@
                     <li><a class="btn" style="color: White;" href="https://statcounts.com/">StatCounts</a></li>
                     <li><a class="btn" style="color: White;" href="https://mixerno.space/">Mixerno.space</a></li>
                     <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block"
-                            data-toggle="modal" data-target="#exampleModalCenter">Change Channel</a></li>
+                            data-toggle="modal" data-target="#exampleModalCenter">Change User</a></li>
                     </li>
                     <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block"
                             data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li>
@@ -198,12 +197,12 @@
             <br>
             <div class="container">
                 <div class="boxThing2">
-                    <h1 style="color:white;" id="title2">Total Views</h1>
+                    <h1 style="color:white;" id="title2">Following</h1>
                     <br>
                     <h1 class="odometer" id="odometer2">0</h1>
                 </div>
                 <div class="boxThing2">
-                    <h1 style="color:white;" id="title2">Total Blaze</h1>
+                    <h1 style="color:white;" id="title2">Experience</h1>
                     <br>
                     <h1 class="odometer" id="odometer3">0</h1>
                 </div>
@@ -230,21 +229,39 @@
                 <div class="modal-body">
                 </div>
                 <center>
-                    <h1 style="color: white;">Change Channel</h1>
+                    <h1 style="color: white;">Change User</h1>
                     <br>
 
-                    <h5 style="color: white;">Channel ID</h5>
+                    <h5 style="color: white;">Search</h5>
                     <form id="FormThing" onsubmit="updatePageHmm()">
-                        <input type="text" placeholder="Channel ID" name="id" id="searchHmm">
+                        <input type="text" placeholder="Username" name="id" id="searchHmm">
                         <input type="submit" value="Count!">
                     </form>
                     <br>
                     <br>
                     <br>
                     <h5 style="color: white;">Search</h5>
-                               </center>
+                    <input type="text" placeholder="Search For User" id="search">
+
+                    <button onclick="search()">Search</button>
+                    <br>
+                    <h5 style="color: white;">Results:</h5>
+                    <br>
+                    <br>
+                    <div style="justify-content: space-between; text-align: center; display: flex; flex-direction: row;">
+                        <div id="channel1" onclick="location.href = `https://mgcounts.com/gamejolt/user?id=${document.getElementById('name1').title}`;" style="cursor: pointer;">
+                            <img id="img1" title="straightfrommg" src="https://mgcounts.com/assets/img/Old-YT.png" style="width: 80px;height: 80px; border-radius: 50%;"><br>
+                            <span style="color: white;" id="name1" title="straightfrommg">LOADING</span>
             </div>
-        </div>
+            <div id="channel2" onclick="location.href = `https://mgcounts.com/gamejolt/user?id=${document.getElementById('name2').title}`;" style="cursor: pointer;">
+                <img id="img2" title="straightfrommg" src="https://mgcounts.com/assets/img/Old-YT.png" style="width: 80px;height: 80px; border-radius: 50%;"><br>
+                <span style="color: white;" id="name2" title="straightfrommg">LOADING</span>
+</div>
+<div id="channel3" onclick="location.href = `https://mgcounts.com/gamejolt/user?id=${document.getElementById('name2').title}`;" style="cursor: pointer;">
+    <img id="img3" title="straightfrommg" src="https://mgcounts.com/assets/img/Old-YT.png" style="width: 80px;height: 80px; border-radius: 50%;"><br>
+    <span style="color: white;" id="name3" title="straightfrommg">LOADING</span>
+</div>
+        </center>
     </div>
     <br>
     </div>
@@ -296,7 +313,7 @@
 <script>
     var params = new URLSearchParams(document.location.search.substring(1));
     url = new URL(window.location.href);
-    var ID = "huaPiB3qL1aE7gMCsWJxu9JLiLF3";
+    var ID = "straightfrommg";
     var odometerColor = params.get("o");
     if (url.searchParams.get('id')) {
         var ID = params.get("id");
@@ -325,30 +342,30 @@
     }
 
     async function getYTStats() {
-        let request = await fetch('https://api.mgcounts.com/storyfire/user/' + ID + '', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/gamejolt/user/' + ID + '', { mode: "cors" })
         let data = await request.json().catch(() => { })
         if (!data) return;
-        odometer.innerHTML = data.followersCount
-        odometer2.innerHTML = data.followingCount
-        odometer3.innerHTML = data.points
-        title.innerHTML = data.username
-        document.getElementById('image').src = data.userimage
-        document.getElementById('image2').src = data.userimage
+        odometer.innerHTML = data.payload.user.follower_count
+        odometer2.innerHTML = data.payload.user.following_count
+        odometer3.innerHTML = data.payload.user.experience
+        title.innerHTML = data.payload.user.display_name
+        document.getElementById('image').src = data.payload.user.img_avatar
+        document.getElementById('image2').src = data.payload.user.img_avatar
         defaultID = ID
 
         if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
-        chart.series[0].addPoint([Date.now(), Math.floor(data.followersCount)])
+        chart.series[0].addPoint([Date.now(), Math.floor(data.payload.user.follower_count)])
 
         function GetGoal(count) {
             if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
         }
-        odometer4.innerHTML = GetGoal(data.followersCount)
+        odometer4.innerHTML = GetGoal(data.payload.user.follower_count)
 
     }
     setInterval(getYTStats, 5000)
     getYTStats()
 
-    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/storyfire/user.html?id=" + ID;
+    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/gamejolt/user.html?id=" + ID;
 
 
     var textBright = "#bdbdbd"
@@ -410,6 +427,28 @@
             lineColor: '#FFFFFF'
         }]
     });
+
+    function search() {
+        var search = document.getElementById('search').value
+        s()
+        async function s() {
+        let request = await fetch('https://api.mgcounts.com/gamejolt/search/' + search + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+document.getElementById('name1').title = data.payload.users[0].username
+document.getElementById('img1').src = data.payload.users[0].img_avatar
+document.getElementById('name1').innerHTML = data.payload.users[0].slug
+
+document.getElementById('name2').title = data.payload.users[1].username
+document.getElementById('img2').src = data.payload.users[1].img_avatar
+document.getElementById('name2').innerHTML = data.payload.users[1].slug
+
+document.getElementById('name3').title = data.payload.users[2].username
+document.getElementById('img3').src = data.payload.users[2].img_avatar
+document.getElementById('name3').innerHTML = data.payload.users[2].slug
+
+        }
+    }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
 <script>
@@ -421,6 +460,6 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
 <script>
-var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
+var socket = io('https://api.mgcounts.com', { transports : ['websocket'] });
 </script>
 </html>

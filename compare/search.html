@@ -53,9 +53,12 @@
                         <option value="globalclicker">Global Clicker</option>
                         <option value="storyfirefollowers">StoryFire Followers</option>
                         <option value="storyfireviews">StoryFire Video Views</option>
+                        <option value="robloxfollowers">Roblox User Followers</option>
+                        <option value="robloxgroup">Roblox Group Members</option>
                         <option value="twitchfollowers">Twitch Followers</option>
                         <option value="twitchviewers">Twitch Viewers</option>
                         <option value="redditmembers">Reddit Member Count</option>
+                        <option value="gamejolt">GameJolt Followers Count</option>
                         <option value="teamseas">#TeamSeas Donation Count</option>
                         <option value="teamtrees">#TeamTrees Donation Count</option>
                     </select>
@@ -89,9 +92,12 @@
                         <option value="globalclicker">Global Clicker</option>
                         <option value="storyfirefollowers">StoryFire Followers</option>
                         <option value="storyfireviews">StoryFire Video Views</option>
+                        <option value="robloxfollowers">Roblox User Followers</option>
+                        <option value="robloxgroup">Roblox Group Members</option>
                         <option value="twitchfollowers">Twitch Followers</option>
                         <option value="twitchviewers">Twitch Viewers</option>
                         <option value="redditmembers">Reddit Member Count</option>
+                        <option value="gamejolt">GameJolt Followers Count</option>
                         <option value="teamseas">#TeamSeas Donation Count</option>
                         <option value="teamtrees">#TeamTrees Donation Count</option>
                     </select>
@@ -114,7 +120,7 @@
                 <br>
                 <br>
             </div>
-            <button style="font-size: 50px;" onclick="start()">Start!</button>
+            <button style="font-size: 50px;" onclick="start()">Compare!</button>
             <div>
             </div>
     </center>
@@ -144,6 +150,45 @@
                 }
             }
             document.getElementById('search1').placeholder = "Server Invite ID"
+            document.getElementById('img1').style.width = "100px"
+            document.getElementById('img1').style.borderRadius = "100px"
+            document.getElementById('inputa').remove()
+        }
+        if (document.getElementById('select1').value == 'gamejolt') {
+            if (document.getElementById('search1')) { } else {
+                if (document.getElementById('search1')) { } else {
+                    var a = document.createElement('INPUT')
+                    a.id = "search1"
+                    document.getElementById('query1').append(a)
+                }
+            }
+            document.getElementById('search1').placeholder = "Username"
+            document.getElementById('img1').style.width = "100px"
+            document.getElementById('img1').style.borderRadius = "100px"
+            document.getElementById('inputa').remove()
+        }
+        if (document.getElementById('select1').value == 'robloxfollowers') {
+            if (document.getElementById('search1')) { } else {
+                if (document.getElementById('search1')) { } else {
+                    var a = document.createElement('INPUT')
+                    a.id = "search1"
+                    document.getElementById('query1').append(a)
+                }
+            }
+            document.getElementById('search1').placeholder = "User ID"
+            document.getElementById('img1').style.width = "100px"
+            document.getElementById('img1').style.borderRadius = "100px"
+            document.getElementById('inputa').remove()
+        }
+        if (document.getElementById('select1').value == 'robloxgroup') {
+            if (document.getElementById('search1')) { } else {
+                if (document.getElementById('search1')) { } else {
+                    var a = document.createElement('INPUT')
+                    a.id = "search1"
+                    document.getElementById('query1').append(a)
+                }
+            }
+            document.getElementById('search1').placeholder = "Group ID"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             document.getElementById('inputa').remove()
@@ -270,18 +315,13 @@
             document.getElementById('inputa').remove()
         }
         if (document.getElementById('select1').value == 'mee6xp') {
-            if (document.getElementById('search1')) { } else {
-                var a = document.createElement('INPUT')
-                a.id = "search1"
-                document.getElementById('query1').append(a)
-            }
             document.getElementById('search1').placeholder = "Server ID"
             document.getElementById('img1').style.width = "100px"
             document.getElementById('img1').style.borderRadius = "100px"
             var b = document.createElement('INPUT')
             b.id = "inputa"
             b.placeholder = "Username"
-            document.getElementById('query1').append(a)
+            document.getElementById('query1').append(b)
         }
     })
     document.getElementById("select2").addEventListener('change', function () {
@@ -289,11 +329,13 @@
             document.getElementById('search2').remove()
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'teamtrees') {
             document.getElementById('search2').remove()
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'discordmembers') {
             if (document.getElementById('search2')) { } else {
@@ -304,6 +346,7 @@
             document.getElementById('search2').placeholder = "Server Invite ID"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'storyfireviews') {
             if (document.getElementById('search2')) { } else {
@@ -314,6 +357,29 @@
             document.getElementById('search2').placeholder = "Video ID"
             document.getElementById('img2').style.width = "200px"
             document.getElementById('img2').style.borderRadius = "20px"
+            document.getElementById('inputb').remove()
+        }
+        if (document.getElementById('select2').value == 'robloxfollowers') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
+            document.getElementById('search2').placeholder = "User ID"
+            document.getElementById('img2').style.width = "200px"
+            document.getElementById('img2').style.borderRadius = "20px"
+            document.getElementById('inputb').remove()
+        }
+        if (document.getElementById('select2').value == 'robloxgroup') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
+            document.getElementById('search2').placeholder = "Group ID"
+            document.getElementById('img2').style.width = "100px"
+            document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'gabfollowers') {
             if (document.getElementById('search2')) { } else {
@@ -324,6 +390,7 @@
             document.getElementById('search2').placeholder = "Username"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'gabpostlikes') {
             if (document.getElementById('search2')) { } else {
@@ -334,6 +401,7 @@
             document.getElementById('search2').placeholder = "Post ID"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'globalclicker') {
             if (document.getElementById('search2')) { } else {
@@ -344,6 +412,7 @@
             document.getElementById('search2').placeholder = "V: "
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'storyfirefollowers') {
             if (document.getElementById('search2')) { } else {
@@ -354,6 +423,18 @@
             document.getElementById('search2').placeholder = "User ID"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
+        }
+        if (document.getElementById('select2').value == 'gamejolt') {
+            if (document.getElementById('search2')) { } else {
+                var a = document.createElement('INPUT')
+                a.id = "search2"
+                document.getElementById('query2').append(a)
+            }
+            document.getElementById('search2').placeholder = "Username"
+            document.getElementById('img2').style.width = "100px"
+            document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'twitchfollowers') {
             if (document.getElementById('search2')) { } else {
@@ -364,6 +445,7 @@
             document.getElementById('search2').placeholder = "Username"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'twitchviewers') {
             if (document.getElementById('search2')) { } else {
@@ -374,6 +456,7 @@
             document.getElementById('search2').placeholder = "Streamer Username"
             document.getElementById('img1').style.width = "200px"
             document.getElementById('img1').style.borderRadius = "20px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'redditmembers') {
             if (document.getElementById('search2')) { } else {
@@ -384,6 +467,7 @@
             document.getElementById('search2').placeholder = "R/ "
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'youtubeapi') {
             if (document.getElementById('search2')) { } else {
@@ -394,6 +478,7 @@
             document.getElementById('search2').placeholder = "Search"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'youtubeest') {
             if (document.getElementById('search2')) { } else {
@@ -404,6 +489,7 @@
             document.getElementById('search2').placeholder = "Search"
             document.getElementById('img2').style.width = "100px"
             document.getElementById('img2').style.borderRadius = "100px"
+            document.getElementById('inputb').remove()
         }
         if (document.getElementById('select2').value == 'youtubeviews') {
             if (document.getElementById('search2')) { } else {
@@ -437,6 +523,17 @@
                 url1 = "?youtubeapi1=" + data.items[0].id.channelId + ""
             }
         }
+        if (document.getElementById('select1').value == 'gamejolt') {
+            s()
+            async function s() {
+                let request = await fetch('https://api.mgcounts.com/gamejolt/user/' + document.getElementById('search1').value + '', { mode: "cors" })
+                let data = await request.json().catch(() => { })
+                if (!data) return;
+                document.getElementById('img1').src = data.payload.user.img_avatar
+                document.getElementById('name1').innerHTML = data.payload.user.display_name
+                url1 = "?gamejolt1=" + document.getElementById('search1').value + ""
+            }
+        }
         if (document.getElementById('select1').value == 'youtubeest') {
             s()
             async function s() {
@@ -459,6 +556,40 @@
                 url1 = "?youtubeviews1=" + data.items[0].id.videoId + ""
             }
         }
+        if (document.getElementById('select1').value == "robloxfollowers") {
+            async function getStats1() {
+        let request = await fetch('https://api.mgcounts.com/roblox/user/' + document.getElementById('search1').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('name1').innerHTML = data.Username
+    }
+    async function getStats4() {
+        let request = await fetch('https://api.mgcounts.com/roblox/user/image/' + document.getElementById('search1').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('img1').src = data.data[0].imageUrl
+    }
+    getStats1()
+    getStats4()
+    url1 = "?robloxfollowers1=" + document.getElementById('search1').value + ""
+        }
+        if (document.getElementById('select1').value == "robloxgroup") {
+            async function getStats1() {
+        let request = await fetch('https://api.mgcounts.com/roblox/groups/' + document.getElementById('search1').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('name1').innerHTML = data.name
+    }
+    async function getStats4() {
+        let request = await fetch('https://api.mgcounts.com/roblox/group/image/' + document.getElementById('search1').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('img1').src = data.data[0].imageUrl
+    }
+    getStats1()
+    getStats4()
+    url1 = "?robloxgroup1=" + document.getElementById('search1').value + ""
+        }
         if (document.getElementById('select1').value == 'discordmembers') {
             s()
             async function s() {
@@ -470,6 +601,7 @@
                 url1 = "?discordmembers1=" + document.getElementById('search1').value + ""
             }
         }
+        
         if (document.getElementById('select1').value == 'mee6xp') {
             s()
             async function s() {
@@ -622,6 +754,17 @@
                 url2 = "&youtubeest2=" + data.items[0].id.channelId + ""
             }
         }
+        if (document.getElementById('select2').value == 'gamejolt') {
+            s()
+            async function s() {
+                let request = await fetch('https://api.mgcounts.com/gamejolt/user/' + document.getElementById('search2').value + '', { mode: "cors" })
+                let data = await request.json().catch(() => { })
+                if (!data) return;
+                document.getElementById('img2').src = data.payload.user.img_avatar
+                document.getElementById('name2').innerHTML = data.payload.user.display_name
+                url2 = "?gamejolt2=" + document.getElementById('search2').value + ""
+            }
+        }
         if (document.getElementById('select2').value == 'storyfireviews') {
             s()
             async function s() {
@@ -630,7 +773,7 @@
                 if (!data) return;
                 document.getElementById('img2').src = data.video.storyImage
                 document.getElementById('name2').innerHTML = data.video.title
-                url1 = "&storyfireviews2=" + document.getElementById('search2').value + ""
+                url2 = "&storyfireviews2=" + document.getElementById('search2').value + ""
             }
         }
         if (document.getElementById('select2').value == 'youtubeviews') {
@@ -767,6 +910,40 @@
             document.getElementById('img2').src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Team_Trees_circle_logo.svg/1200px-Team_Trees_circle_logo.svg.png"
             document.getElementById('name2').innerHTML = "#TeamTrees"
             url2 = "&teamtrees2=true"
+        }
+        if (document.getElementById('select2').value == "robloxfollowers") {
+            async function getStats1() {
+        let request = await fetch('https://api.mgcounts.com/roblox/user/' + document.getElementById('search2').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('name2').innerHTML = data.Username
+    }
+    async function getStats4() {
+        let request = await fetch('https://api.mgcounts.com/roblox/user/image/' + document.getElementById('search2').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('img2').src = data.data[0].imageUrl
+    }
+    getStats1()
+    getStats4()
+    url2 = "&robloxfollowers2=" + document.getElementById('search2').value + ""
+        }
+        if (document.getElementById('select2').value == "robloxgroup") {
+            async function getStats1() {
+        let request = await fetch('https://api.mgcounts.com/roblox/groups/' + document.getElementById('search2').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('name2').innerHTML = data.name
+    }
+    async function getStats4() {
+        let request = await fetch('https://api.mgcounts.com/roblox/group/image/' + document.getElementById('search2').value + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
+        if (!data) return;
+        document.getElementById('img2').src = data.data[0].imageUrl
+    }
+    getStats1()
+    getStats4()
+    url2 = "&robloxgroup2=" + document.getElementById('search2').value + ""
         }
     }
 
