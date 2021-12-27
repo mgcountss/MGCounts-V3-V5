@@ -290,13 +290,13 @@
     function updatePageHmm() {
         var nameIdThing = document.getElementById("searchHmm").value;
         var z = location.search;
-        location.search = '?&id=' + nameIdThing + '&o=' + odometerColor + ''
+        location.search = '?o=' + odometerColor + ''
     }
 
     function updatePage() {
         var colorThing = document.getElementById("odometerChanger").value;
         var x = location.search;
-        location.search = '?&o=' + colorThing + '&id=' + ID + ''
+        location.search = '?&o=' + colorThing + ''
     }
 
     if (odometerColor == "1") {

@@ -1,78 +1,489 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-<link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
-<link rel=stylesheet href="https://mgcounts.com/assets/css/odometer-fast.css">
-<script src="https://mgcounts.com/assets/js/odometer.js"></script>
-<title>Embed</title>
-<style>
-    #image {
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        object-fit: cover;
-        border-radius: 50%;
-    }
-    #title {
-        position: absolute;
-        top: 0%;
-        left: 80px;
-        font-size: 20px;
-        width: 245px;
-        overflow: hidden;
-        white-space: nowrap;
-        font-family: 'Open Sans', sans-serif;
-        color: #FFFFFF;
-    }
-    #count {
-        position: absolute;
-        top: 25px;
-        left: 80px;
-        font-size: 35px;
-        width: 245px !important;
-        color: #FFFFFF;
-    }
-    body {
-            margin: 0;
-            overflow: hidden;
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <link rel="icon" type="image/png" sizes="250x250" href="https://mgcounts.com/assets/img/MGCounts.png">
+    <link rel=stylesheet href="https://mgcounts.com/assets/css/odometer.css">
+    <script src="https://mgcounts.com/assets/js/odometer.js"></script>
+    <title>MGCounts - Discord</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        h6 {
+            text-decoration: none;
+            color: White;
+            transition: 1s;
+            font-size: 190%;
+            font-family: 'Roboto', sans-serif;
         }
-        body {
-            background-color: transparent;
+
+        img {
+            color: white;
+            width: 50px;
+            height: 50px;
+            transition: 1s;
+        }
+
+        .boxThing {
+            width: 75%;
+            border: 2px solid rgba(255, 255, 255, 10);
+            padding: 2px;
+            margin: 5px;
+            border-radius: 10px;
+            background-color: #222222;
+        }
+
+        .boxThing2 {
+            width: 100%;
+            height: 100%;
+            border: 0.5px solid #222222;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+
+        #title {
+            font-size: 50px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: -10px;
+            transition: 1s !important;
+        }
+
+
+        #title2 {
+            font-size: 20px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            transition: 1s !important;
+        }
+
+        #odometer {
+            font-size: 105px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+
+        #odometer2 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+
+        #odometer3 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+
+        #odometer4 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+        #odometer5 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+        #odometer6 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+        
+        #odometer7 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+        
+        #odometer8 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #FFFFFF;
+            margin-top: 0px;
+        }
+
+        h1 {
+            font-size: x-large;
+        }
+
+        .container {
+            display: flex;
+          flex-direction: row;
+          flex: 10;
+          column-gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #686868
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000
+        }
+
+        #userimg {
+            border: solid .5vh !Important;
+            border-radius: 100%;
+            border-color: rgb(79, 79, 79) !Important;
+            box-shadow: 0 0 30px black;
+            border-radius: 50%;
+            margin-top: -80px;
+            object-fit: cover;
+        }
+
+        #image {
+            border: solid .5vh !Important;
+            border-color: rgb(79, 79, 79) !Important;
+            box-shadow: 0 0 30px black;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: -225px;
+            margin-left: -83%;
+            height: 175px;
+            width: 175px;
+        }
+
+        #image2 {
+                 object-fit: cover;
+            margin-top: -103px;
+            width: 100%;
+            height: 200px;
+            border-radius: 7px;
+        }
+
+        #image:hover {
+            transform: scale(1.2);
+        }
+
+        #body {
+            transition: 1s !important;
+            background-color: #292b2c;
+            text-align: center;
+        }
+
+        .odometer {
             font-family: 'Open Sans', sans-serif;
         }
-</style>
-    </head>
-    <br>
-    <br>
-    <br>
-    <body>
-        <br>
-        <br>
-        <br>
-        <img id="image" class="image" src="" height="70" width="70">
-        <span id="title">
-        </span>
-        <span id="count" class="odometer">0</span>
-    </body>
-    <script>
-var params = new URLSearchParams(document.location.search.substring(1));
-url = new URL(window.location.href);
-var ID = params.get("id");
-var CID = params.get("cid");
- async function getStats() {
-        let request = await fetch('https://api.mgcounts.com/mee6/server/'+ID+'', { mode: "cors" })
-        let data = await request.json().catch(() => {})
+    </style>
+</head>
+
+<body id="body">
+    <center>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a class="btn" style="color: White;" href="https://mgcounts.com">MGCounts</a></li>
+                    <li><a class="btn" style="color: White;" href="https://statcounts.com/">StatCounts</a></li>
+                    <li><a class="btn" style="color: White;" href="https://mixerno.space/">Mixerno.space</a></li>
+                    <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block"
+                            data-toggle="modal" data-target="#exampleModalCenter">Change Server/User</a></li>
+                    </li>
+                    <li><a class="btn" style="color: white;" type="button" class="btn btn-light btn-block"
+                            data-toggle="modal" data-target="#exampleModalCenter1">Odometer Settings</a></li>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="boxThing">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image2" class="image2">
+            <br>
+            <img src="https://mgcounts.com/assets/img/Old-YT.png" id="image" class="image">
+            <br>
+            <h1 id="title">Loading</h1>
+            <h1 class="odometer" id="odometer"></h1>
+            <div id="chart"></div>
+            <br>
+            <div class="container">
+                <div class="boxThing3">
+                    <h1 style="color:white;" id="title2">Messages</h1>
+                    <br>
+                    <h1 class="odometer" id="odometer2">0</h1>
+                  </div>
+                  <div class="boxThing2">
+                    <h1 style="color:white;" id="title2">Level</h1>
+                    <br>
+                    <h1 class="odometer" id="odometer3">0</h1>
+                  </div>
+                  <div class="boxThing2">
+                    <h1 style="color:white;" id="title2">Goal</h1>
+                    <br>
+                    <h1 class="odometer" id="odometer4">0</h1>
+                  </div>
+                  <div class="boxThing3">
+                    <h1 style="color:white;" id="title2">Rank</h1>
+                    <br>
+                    <h1 class="odometer" id="odometer5">0</h1>
+                  </div>
+            </div>
+            <br>
+            <h1 style="color: #FFFFFF">Next User:</h1>
+            <br>
+            <div class="container">
+              <div class="boxThing2">
+                <h1 style="color:white;" id="title2">Username</h1>
+                <br>
+                <h1 id="odometer6">0</h1>
+              </div>
+              <div class="boxThing2">
+                <h1 style="color:white;" id="title2">XP</h1>
+                <br>
+                <h1 class="odometer" id="odometer7">0</h1>
+              </div>
+              <div class="boxThing2">
+                <h1 style="color:white;" id="title2">Gap</h1>
+                <br>
+                <h1 class="odometer" id="odometer8">0</h1>
+              </div>
+              <br>
+        </div>
+        <input readonly type="text" value="Loading" id="channelIdThing"
+        style="width: 100%; text-align: center; font-size: 30px; background-color: transparent; color: white; "
+        >
+        </div>
+        </div>
+    </center>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" style="background-color: #292b2c;">
+
+            <div class="modal-header">
+                <div class="modal-body">
+                </div>
+                <center>
+                    <h5 style="color: white;">Change Settings</h5>
+                    <form id="FormThing" onsubmit="updatePageHmm()">
+                      <input type="text" placeholder="Username" name="cid" id="searchHmm">
+                      <br>
+                      <input type="text" placeholder="Server ID" name="id" id="searchHmm">
+                      <br>
+                      <input type="submit" value="Count!">
+                    </form>
+                    <br>
+
+    </div>
+
+    </div>
+
+    </center>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" style="background-color: #292b2c;">
+
+            <div class="modal-header">
+                <div class="modal-body">
+                </div>
+                <center>
+                    <br>
+                    <h1 style="color: white;">Edit Odometer Settings</h1>
+                    <br>
+                    <br>
+                    <select id="odometerChanger" name="odometerChanger" onchange="updatePage()">
+                        <option value="0" name="0">Normal Odometer</option>
+                        <option value="1" name="1">Fast Odometer</option>
+                        <option value="2" name="2">Normal Colored Odometer</option>
+                        <option value="3" name="3">Fast Colored Odometer</option>
+                    </select>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+            </div>
+        </div>
+        </center>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </center>
+</body>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var odometerColor = params.get("o");
+    var ID = "736996801638563921";
+  var CID = "not AJ";
+  url = new URL(window.location.href);
+
+  if (url.searchParams.get('id')) {
+
+    var ID = params.get("id");
+
+    var CID = params.get("cid");
+
+  }
+
+    function updatePageHmm() {
+        var nameIdThing = document.getElementById("searchHmm").value;
+        var z = location.search;
+        location.search = '?&id=' + nameIdThing + '&o=' + odometerColor + ''
+    }
+
+    function updatePage() {
+        var colorThing = document.getElementById("odometerChanger").value;
+        var x = location.search;
+        location.search = '?&o=' + colorThing + '&id=' + ID + ''
+    }
+
+    if (odometerColor == "1") {
+        $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast.css">');
+    }
+    if (odometerColor == "2") {
+        $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-colored.css">');
+    }
+    if (odometerColor == "3") {
+        $('head').append('<link rel="stylesheet" type="text/css" href="https://mgcounts.com/assets/css/odometer-fast-colored.css">');
+    }
+
+    async function getStats() {
+        let request = await fetch('https://api.mgcounts.com/mee6/server/' + ID + '', { mode: "cors" })
+        let data = await request.json().catch(() => { })
         if (!data) return;
-        for (var m = 0; m < data.players.length; m++) {
+        var xp = 0;
+    for (var m = 0; m < data.players.length; m++) {
       if (CID == data.players[m].username) {
-        count.innerHTML = Math.floor(data.players[m].xp)
+        odometer.innerHTML = data.players[m].xp
+        xp = data.players[m].xp
+        odometer2.innerHTML = data.players[m].message_count
+        odometer3.innerHTML = data.players[m].level
+        var e = m
+        e ++
+        odometer5.innerHTML = e
         title.innerHTML = data.players[m].username
-        document.querySelector(".image").src = 'https://cdn.discordapp.com/avatars/' + data.players[m].id + '/' + data.players[m].avatar + '.png'
+        defaultID = ID
+        $(".image").attr("src", 'https://cdn.discordapp.com/avatars/' + data.players[m].id + '/' + data.players[m].avatar + '.png');
+        $(".image2").attr("src", 'https://cdn.discordapp.com/avatars/' + data.players[m].id + '/' + data.players[m].avatar + '.png');
+        if (chart.series[0].points.length == 1500) chart.series[0].data[0].remove();
+        chart.series[0].addPoint([Date.now(), Math.floor(data.players[m].xp)])
+
+        function GetGoal(count) {
+          if (count < 10) return 10; var x1 = Math.floor(Math.log10(count)); var x2 = Math.ceil(count / 10 ** x1); var x3 = x2 * 10 ** x1; var goal = x3 - count; return goal
+        }
+        odometer4.innerHTML = GetGoal(data.players[m].xp)
+
+        var n = m - 1
+        if (m == 0) {
+        } else {
+          odometer6.innerHTML = data.players[n].username
+        odometer7.innerHTML = data.players[n].xp
+odometer8.innerHTML = data.players[n].xp - xp
+        }
       }
     }
-    }
-    setInterval(getStats, 5000)
-    getStats()
-    </script>
-    <script>
-        var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
-        </script>
+  }
+  setInterval(getStats, 5000)
+  getStats()
+
+    document.getElementById("channelIdThing").value = "https://mgcounts.com/embed/discord/mee6.html?id="+ID+"&cid="+CID+"";
+
+
+    var textBright = "#bdbdbd"
+    var lineColor = "#000000"
+    var maxPoints = 20000;
+    var chart = new Highcharts.chart({
+        chart: {
+            renderTo: 'chart',
+            type: 'spline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: {
+            text: ' '
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 500,
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor,
+            title: {
+                style: {
+                    color: textBright
+                }
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            gridLineColor: textBright,
+            labels: {
+                style: {
+                    color: textBright
+                }
+            },
+            lineColor: lineColor,
+            minorGridLineColor: '#bdbdbd',
+            tickColor: lineColor
+        },
+        credits: {
+            enabled: true,
+            text: "MGCounts"
+        },
+
+        series: [{
+            showInLegend: false,
+            name: 'XP',
+            marker: { enabled: false },
+            color: '#000000',
+            lineColor: '#FFFFFF'
+        }]
+    });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177075755-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-177075755-1');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
+<script>
+var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
+</script>
+</html>
