@@ -58,16 +58,13 @@ var params = new URLSearchParams(document.location.search.substring(1));
 url = new URL(window.location.href);
 var ID = params.get("id");
  async function getStats() {
-        let request = await fetch('https://api.mgcounts.com/discord/'+ID+'', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/gab/posts/'+ID+'', { mode: "cors" })
         let data = await request.json().catch(() => {})
         if (!data) return;
-        count.innerHTML = Math.floor(data.approximate_member_count)
-        title.innerHTML = data.guild.name
-        document.querySelector(".image").src = "https://cdn.discordapp.com/icons/"+data.guild.id+"/"+data.guild.icon+".png"
+        count.innerHTML = Math.floor(data.favourites_count)
+        title.innerHTML = data.account.username
+        document.querySelector(".image").src = data.account.avatar_static
    }
     setInterval(getStats, 5000)
     getStats()
     </script>
-        <script>
-            var socket = io('https://api.mgcounts.com?&urlPath='+document.URL+'', { transports: ['websocket']});
-            </script>

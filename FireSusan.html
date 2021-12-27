@@ -58,12 +58,12 @@ var params = new URLSearchParams(document.location.search.substring(1));
 url = new URL(window.location.href);
 var ID = params.get("id");
  async function getStats() {
-        let request = await fetch('https://api.mgcounts.com/discord/'+ID+'', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/firesusan', { mode: "cors" })
         let data = await request.json().catch(() => {})
         if (!data) return;
-        count.innerHTML = Math.floor(data.approximate_member_count)
-        title.innerHTML = data.guild.name
-        document.querySelector(".image").src = "https://cdn.discordapp.com/icons/"+data.guild.id+"/"+data.guild.icon+".png"
+        count.innerHTML = Math.floor(data[6].data.petitionStats.signatureCount.displayed)
+        title.innerHTML = "#FireSusan signs"
+        document.querySelector(".image").src = "https://assets.change.org/photos/8/gq/hz/PbGQhzSatPmkMIj-800x450-noPad.jpg?1638370544"
    }
     setInterval(getStats, 5000)
     getStats()
