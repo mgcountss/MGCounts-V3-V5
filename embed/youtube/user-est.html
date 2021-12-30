@@ -58,7 +58,7 @@ var params = new URLSearchParams(document.location.search.substring(1));
 url = new URL(window.location.href);
 var ID = params.get("id");
  async function getStats() {
-        let request = await fetch('https://v6.mixerno.space/api/youtube-channel-counter/mgcounts/'+ID+'', { mode: "cors" })
+        let request = await fetch('https://api.mgcounts.com/youtube/est/'+ID+'', { mode: "cors" })
         let data = await request.json().catch(() => {})
         if (!data) return;
         count.innerHTML = Math.floor(data.counts[0].count)
